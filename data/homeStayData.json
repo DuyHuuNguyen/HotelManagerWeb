@@ -9,14 +9,64 @@
         "status": "Xuất bản"
     },
     {
-        "name": "Harmony Homestay",
-        "image": "https://th.bing.com/th/id/R.6d4d0b4b3479f6ce94ab9c8f004ec636?rik=MN7d9NpGR%2fTiJg&pid=ImgRaw&r=0",
-        "location": "Gần rạp chiếu phim CGV",
+        "name": "Ccasa Hostel",
+        "image": "https://lh3.googleusercontent.com/p/AF1QipOZJlQhl20k83PReLEHrP7nv6rIfs5umEj7lJTv=s1360-w1360-h1020",
+        "location": "Khoảng cách đến biển: Khoảng 500m.",
+        "address": "24 Sao Biển, Nha Trang",
+        "phone": "0824745666",
+        "price": "1,500,000",
+        "status": "Xuất bản"
+    },
+    {
+        "name": "AnAn Homestay",
+        "image": "https://lh3.googleusercontent.com/p/AF1QipOA69z6z5s-lrFrA6OxsYofNBzLONzig1PTFhQ_=s1360-w1360-h1020",
+        "location": "Khoảng cách đến biển: Khoảng 200m",
         "address": "Gần Rạp Chiếu Phim CGV",
         "phone": "0824745666",
         "price": "1,500,000",
         "status": "Xuất bản"
     }
+    ,
+    {
+        "name": "A&C Homestay",
+        "image": "https://homestay.review/wp-content/uploads/2020/02/61662463_1298935463615208_4039531859896434688_o.jpg",
+        "location": "Khoảng cách đến biển: Khoảng 300m.",
+        "address": "37/18/7 Trần Quang Khải, Nha Trang",
+        "phone": "0824745666",
+        "price": "1,500,000",
+        "status": "Xuất bản"
+    }
+    ,
+    {
+     
+        "name": "Homie Homestay",
+        "image": "https://cf.bstatic.com/xdata/images/hotel/max1024x768/223380637.jpg?k=b580a30c3f26ef969d60f362ddb8414ad5afee875ef1f008fa81455c8ffbf3e3&o=&hp=1",
+        "location": "Khoảng cách đến biển: Khoảng 100m",
+        "address": "98 Nguyễn Thiện Thuật, Nha Trang",
+        "phone": "0824745671",
+        "price": "1,600,000",
+        "status": "Xuất bản"
+    },
+    {
+        "name": "Vitamin Sea Homestay",
+        "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSswRw2nwdd_vsoo4wk_a1quMatPlpsXRS6DQ&s",
+        "location": "Khoảng cách đến biển: 2 phút đi bộ",
+        "address": "100 Trần Phú, Nha Trang",
+        "phone": "0824745670",
+        "price": "1,700,000",
+        "status": "Xuất bản"
+    },
+    {
+        "name": "Tabalo Hostel",
+        "image": "https://pix10.agoda.net/hotelImages/632/632616/632616_14062609360020041472.jpg?ca=2&ce=1&s=1024x768",
+        "location": "Khoảng cách đến biển: 5 phút đi bộ",
+        "address": "34/2/7 Nguyễn Thiện Thuật, Nha Trang",
+        "phone": "0824745668",
+        "price": "1,000,000",
+        "status": "Xuất bản"
+    }
+
+
 
 
 ]
