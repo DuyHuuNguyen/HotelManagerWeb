@@ -5,7 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản lý HomeStay</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css\homstay.css">
+
+
+
 </head>
 <body>
     <header class="header">
@@ -29,18 +34,131 @@
         <a href="#" class="nav-item"><i class="fas fa-file-alt"></i><span>Bài viết</span></a>
         <a href="#" class="nav-item"><i class="fas fa-map-marker-alt"></i><span>Địa điểm</span></a>
         <a href="#" class="nav-item active"><i class="fas fa-hotel"></i><span>HomeStay</span></a>
-        <a href="#" class="nav-item"><i class="fas fa-bed"></i><span>Danh sách phòng</span></a>
+        <a href="listOfRoom.html" class="nav-item"><i class="fas fa-bed"></i><span>Danh sách phòng</span></a>
         <a href="#" class="nav-item"><i class="fas fa-calendar-alt"></i><span>Danh sách đặt phòng</span></a>
         <a href="#" class="nav-item"><i class="fas fa-comments"></i><span>Quản lý bình luận</span></a>
-        <a href="#" class="nav-item"><i class="fas fa-user-cog"></i><span>Vai trò</span></a>
+        <a href="role.html" class="nav-item"><i class="fas fa-user-cog"></i><span>Vai trò</span></a>
         <a href="#" class="nav-item"><i class="fas fa-users"></i><span>Người dùng</span></a>
     </nav>
 
     <main class="main-content">
-        <div class="breadcrumb">
+        <!-- fix lỗi cho nó trùng với các trang khác -->
+        <div class="breadcrumb" >
             <span>Trang chủ</span><span>/</span><span>HomeStay</span><span>/</span><span style="color: #A0AEC0;">Danh sách</span>
         </div>
-        <button class="action-button"><i class="fas fa-plus"></i> Tạo mới</button>
+         <!-- Nút mở modal -->
+         <button class="btn  btn-primary  open-modal-btn btn-style" onclick="openModal()"  >
+            + Homestay
+        </button>
+        
+        <body class="bg-light">
+            <link rel="stylesheet" href="css/add-homestay.css">
+           
+        
+            <!-- Modal Overlay -->
+            <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+        
+            <!-- Modal Content -->
+            <div class="modal-content" id="modalContent">
+                <span class="close-button" onclick="closeModal()">&times;</span>
+                <div class="form-container" style="margin: 0; box-shadow: none;">
+                    <h2 class="card-title">Thêm Homestay Mới</h2>
+                    
+                    <form id="homestayForm">
+                        <!-- Upload Image Section -->
+                        <div class="upload-area mb-4">
+                            <svg class="camera-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="2" ry="2"/>
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M12 8v8M8 12h8"/>
+                            </svg>
+                            <div>
+                                <label for="image" class="text-primary" style="cursor: pointer;">
+                                    Tải ảnh lên
+                                    <input type="file" id="image" class="d-none" accept="image/*">
+                                </label>
+                            </div>
+                        </div>
+        
+                        <!-- Name Input -->
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Tên Homestay</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+        
+                        <!-- Location Input -->
+                        <div class="mb-3">
+                            <label for="location" class="form-label">Địa điểm</label>
+                            <input type="text" class="form-control" id="location" required>
+                        </div>
+        
+                        <!-- Address Input -->
+                        <div class="mb-3">
+                            <label for="address" class="form-label">Địa chỉ</label>
+                            <input type="text" class="form-control" id="address" required>
+                        </div>
+        
+                        <!-- Phone Input -->
+                        <div class="mb-3">
+                            <label for="phone" class="form-label">Điện thoại</label>
+                            <input type="tel" class="form-control" id="phone" required>
+                        </div>
+        
+                        <!-- Price Input -->
+                        <div class="mb-4">
+                            <label for="price" class="form-label">Giá từ (VND)</label>
+                            <input type="number" class="form-control" id="price" required>
+                        </div>
+        
+                        <!-- Submit Button -->
+                        <div class="text-end">
+                            <button type="submit"  class="btn  btn-primary " style="font-size: 13px;">
+                                Thêm Homestay
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+            <script>
+                // Các hàm điều khiển modal
+                function openModal() {
+                    document.getElementById('modalOverlay').classList.add('show');
+                    document.getElementById('modalContent').classList.add('show');
+                    document.body.style.overflow = 'hidden'; // Ngăn scroll trang khi modal mở
+                }
+        
+                function closeModal() {
+                    document.getElementById('modalOverlay').classList.remove('show');
+                    document.getElementById('modalContent').classList.remove('show');
+                    document.body.style.overflow = ''; // Cho phép scroll lại
+                }
+        
+                // Ngăn việc click vào modal content làm đóng modal
+                document.getElementById('modalContent').addEventListener('click', function(e) {
+                    e.stopPropagation();
+                });
+        
+                // Xử lý form submit
+                document.getElementById('homestayForm').addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const formData = {
+                        name: document.getElementById('name').value,
+                        location: document.getElementById('location').value,
+                        address: document.getElementById('address').value,
+                        phone: document.getElementById('phone').value,
+                        price: document.getElementById('price').value,
+                        image: document.getElementById('image').files[0]
+                    };
+                    console.log('Form submitted:', formData);
+                    // Có thể thêm code để đóng modal sau khi submit thành công
+                    closeModal();
+                });
+            </script>
+        </body>
+
+
         <div class="table-container">
             <table>
                 <thead>
@@ -77,6 +195,7 @@
             }
         });
 
+        
         // Load dữ liệu từ file JSON
         fetch('data/homeStayData.json')
             .then(response => response.json())
@@ -100,9 +219,9 @@
                         </td>
                         <td><span class="status-badge">${homeStay.status}</span></td>
                         <td>
-                            <div class="action-buttons">
-                                <button class="edit-button"><i class="fas fa-cog"></i></button>
-                                <button class="delete-button"><i class="fas fa-file-alt"></i></button>
+                            <div class="action-buttons"> 
+                                <button class="edit-button"><i class="fas fa-edit"></i></button>
+                                <button class="delete-button"><i class="fas fa-trash"></i></button>
                             </div>
                         </td>
                     `;
