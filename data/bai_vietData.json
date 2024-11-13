@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "title": "Khám phá khu nghỉ dưỡng tuyệt vời ở Đà Lạt",
+        "image": "images/dalat.jpg",
+        "category": "Tin tức",
+        "status": "Xuất bản",
+        "publishDate": "2024-11-05"
+    },
+    {
+        "id": 2,
+        "title": "Cẩm nang du lịch Phú Quốc 2024",
+        "image": "images/phuquoc.jpg",
+        "category": "Du lịch",
+        "status": "Nháp",
+        "publishDate": "2024-10-28"
+    },
+    {
+        "id": 3,
+        "title": "Kinh nghiệm chọn HomeStay ở Sapa",
+        "image": "images/sapa.jpg",
+        "category": "Kinh nghiệm",
+        "status": "Xuất bản",
+        "publishDate": "2024-09-15"
+    },
+    {
+        "id": 4,
+        "title": "Tìm hiểu về HomeStay ở Hội An",
+        "image": "images/hoian.jpg",
+        "category": "Du lịch",
+        "status": "Xuất bản",
+        "publishDate": "2024-08-30"
+    },
+    {
+        "id": 5,
+        "title": "Những điểm đến lý tưởng ở Nha Trang",
+        "image": "images/nhatrang.jpg",
+        "category": "Tin tức",
+        "status": "Nháp",
+        "publishDate": "2024-07-20"
+    },
+    {
+        "id": 6,
+        "title": "Top 5 khu nghỉ dưỡng đẹp nhất Phú Quốc",
+        "image": "images/phuquoc2.jpg",
+        "category": "Du lịch",
+        "status": "Xuất bản",
+        "publishDate": "2024-06-18"
+    },
+    {
+        "id": 7,
+        "title": "Khu nghỉ dưỡng sang trọng ở Mũi Né",
+        "image": "images/muine.jpg",
+        "category": "Kinh nghiệm",
+        "status": "Nháp",
+        "publishDate": "2024-05-25"
+    }
+]
