@@ -1,0 +1,44 @@
+.content {
+    flex: 1;
+}
+.breadcrumb {
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.breadcrumb a {
+    color: #007bff;
+    text-decoration: none;
+}
+.breadcrumb a:hover {
+    text-decoration: underline;
+}
+.table-container table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.table-container table th, .table-container table td {
+    padding: 10px;
+    border: 1px solid #dee2e6;
+    text-align: left;
+}
+.table-container .btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    color: white;
+    cursor: pointer;
+}
+.table-container .btn.edit {
+    background-color: #007bff;
+}
+.table-container .btn.delete {
+    background-color: #dc3545;
+}
+.table-container .btn.new {
+    background-color: #17a2b8;
+    float: right;
+    margin: 10px;
+}
+.table-container tr:hover {
+    background-color: #ccc;
+}

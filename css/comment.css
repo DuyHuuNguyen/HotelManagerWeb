@@ -1,0 +1,179 @@
+.content {
+    flex: 1;
+}
+.menu-icon {
+    font-size: 20px;
+    margin-right: 20px;
+}
+.header-content .user-info {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+.header-content .user-info img {
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.breadcrumb {
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.search-box {
+    background-color: #ffffff;
+    margin: 0 auto; /* Căn giữa */
+}
+
+.search-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.search-header-content {
+    display: flex;
+    justify-content: space-between; /* Căn đều giữa tiêu đề và mũi tên */
+    align-items: center;
+    cursor: pointer;
+}
+
+.search-header h3 {
+    margin: 0;
+    font-weight: bold;
+    color: #333;
+}
+
+.toggle-icon-cell {
+    width: auto;
+}
+
+.arrow-down, .dash-icon {
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 10px solid #747474;
+    transition: all 0.3s ease;
+}
+
+.dash-icon {
+    width: 10px;
+    height: 2px;
+    background-color: #747474;
+    border: none;
+}
+#search-content {
+    display: table-row;
+}
+.search-content td {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start; /* Dồn về bên trái */
+}
+
+.input-group {
+    display: flex;
+    justify-content: space-between; /* Đặt khoảng cách giữa các input và button */
+    align-items: center;
+    padding: 10px 10px 10px 0px;
+}
+
+.input-container {
+    flex: 1;
+    margin-right: 10px; /* Khoảng cách giữa các input */
+}
+
+.input-container input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box; 
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    white-space: nowrap;
+    padding: 10px 20px;
+    flex-shrink: 0;
+}
+
+button i {
+    margin-right: 5px;
+}
+
+.table-containers {
+    border-radius: 5px;
+    padding-top: 10px;
+}
+table {
+    background-color: white;
+    width: 100%;
+    border-collapse: collapse;
+}
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    text-align: left;
+}
+
+.btn {
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btn-primary {
+    background-color: #00a2d1;
+    color: white;
+}
+.btn-success {
+    background-color: #28a745;
+    color: white;
+    position: relative;
+}
+.btn-success::after {
+    content: '\25BC'; /* Tam giác hướng xuống */
+    font-size: 12px;
+    margin-left: 5px;
+}
+.btn-success-container {
+    position: relative; /* Cần thêm position relative để hành động menu dựa vào đây */
+}
+.action-menu {
+    display: none;
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0;
+    min-width: 100px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.action-menu a {
+    display: block;
+    padding: 8px 15px;
+    text-decoration: none;
+    color: #333;
+    transition: background-color 0.3s, color 0.3s; /* Thêm hiệu ứng chuyển màu */
+    border: 1px solid black;
+}
+
+.action-menu a:hover {
+    background-color: #000;
+    color: #fff; 
+}
+.action-menu a i {
+    color: #000;
+}
+
+.action-menu a:hover i {
+    color: #fff; 
+}
+.table-container tr:hover {
+    background-color: #ccc;
+}
