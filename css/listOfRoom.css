@@ -5,6 +5,10 @@
     font-family: Arial, sans-serif;
 }
 
+a:hover {
+    color: white;
+}
+
 .header {
     background-color: #00ACC1;
     color: white;
@@ -48,7 +52,7 @@
     top: 60px;
     left: 0;
     overflow-y: auto;
-    z-index: 100;
+    z-index: 99;
 }
 
 .nav-item {
