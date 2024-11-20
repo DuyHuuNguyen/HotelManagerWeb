@@ -200,7 +200,6 @@
 
             bookingsData.forEach((booking, index) => {
                 const tr = document.createElement('tr');
-                console.log('index' + index)
                 tr.classList.add('bg-gray-100');
                 tr.classList.add('hover:bg-gray-200');
                 tr.innerHTML = `
@@ -271,7 +270,6 @@
         document.getElementById('phone').addEventListener('input', handleInputChange);
         // Search function
         function searchBookings() {
-            // console.log('hi');
             const roomName = document.getElementById('roomName').value.toLowerCase();
             const customerName = document.getElementById('customerName').value.toLowerCase();
             const email = document.getElementById('email').value.toLowerCase();
@@ -287,17 +285,7 @@
             });
 
             renderBookings(filteredBookings);
-        }
-
-        // Action functions
-        function confirmBooking(id) {
-            alert(`Xác nhận đặt phòng #${id}`);
-        }
-
-        function showActions(id) {
-            alert(`Hiển thị menu hành động cho đặt phòng #${id}`);
-        }
-
+        } 
         // Initial render
         document.addEventListener('DOMContentLoaded', () => {
             renderBookings(bookings);

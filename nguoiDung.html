@@ -31,9 +31,9 @@
 
         /* Column widths */
         .booking-table th:nth-child(1) { width: 5%; }  /* STT */
-        .booking-table th:nth-child(2) { width: 10%; } /* Tên phòng */
+        .booking-table th:nth-child(2) { width: 20%; } /* Tên phòng */
         .booking-table th:nth-child(3) { width: 25%; } /* Thông tin khách hàng */
-        .booking-table th:nth-child(4) { width: 25%; } /* Dữ liệu phòng */
+        .booking-table th:nth-child(4) { width: 15%; } /* Dữ liệu phòng */
         .booking-table th:nth-child(5) { width: 15%; } /* Thanh toán */
         .booking-table th:nth-child(6) { width: 10%; } /* Trạng thái */
         .booking-table th:nth-child(7) { width: 10%; } /* Hành động */
@@ -99,7 +99,6 @@
                         <svg class="w-5 mr-1 flex items-center" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
                             <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z" clip-rule="evenodd" />
                           </svg>
-                          
                         Tìm kiếm
                     </button>
                     </div>
@@ -109,7 +108,7 @@
             </div>
             <div class="table-container">
                 <div class="flex w-full justify-end">
-                    <button class="bg-[#00ACC1] flex p-2 m-2 rounded-sm text-white">
+                    <button class="bg-[#00ACC1] flex p-2 m-2 rounded-[5px] text-white">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
                             <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
                           </svg>
@@ -129,7 +128,23 @@
                             <th class="border p-2 text-left">Hành động</th>
                         </tr>
                     </thead>
-                    <tbody id="bookingsTableBody"></tbody>
+                    <tbody id="bookingsTableBody">
+                            <!-- element will be generated here -->
+                            <tr>
+                                <td>1</td>
+                                <td class="text-nowrap">Nguyễn Văn A</td>
+                                <td>nguyenvana@gmail.com</td>
+                                <td>999999999999</td>
+                                <td>Người dùng</td>
+                                <td>1</td>
+                                <td> 
+                                    <div class="action-buttons"> 
+                                    <button class="edit-button"><i class="fas fa-edit"></i></button>
+                                    <button class="delete-button"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>
+                            </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -151,8 +166,66 @@
             }
         });
    </script>
+
    <script>
-          
+          const userList = [
+                {
+                    id: {
+                        stt:1,
+                        name: 'Nguyễn Văn A',
+                        email: 'nguyenvana@gmail.com',
+                        phone: '1111111',
+                        role: 'Người dùng',
+                        status: '1'
+                    }
+                },
+                {
+                    id: {
+                        stt:2,
+                        name: 'Nguyễn Văn B',
+                        email: 'nguyenvanb@gmail.com',
+                        phone: '1111111',
+                        role: 'Manager',
+                        status: '1'
+                    }
+                },
+                {
+                    id: {
+                        stt:2,
+                        name: 'admin',
+                        email: 'admin@gmail.com',
+
+                         phone: '1111111',
+                        role: 'admin',
+                        status: '1'
+                    }
+                }
+          ]
+
+          function renderUser(users) {
+            const tbody = document.querySelector('tbody');
+            tbody.innerHTML = ''; // Clear existing rows
+
+            users.forEach((user, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `<td>${index + 1}</td>
+                                <td class="text-nowrap">${user.id.name}</td>
+                                <td>${user.id.email}</td>
+                                <td>${user.id.phone}</td>
+                                <td>${user.id.role}</td>
+                                <td>${user.id.status}</td>
+                                <td> 
+                                    <div class="action-buttons"> 
+                                    <button class="edit-button"><i class="fas fa-edit"></i></button>
+                                    <button class="delete-button"><i class="fas fa-trash"></i></button>
+                                    </div>
+                                </td>`;
+                tbody.appendChild(row);
+            });
+        }
+        document.addEventListener('DOMContentLoaded', () => {
+            renderUser(userList);
+        })
    </script>
 </body>
 </html>
