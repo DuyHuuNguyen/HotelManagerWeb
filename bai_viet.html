@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý HomeStay</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css\bai_viet.css">
+</head>
+<body>
+    <header class="header">
+        <div style="display: flex; align-items: center; gap: 1rem;">
+            <button class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="header-title">Trang Quản Trị</div>
+        </div>
+        <div class="admin-profile">
+            <div class="admin-avatar">
+                <i class="fas fa-user"></i>
+            </div>
+            <span>Admin</span>
+        </div>
+    </header>
+
+    <nav class="sidebar">
+        <a href="index.html" class="nav-item "><i class="fas fa-home"></i><span>Bảng điều khiển</span></a>
+        <a href="danhmuc.html" class="nav-item"><i class="fas fa-list"></i><span>Danh mục</span></a>
+        <a href="bai_viet.html" class="nav-item active"><i class="fas fa-file-alt"></i><span>Bài viết</span></a>
+        <a href="dia_diem.html" class="nav-item"><i class="fas fa-map-marker-alt"></i><span>Địa điểm</span></a>
+        <a href="homestay.html" class="nav-item "><i class="fas fa-hotel"></i><span>HomeStay</span></a>
+        <a href="listOfRoom.html" class="nav-item"><i class="fas fa-bed"></i><span>Danh sách phòng</span></a>
+        <a href="danhSachDatPhong.html" class="nav-item"><i class="fas fa-calendar-alt"></i><span>Danh sách đặt phòng</span></a>
+        <a href="comment.html" class="nav-item"><i class="fas fa-comments"></i><span>Quản lý bình luận</span></a>
+        <a href="role.html" class="nav-item"><i class="fas fa-user-cog"></i><span>Vai trò</span></a>
+        <a href="nguoiDung.html" class="nav-item"><i class="fas fa-users"></i><span>Người dùng</span></a>
+    </nav>
+
+    <main class="main-content">
+        <div class="breadcrumb">
+            <span>Trang chủ</span><span>/</span><span>Bài viết</span><span>/</span><span style="color: #A0AEC0;">Danh sách</span>
+        </div>
+        <button class="action-button"><i class="fas fa-plus"></i> Tạo mới</button>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>STT</th>
+                        <th>Tiêu đề</th>
+                        <th>Hình ảnh</th>
+                        <th>Danh mục</th>
+                        <th>Trạng thái</th>
+                        <th>Ngày đăng</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Dữ liệu sẽ được chèn ở đây từ file JSON -->
+                </tbody>
+            </table>
+        </div>
+        <div class="container">
+            <!-- Phần bên trái: Chỉnh sửa bài viết -->
+            <div class="left-section">
+                <div class="edit-section">
+        
+                    <div class="form-group">
+                        <label for="title">Tiêu đề bài viết <span>*</span></label>
+                        <input type="text" id="title" placeholder="Thêm cơ sở mới gần khu vui chơi">
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="category">Danh mục <span>*</span></label>
+                        <select id="category">
+                            <option>Tin tức</option>
+                            <!-- Thêm các danh mục khác tại đây -->
+                        </select>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="status">Trạng thái</label>
+                        <select id="status">
+                            <option>Xuất bản</option>
+                            <option>Nháp</option>
+                        </select>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="short-description">Mô tả ngắn</label>
+                        <div id="short-description" class="editor">
+                            <div class="toolbar">
+                                <button><b>B</b></button>
+                                <button><i>I</i></button>
+                                <button>U</button>
+                                <button>🖉</button>
+                                <button>🔍</button>
+                                <button>📋</button>
+                                <button>📎</button>
+                                <button>📁</button>
+                                <button>📷</button>
+                                <button>🎥</button>
+                                <button>📊</button>
+                                <button>🔗</button>
+                                <button>Ω</button>
+                                <button>❔</button>
+                                <!-- Thêm các nút công cụ khác -->
+                            </div>
+                            <textarea placeholder="Giá rẻ dành cho sinh viên"></textarea>
+                        </div>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="content">Nội dung bài viết</label>
+                        <div id="content" class="editor">
+                            <div class="toolbar">
+                                <button><b>B</b></button>
+                                <button><i>I</i></button>
+                                <button>U</button>
+                                <button>🖉</button>
+                                <button>🔍</button>
+                                <button>📋</button>
+                                <button>📎</button>
+                                <button>📁</button>
+                                <button>📷</button>
+                                <button>🎥</button>
+                                <button>📊</button>
+                                <button>🔗</button>
+                                <button>Ω</button>
+                                <button>❔</button>
+                                <!-- Thêm các nút công cụ khác -->
+                            </div>
+                            <textarea placeholder="Đầy đủ nội thất"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Phần bên phải: Xuất bản và Hình ảnh -->
+            <div class="right-section">
+                <div class="form-actions">
+                    <h3>Xuất bản</h3>
+                    <button class="btn-save">Lưu dữ liệu</button>
+                    <button class="btn-reset">Reset</button>
+                </div>
+        
+                <div class="image-upload-section">
+                    <label for="image-upload">Hình ảnh</label>
+                    <input type="file" id="image-upload">
+                    <img src="path/to/your/image.jpg" alt="Preview" class="preview-image">
+                </div>
+            </div>
+        </div>
+        
+        
+        
+    </main>
+
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.querySelector('.menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+
+        menuToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+        });
+
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+                    sidebar.classList.remove('active');
+                }
+            }
+        });
+        // Ẩn menu sidebar khi nhấn ngoài nó
+        document.addEventListener('click', (e) => {
+            if (window.innerWidth <= 768) {
+                if (!sidebar.contains(e.target) && !menuToggle.contains(e.target)) {
+                    sidebar.classList.remove('active');
+                }
+            }
+        });
+
+
+        // Hàm tải dữ liệu từ tệp bai_vietData.json
+    async function loadPosts() {
+        try {
+            const response = await fetch('data/bai_vietData.json');
+            const posts = await response.json();
+            const tableBody = document.querySelector('table-container tbody');
+            tableBody.innerHTML = ''; // Xóa dữ liệu cũ trước khi thêm dữ liệu mới
+
+            posts.forEach((post, index) => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${index + 1}</td>
+                    <td>${post.title}</td>
+                    <td><img src="${post.image}" alt="Image" width="50"></td>
+                    <td>${post.category}</td>
+                    <td>${post.status}</td>
+                    <td>${post.publishDate}</td>
+                    <td>
+                        <button class="btn-edit" onclick="editPost(${post.id})">Sửa</button>
+                        <button class="btn-delete" onclick="deletePost(${post.id})">Xóa</button>
+                    </td>
+                `;
+                tableBody.appendChild(row);
+            });
+        } catch (error) {
+            console.error('Lỗi khi tải dữ liệu bài viết:', error);
+        }
+    }
+
+    // Hàm xử lý sự kiện sửa bài viết (chưa có logic cụ thể)
+    function editPost(postId) {
+        alert(`Sửa bài viết với ID: ${postId}`);
+    }
+
+    // Hàm xử lý sự kiện xóa bài viết (chưa có logic cụ thể)
+    function deletePost(postId) {
+        alert(`Xóa bài viết với ID: ${postId}`);
+    }
+
+    // Tải dữ liệu khi trang được load
+    window.onload = loadPosts;
+    </script>
+</body>
+</html>
