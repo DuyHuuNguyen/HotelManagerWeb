@@ -10,7 +10,41 @@
   <link rel="stylesheet" href="css\homstay.css">
 
 
+<style>
+    .modal {
+    display: none; 
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
 
+.modal-content {
+    /* margin: auto; */
+   
+    /* max-width: 80%;
+    max-height: 80%; */
+}
+.image-container {
+    position: relative;
+}
+.thumbnail {
+    width: 200px;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.thumbnail:hover {
+    transform: scale(1.1);
+}
+
+</style>
 </head>
 <body>
     <header class="header">
@@ -29,16 +63,16 @@
     </header>
 
     <nav class="sidebar">
-        <a href="#" class="nav-item"><i class="fas fa-home"></i><span>Bảng điều khiển</span></a>
-        <a href="#" class="nav-item"><i class="fas fa-list"></i><span>Danh mục</span></a>
-        <a href="#" class="nav-item"><i class="fas fa-file-alt"></i><span>Bài viết</span></a>
-        <a href="#" class="nav-item"><i class="fas fa-map-marker-alt"></i><span>Địa điểm</span></a>
-        <a href="#" class="nav-item active"><i class="fas fa-hotel"></i><span>HomeStay</span></a>
+        <a href="index.html" class="nav-item "><i class="fas fa-home"></i><span>Bảng điều khiển</span></a>
+        <a href="danhmuc.html" class="nav-item"><i class="fas fa-list"></i><span>Danh mục</span></a>
+        <a href="bai_viet.html" class="nav-item"><i class="fas fa-file-alt"></i><span>Bài viết</span></a>
+        <a href="dia_diem.html" class="nav-item"><i class="fas fa-map-marker-alt"></i><span>Địa điểm</span></a>
+        <a href="homestay.html" class="nav-item active"><i class="fas fa-hotel"></i><span>HomeStay</span></a>
         <a href="listOfRoom.html" class="nav-item"><i class="fas fa-bed"></i><span>Danh sách phòng</span></a>
-        <a href="#" class="nav-item"><i class="fas fa-calendar-alt"></i><span>Danh sách đặt phòng</span></a>
-        <a href="#" class="nav-item"><i class="fas fa-comments"></i><span>Quản lý bình luận</span></a>
+        <a href="danhSachDatPhong.html" class="nav-item"><i class="fas fa-calendar-alt"></i><span>Danh sách đặt phòng</span></a>
+        <a href="comment.html" class="nav-item"><i class="fas fa-comments"></i><span>Quản lý bình luận</span></a>
         <a href="role.html" class="nav-item"><i class="fas fa-user-cog"></i><span>Vai trò</span></a>
-        <a href="#" class="nav-item"><i class="fas fa-users"></i><span>Người dùng</span></a>
+        <a href="nguoiDung.html" class="nav-item"><i class="fas fa-users"></i><span>Người dùng</span></a>
     </nav>
 
     <main class="main-content">
@@ -112,7 +146,7 @@
         
                         <!-- Submit Button -->
                         <div class="text-end">
-                            <button type="submit" >
+                            <button type="submit"  class="btn  btn-primary " style="font-size: 13px;">
                                 Thêm Homestay
                             </button>
                         </div>
@@ -204,11 +238,21 @@
                 tbody.innerHTML = '';
 
                 data.forEach((homeStay, index) => {
+                    console.log(homeStay.image)
                     const row = document.createElement('tr');
                     row.innerHTML = `
+                       
+                        
                         <td>${index + 1}</td>
                         <td>${homeStay.name}</td>
-                        <td><img src="${homeStay.image}" alt="${homeStay.name}" class="homestay-image"></td>
+                        <td><img src="${homeStay.image}" alt="${homeStay.name}" class="homestay-image"   onclick="openModal(this)"  ></td>
+                          <div id="imageModal" class="modal" onclick="closeModal()"">
+                            <span class="close" onclick="closeModal()">&times;</span>
+                            <img  src="${homeStay.image}" id='fullimage' style="width:500px; height:auto">
+                           
+                        </div>
+                       
+
                         <td>
                             <div style="display: flex; flex-direction: column; gap: 0.5rem;">
                                 <p><strong>Địa điểm:</strong> ${homeStay.location}</p>
@@ -229,6 +273,20 @@
                 });
             })
             .catch(error => console.error('Error loading JSON:', error));
+
+
+
+        function openModal(img) {
+            const modal = document.getElementById('imageModal');
+            const fullImage = document.getElementById('fullImage');
+            modal.style.display = "flex";
+            // fullImage.src = img.src; 
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = "none";
+        } 
     </script>
 </body>
 </html>
