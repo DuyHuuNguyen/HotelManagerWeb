@@ -71,13 +71,11 @@
 
 .input-group {
     display: flex;
-    justify-content: space-between; /* Đặt khoảng cách giữa các input và button */
     align-items: center;
     padding: 10px 10px 10px 0px;
 }
 
 .input-container {
-    flex: 1;
     margin-right: 10px; /* Khoảng cách giữa các input */
 }
 
