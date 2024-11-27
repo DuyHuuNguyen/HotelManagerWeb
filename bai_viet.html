@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản lý HomeStay</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="css\bai_viet.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bai_viet.css">
+    <link rel="stylesheet" href="css/homstay.css">
 </head>
 <body>
+
     <header class="header">
         <div style="display: flex; align-items: center; gap: 1rem;">
             <button class="menu-toggle">
@@ -23,8 +26,8 @@
         </div>
     </header>
 
-    <nav class="sidebar">
-        <a href="index.html" class="nav-item "><i class="fas fa-home"></i><span>Bảng điều khiển</span></a>
+    <nav class="sidebar" style="z-index: 5;">
+        <a href="index.html" class="nav-item"><i class="fas fa-home"></i><span>Bảng điều khiển</span></a>
         <a href="danhmuc.html" class="nav-item"><i class="fas fa-list"></i><span>Danh mục</span></a>
         <a href="bai_viet.html" class="nav-item active"><i class="fas fa-file-alt"></i><span>Bài viết</span></a>
         <a href="dia_diem.html" class="nav-item"><i class="fas fa-map-marker-alt"></i><span>Địa điểm</span></a>
@@ -38,10 +41,29 @@
 
     <main class="main-content">
         <div class="breadcrumb">
-            <span>Trang chủ</span><span>/</span><span>Bài viết</span><span>/</span><span style="color: #A0AEC0;">Danh sách</span>
+            <span>Trang chủ</span><span>/</span>
+            <span id="bai-viet-link" style="cursor: pointer; color: #4A5568;">Bài viết</span><span>/</span>
+            <span id="breadcrumb-danh-sach" style="color: #A0AEC0;">Danh sách</span>
         </div>
-        <button class="action-button"><i class="fas fa-plus"></i> Tạo mới</button>
+
+        <!-- Thêm thanh tìm kiếm -->
+        <div class="search-bar">
+            <input type="text" placeholder="Tìm kiếm bài viết..." class="search-input" id="searchInput">
+            <select id="categoryFilter" class="search-select">
+                <option value="">Chọn danh mục</option>
+                <option value="Tin tức">Tin tức</option>
+                <option value="Du lịch">Du lịch</option>
+                <option value="Kinh nghiệm">Kinh nghiệm</option>
+                <option value="Khám phá">Khám phá</option>
+                <!-- Thêm các danh mục khác nếu cần -->
+            </select>
+            <button class="search-button" onclick="searchPosts()"><i class="fas fa-search"></i> Tìm kiếm</button>
+        </div>
+
         <div class="table-container">
+            <div class="action-btn-top">
+                <button class="action-btn" onclick="addPost()"><i class="fas fa-plus"></i> Tạo mới</button>
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -59,7 +81,8 @@
                 </tbody>
             </table>
         </div>
-        <div class="container">
+
+        <div class="container" style="display: none;">
             <!-- Phần bên trái: Chỉnh sửa bài viết -->
             <div class="left-section">
                 <div class="edit-section">
@@ -73,6 +96,9 @@
                         <label for="category">Danh mục <span>*</span></label>
                         <select id="category">
                             <option>Tin tức</option>
+                            <option>Du lịch</option>
+                            <option>Kinh nghiệm</option>
+                            <option>Khám phá</option>
                             <!-- Thêm các danh mục khác tại đây -->
                         </select>
                     </div>
@@ -89,23 +115,25 @@
                         <label for="short-description">Mô tả ngắn</label>
                         <div id="short-description" class="editor">
                             <div class="toolbar">
-                                <button><b>B</b></button>
-                                <button><i>I</i></button>
-                                <button>U</button>
-                                <button>🖉</button>
-                                <button>🔍</button>
-                                <button>📋</button>
-                                <button>📎</button>
-                                <button>📁</button>
-                                <button>📷</button>
-                                <button>🎥</button>
-                                <button>📊</button>
-                                <button>🔗</button>
-                                <button>Ω</button>
-                                <button>❔</button>
-                                <!-- Thêm các nút công cụ khác -->
+                                <button onclick="applyBold()"><i class="fa fa-bold"></i></button>
+                                <button onclick="applyItalic()"><i class="fa fa-italic"></i></button>
+                                <button onclick="applyUnderline()"><i class="fa fa-underline"></i></button>
+                                <button onclick="applyStrikeThrough()"><i class="fa fa-strikethrough"></i></button>
+                                <button onclick="alignLeft()"><i class="fa fa-align-left"></i></button>
+                                <button onclick="alignCenter()"><i class="fa fa-align-center"></i></button>
+                                <button onclick="alignRight()"><i class="fa fa-align-right"></i></button>
+                                <button onclick="insertUnorderedList()"><i class="fa fa-list-ul"></i></button>
+                                <button onclick="insertOrderedList()"><i class="fa fa-list-ol"></i></button>
+                                <button onclick="insertLink()"><i class="fa fa-link"></i></button>
+                                <button onclick="insertImage()"><i class="fa fa-image"></i></button>
+                                <button onclick="insertTable()"><i class="fa fa-table"></i></button>
+                                <button onclick="changeFont()"><i class="fa fa-font"></i></button>
+                                <button onclick="changeTextSize()"><i class="fa fa-text-height"></i></button>
+                                <button onclick="changeTextColor()"><i class="fa fa-paint-brush"></i></button>
+                                <button onclick="insertEmoji()"><i class="fa fa-smile"></i></button>
+                                
                             </div>
-                            <textarea placeholder="Giá rẻ dành cho sinh viên"></textarea>
+                            <div contenteditable="true" id="short-description-textarea" class="editable-textarea" placeholder="Giá rẻ dành cho sinh viên"></div>
                         </div>
                     </div>
         
@@ -113,23 +141,25 @@
                         <label for="content">Nội dung bài viết</label>
                         <div id="content" class="editor">
                             <div class="toolbar">
-                                <button><b>B</b></button>
-                                <button><i>I</i></button>
-                                <button>U</button>
-                                <button>🖉</button>
-                                <button>🔍</button>
-                                <button>📋</button>
-                                <button>📎</button>
-                                <button>📁</button>
-                                <button>📷</button>
-                                <button>🎥</button>
-                                <button>📊</button>
-                                <button>🔗</button>
-                                <button>Ω</button>
-                                <button>❔</button>
+                                <button onclick="applyBold()"><i class="fa fa-bold"></i></button>
+                                <button onclick="applyItalic()"><i class="fa fa-italic"></i></button>
+                                <button onclick="applyUnderline()"><i class="fa fa-underline"></i></button>
+                                <button onclick="applyStrikeThrough()"><i class="fa fa-strikethrough"></i></button>
+                                <button onclick="alignLeft()"><i class="fa fa-align-left"></i></button>
+                                <button onclick="alignCenter()"><i class="fa fa-align-center"></i></button>
+                                <button onclick="alignRight()"><i class="fa fa-align-right"></i></button>
+                                <button onclick="insertUnorderedList()"><i class="fa fa-list-ul"></i></button>
+                                <button onclick="insertOrderedList()"><i class="fa fa-list-ol"></i></button>
+                                <button onclick="insertLink()"><i class="fa fa-link"></i></button>
+                                <button onclick="insertImage()"><i class="fa fa-image"></i></button>
+                                <button onclick="insertTable()"><i class="fa fa-table"></i></button>
+                                <button onclick="changeFont()"><i class="fa fa-font"></i></button>
+                                <button onclick="changeTextSize()"><i class="fa fa-text-height"></i></button>
+                                <button onclick="changeTextColor()"><i class="fa fa-paint-brush"></i></button>
+                                <button onclick="insertEmoji()"><i class="fa fa-smile"></i></button>
                                 <!-- Thêm các nút công cụ khác -->
                             </div>
-                            <textarea placeholder="Đầy đủ nội thất"></textarea>
+                            <div contenteditable="true" id="content-textarea" class="editable-textarea" placeholder="Đầy đủ nội thất"></div>
                         </div>
                     </div>
                 </div>
@@ -139,20 +169,19 @@
             <div class="right-section">
                 <div class="form-actions">
                     <h3>Xuất bản</h3>
-                    <button class="btn-save">Lưu dữ liệu</button>
+                    <button class="btn-save" onclick="savePost()">Lưu dữ liệu</button>
                     <button class="btn-reset">Reset</button>
                 </div>
         
                 <div class="image-upload-section">
-                    <label for="image-upload">Hình ảnh</label>
-                    <input type="file" id="image-upload">
-                    <img src="path/to/your/image.jpg" alt="Preview" class="preview-image">
-                </div>
+                    <label for="image-url">URL Hình ảnh:</label>
+                    <input type="text" id="image-url" placeholder="Nhập URL hình ảnh" />
+                    <div class="image-preview-container">
+                        <img id="image-preview" src="" alt="Preview" style="display:none; width: 100%; height: auto;" />
+                    </div>
+                </div>                                                        
             </div>
         </div>
-        
-        
-        
     </main>
 
     <script>
@@ -179,41 +208,280 @@
                 }
             }
         });
+// Hàm lưu bài viết và cập nhật dữ liệu vào localStorage (hoặc server nếu cần)
+function savePost() {
+    const postId = new URLSearchParams(window.location.search).get('postId');
+    const posts = JSON.parse(localStorage.getItem('postsData')) || [];
+    const post = posts.find(p => p.id == postId);
+
+    if (post) {
+        post.title = document.getElementById('title').value;
+        post.category = document.getElementById('category').value;
+        post.status = document.getElementById('status').value;
+        post.shortDescription = document.getElementById('short-description-textarea').innerHTML;
+        post.content = document.getElementById('content-textarea').innerHTML;
+        post.image = document.getElementById('image-url').value.trim(); // Cập nhật URL hình ảnh
+
+        localStorage.setItem('postsData', JSON.stringify(posts));
+        window.location.href = 'bai_viet.html'; // Quay lại danh sách bài viết
+    } else {
+        alert("Bài viết không tồn tại.");
+    }
+}
 
 
-        // Hàm tải dữ liệu từ tệp bai_vietData.json
-    async function loadPosts() {
-        try {
-            const response = await fetch('data/bai_vietData.json');
-            const posts = await response.json();
-            const tableBody = document.querySelector('table-container tbody');
-            tableBody.innerHTML = ''; // Xóa dữ liệu cũ trước khi thêm dữ liệu mới
+// Khi người dùng nhập URL hình ảnh, hiển thị ảnh xem trước
+document.getElementById('image-url').addEventListener('input', function() {
+    const imageUrl = this.value;
+    const imagePreview = document.getElementById('image-preview');
+    if (imageUrl) {
+        imagePreview.style.display = 'block';
+        imagePreview.src = imageUrl; // Cập nhật ảnh xem trước
+    } else {
+        imagePreview.style.display = 'none'; // Ẩn ảnh xem trước nếu không có URL
+    }
+});
 
-            posts.forEach((post, index) => {
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${index + 1}</td>
-                    <td>${post.title}</td>
-                    <td><img src="${post.image}" alt="Image" width="50"></td>
-                    <td>${post.category}</td>
-                    <td>${post.status}</td>
-                    <td>${post.publishDate}</td>
-                    <td>
-                        <button class="btn-edit" onclick="editPost(${post.id})">Sửa</button>
-                        <button class="btn-delete" onclick="deletePost(${post.id})">Xóa</button>
-                    </td>
-                `;
-                tableBody.appendChild(row);
-            });
-        } catch (error) {
-            console.error('Lỗi khi tải dữ liệu bài viết:', error);
+async function savePostToServer(postData) {
+    try {
+        const response = await fetch('/api/savePost', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(postData),
+        });
+
+        if (!response.ok) {
+            throw new Error('Lỗi khi lưu bài viết');
         }
-    }
 
-    // Hàm xử lý sự kiện sửa bài viết (chưa có logic cụ thể)
-    function editPost(postId) {
-        alert(`Sửa bài viết với ID: ${postId}`);
+        // Sau khi lưu xong, chuyển về trang danh sách bài viết
+        window.location.href = 'bai_viet.html'; // Điều hướng về trang danh sách bài viết
+    } catch (error) {
+        console.error('Lỗi:', error);
     }
+}
+
+// Hàm reset form
+function resetForm() {
+    const postId = new URLSearchParams(window.location.search).get('postId');
+    if (postId) {
+        const posts = JSON.parse(localStorage.getItem('postsData')) || [];
+        const post = posts.find(p => p.id == postId);
+
+        if (post) {
+            document.getElementById('title').value = post.title;
+            document.getElementById('category').value = post.category;
+            document.getElementById('status').value = post.status;
+            document.getElementById('short-description-textarea').innerHTML = post.shortDescription;
+            document.getElementById('content-textarea').innerHTML = post.content;
+        } else {
+            alert("Không tìm thấy bài viết để reset.");
+        }
+    } else {
+        // Reset form khi không có postId trong URL (tạo mới bài viết)
+        document.getElementById('title').value = '';
+        document.getElementById('category').value = 'Tin tức';
+        document.getElementById('status').value = 'Xuất bản';
+        document.getElementById('short-description-textarea').innerHTML = '';
+        document.getElementById('content-textarea').innerHTML = '';
+    }
+}
+
+// Hàm xử lý sự kiện chỉnh sửa bài viết
+function editPost(postId) {
+    // Lấy dữ liệu bài viết từ localStorage
+    const posts = JSON.parse(localStorage.getItem('postsData')) || [];
+
+    // Tìm bài viết cần chỉnh sửa
+    const post = posts.find(p => p.id === postId);
+
+    if (post) {
+        // Cập nhật thông tin vào các trường trong form
+        document.getElementById('title').value = post.title;
+        document.getElementById('category').value = post.category;
+        document.getElementById('status').value = post.status;
+        document.getElementById('short-description-textarea').innerHTML = post.shortDescription;
+        document.getElementById('content-textarea').innerHTML = post.content;
+
+        // Ẩn bảng và hiển thị container
+        document.querySelector('.table-container').style.display = 'none';
+        document.querySelector('.search-bar').style.display = 'none';
+        document.querySelector('.container').style.display = 'block';
+
+        // Cập nhật breadcrumb về "Chỉnh sửa"
+        document.querySelector('.breadcrumb span:last-child').textContent = 'Chỉnh sửa';
+        
+        // Lưu postId vào URL để khi bấm "Reset" có thể biết được bài viết cần lưu
+        history.pushState({}, "", `?postId=${postId}`);
+    } else {
+        alert('Không tìm thấy bài viết với ID: ' + postId);
+    }
+}
+
+// Hàm tải dữ liệu bài viết từ localStorage và hiển thị lên bảng
+async function loadPosts() {
+    try {
+        const posts = JSON.parse(localStorage.getItem('postsData')) || [];
+        const tableBody = document.querySelector('.table-container tbody');
+        tableBody.innerHTML = ''; // Xóa dữ liệu cũ trước khi thêm dữ liệu mới
+
+        posts.forEach((post, index) => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${post.title}</td>
+                <td><img src="${post.image}" id='fullImage' alt="Image" width="150" height="150" </td>
+                <td>${post.category}</td>
+                <td>${post.status}</td>
+                <td>${post.publishDate}</td>
+                <td>
+                    <div class="action-buttons"> 
+                        <button class="edit-button" onclick="editPost(${post.id})"><i class="fas fa-edit"></i></button>
+                        <button class="delete-button" onclick="deletePost(${post.id})"><i class="fas fa-trash"></i></button>
+                    </div>
+                </td>
+            `;
+            tableBody.appendChild(row);
+        });
+    } catch (error) {
+        console.error('Lỗi khi tải dữ liệu bài viết:', error);
+    }
+}
+
+// Hàm tải dữ liệu bài viết từ bai_viet.json và hiển thị thông tin lên form
+async function loadPostData() {
+    const postId = new URLSearchParams(window.location.search).get('postId'); // Lấy postId từ URL
+
+    try {
+        // Giả sử file bai_viet.json nằm trên server hoặc ở localStorage
+        const response = await fetch('bai_viet.json'); // Lấy dữ liệu từ bai_viet.json
+        const posts = await response.json();
+
+        // Tìm bài viết có postId tương ứng
+        const post = posts.find(p => p.id == postId);
+        if (post) {
+            // Cập nhật dữ liệu lên form
+            document.getElementById('title').value = post.title;
+            document.getElementById('category').value = post.category;
+            document.getElementById('status').value = post.status;
+            document.getElementById('short-description-textarea').innerHTML = post.shortDescription;
+            document.getElementById('content-textarea').innerHTML = post.content;
+
+            // Hiển thị hình ảnh nếu có
+            const imageUrl = post.image;
+            if (imageUrl) {
+                document.getElementById('image-url').value = imageUrl; // Điền URL hình ảnh vào input
+                document.getElementById('image-preview').src = imageUrl; // Hiển thị ảnh xem trước
+                document.getElementById('image-preview').style.display = 'block'; // Hiển thị ảnh
+            }
+        } else {
+            alert("Không tìm thấy bài viết.");
+        }
+    } catch (error) {
+        console.error('Lỗi khi tải dữ liệu bài viết:', error);
+    }
+}
+
+// Gọi hàm loadPostData khi trang được tải
+window.onload = loadPostData;
+
+// Khi người dùng nhập URL hình ảnh, hiển thị ảnh xem trước
+document.getElementById('image-url').addEventListener('input', function() {
+    const imageUrl = this.value;
+    const imagePreview = document.getElementById('image-preview');
+    if (imageUrl) {
+        imagePreview.style.display = 'block'; // Hiển thị ảnh xem trước
+        imagePreview.src = imageUrl; // Cập nhật ảnh xem trước
+    } else {
+        imagePreview.style.display = 'none'; // Ẩn ảnh xem trước nếu không có URL
+    }
+});
+
+
+// Gọi hàm loadPostData khi trang được tải
+window.onload = loadPostData;
+
+// Khi người dùng nhập URL hình ảnh, hiển thị ảnh xem trước
+document.getElementById('image-url').addEventListener('input', function() {
+    const imageUrl = this.value;
+    const imagePreview = document.getElementById('image-preview');
+    if (imageUrl) {
+        imagePreview.style.display = 'block'; // Hiển thị ảnh xem trước
+        imagePreview.src = imageUrl; // Cập nhật ảnh xem trước
+    } else {
+        imagePreview.style.display = 'none'; // Ẩn ảnh xem trước nếu không có URL
+    }
+});
+
+// Gọi hàm loadPostData khi trang được tải
+window.onload = loadPostData;
+
+// Khi người dùng nhập URL hình ảnh, hiển thị ảnh xem trước
+document.getElementById('image-url').addEventListener('input', function() {
+    const imageUrl = this.value;
+    const imagePreview = document.getElementById('image-preview');
+    if (imageUrl) {
+        imagePreview.style.display = 'block';
+        imagePreview.src = imageUrl; // Cập nhật ảnh xem trước
+    } else {
+        imagePreview.style.display = 'none'; // Ẩn ảnh xem trước nếu không có URL
+    }
+});
+
+// Hàm tìm kiếm bài viết
+function searchPosts() {
+    const searchInput = document.getElementById('searchInput').value.toLowerCase();
+    const categoryFilter = document.getElementById('categoryFilter').value;
+
+    const posts = JSON.parse(localStorage.getItem('postsData')) || [];
+    
+    const filteredPosts = posts.filter(post => {
+        const titleMatch = post.title.toLowerCase().includes(searchInput);
+        const categoryMatch = categoryFilter ? post.category === categoryFilter : true;
+        return titleMatch && categoryMatch;
+    });
+
+    renderPosts(filteredPosts);
+}
+
+
+function renderPosts(posts) {
+    const tableBody = document.querySelector('.table-container tbody');
+    tableBody.innerHTML = ''; // Xóa dữ liệu cũ trước khi thêm dữ liệu mới
+
+    posts.forEach((post, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${index + 1}</td>
+            <td>${post.title}</td>
+            <td><img src="${post.image}" id='fullImage' alt="Image" width="150" height="150"></td>
+            <td>${post.category}</td>
+            <td>${post.status}</td>
+            <td>${post.publishDate}</td>
+            <td>
+                <div class="action-buttons"> 
+                    <button class="edit-button" onclick="editPost(${post.id})"><i class="fas fa-edit"></i></button>
+                    <button class="delete-button" onclick="deletePost(${post.id})"><i class="fas fa-trash"></i></button>
+                </div>
+            </td>
+        `;
+        tableBody.appendChild(row);
+    });
+}
+
+function openModal(img) {
+            const modal = document.getElementById('imageModal');
+            const fullImage = document.getElementById('fullImage');
+            modal.style.display = "flex";
+            // fullImage.src = img.src; 
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('imageModal');
+            modal.style.display = "none";
+        } 
 
     // Hàm xử lý sự kiện xóa bài viết (chưa có logic cụ thể)
     function deletePost(postId) {
@@ -222,6 +490,120 @@
 
     // Tải dữ liệu khi trang được load
     window.onload = loadPosts;
+
+    document.getElementById('bai-viet-link').addEventListener('click', function() {
+        // Hiển thị lại table-container và search-bar, ẩn phần container (chỉnh sửa)
+        const tableContainer = document.querySelector('.table-container');
+        const searchBar = document.querySelector('.search-bar');
+        const container = document.querySelector('.container');
+        const breadcrumbDanhSach = document.getElementById('breadcrumb-danh-sach');
+        
+        // Ẩn phần chỉnh sửa và hiển thị lại danh sách
+        container.style.display = 'none'; // Ẩn phần chỉnh sửa
+        tableContainer.style.display = 'block'; // Hiển thị bảng
+        searchBar.style.display = 'flex'; // Hiển thị thanh tìm kiếm
+        
+        // Cập nhật lại breadcrumb về "Danh sách"
+        breadcrumbDanhSach.textContent = 'Danh sách';
+    });
+    </script>
+    <script>
+        // Lấy các phần tử editor
+const shortDescTextarea = document.getElementById("short-description-textarea");
+const contentTextarea = document.getElementById("content-textarea");
+
+// Hàm giúp thực thi các thao tác định dạng
+function applyBold() {
+    document.execCommand("bold");
+}
+
+function applyItalic() {
+    document.execCommand("italic");
+}
+
+function applyUnderline() {
+    document.execCommand("underline");
+}
+
+function applyStrikeThrough() {
+    document.execCommand("strikeThrough");
+}
+
+function alignLeft() {
+    document.execCommand("justifyLeft");
+}
+
+function alignCenter() {
+    document.execCommand("justifyCenter");
+}
+
+function alignRight() {
+    document.execCommand("justifyRight");
+}
+
+function insertUnorderedList() {
+    document.execCommand("insertUnorderedList");
+}
+
+function insertOrderedList() {
+    document.execCommand("insertOrderedList");
+}
+
+function insertLink() {
+    const url = prompt("Nhập URL liên kết:");
+    if (url) {
+        document.execCommand("createLink", false, url);
+    }
+}
+
+function changeFont() {
+    const font = prompt("Nhập tên font:");
+    document.execCommand("fontName", false, font);
+}
+
+function changeTextSize() {
+    const size = prompt("Nhập kích thước chữ (ví dụ: 2, 3, 4):");
+    document.execCommand("fontSize", false, size);
+}
+
+function changeTextColor() {
+    const color = prompt("Nhập mã màu (ví dụ: #FF0000):");
+    document.execCommand("foreColor", false, color);
+}
+
+function insertEmoji() {
+    const emoji = prompt("Nhập emoji:");
+    if (emoji) {
+        document.execCommand("insertText", false, emoji);
+    }
+}
+
+// Thêm chức năng cho các nút mới
+function insertImage() {
+    const imageUrl = prompt("Nhập URL hình ảnh:");
+    if (imageUrl) {
+        const imgTag = `<img src="${imageUrl}" alt="Image" style="max-width: 100%; height: auto;">`;
+        document.execCommand("insertHTML", false, imgTag);
+    }
+}
+
+function insertTable() {
+    const rows = prompt("Nhập số hàng của bảng:");
+    const cols = prompt("Nhập số cột của bảng:");
+    
+    if (rows && cols) {
+        let tableHtml = "<table border='1' style='width:100%; border-collapse: collapse;'>";
+        for (let i = 0; i < rows; i++) {
+            tableHtml += "<tr>";
+            for (let j = 0; j < cols; j++) {
+                tableHtml += "<td style='padding: 10px; text-align: center;'> </td>";
+            }
+            tableHtml += "</tr>";
+        }
+        tableHtml += "</table>";
+        document.execCommand("insertHTML", false, tableHtml);
+    }
+}
     </script>
 </body>
 </html>
