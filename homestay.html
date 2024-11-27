@@ -246,11 +246,7 @@
                         <td>${index + 1}</td>
                         <td>${homeStay.name}</td>
                         <td><img src="${homeStay.image}" alt="${homeStay.name}" class="homestay-image"   onclick="openModal(this)"  ></td>
-                          <div id="imageModal" class="modal" onclick="closeModal()"">
-                            <span class="close" onclick="closeModal()">&times;</span>
-                            <img  src="${homeStay.image}" id='fullimage' style="width:500px; height:auto">
-                           
-                        </div>
+                          
                        
 
                         <td>
@@ -276,17 +272,17 @@
 
 
 
-        function openModal(img) {
-            const modal = document.getElementById('imageModal');
-            const fullImage = document.getElementById('fullImage');
-            modal.style.display = "flex";
-            // fullImage.src = img.src; 
-        }
+    //     function openModal(img) {
+    //         const modal = document.getElementById('imageModal');
+    //         const fullImage = document.getElementById('fullImage');
+    //         modal.style.display = "flex";
+    //         // fullImage.src = img.src; 
+    //     }
 
-        function closeModal() {
-            const modal = document.getElementById('imageModal');
-            modal.style.display = "none";
-        } 
+    //     function closeModal() {
+    //         const modal = document.getElementById('imageModal');
+    //         modal.style.display = "none";
+    //     } 
     </script>
 </body>
 </html>
