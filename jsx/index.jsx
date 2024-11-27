@@ -100,7 +100,7 @@ const BookingModal = ({ show, onClose, onSubmit }) => {
                             </div>
                         </div>
                         <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" onClick={onClose}>Đóng</button>
+                            <button type="button" className="btn btn-outline-secondary" onClick={onClose}>Đóng</button>
                             <button type="submit" className="btn btn-primary">Đặt phòng</button>
                         </div>
                     </form>
@@ -244,142 +244,179 @@ const AddRoomModal = ({ show, onClose, onSubmit }) => {
 
     return (
         <div className="modal d-block" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
-            <div className="modal-dialog modal-dialog-centered">
-                <div className="modal-content border-0 shadow">
+            <div className="modal-dialog modal-dialog-centered modal-lg">
+                <div className="modal-content d-flex flex-column" style={{ height: '90vh' }}>
                     <div className="modal-header border-0">
                         <h5 className="modal-title fw-bold">Thêm Phòng Mới</h5>
                         <button type="button" className="btn-close" onClick={onClose}></button>
                     </div>
                     <form onSubmit={handleSubmit}>
-                        <div className="modal-body">
-                            <div className="mb-3">
-                                <label className="form-label">Mã phòng</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    value={formData.roomId}
-                                    onChange={e => setFormData({ ...formData, roomId: e.target.value })}
-                                    required
-                                />
-                            </div>
-
-                            <div className="mb-3">
-                                <label className="form-label">Loại phòng</label>
-                                <select
-                                    className="form-select"
-                                    value={formData.type}
-                                    onChange={e => setFormData({ ...formData, type: e.target.value })}
-                                    required
-                                >
-                                    {Object.values(ROOM_TYPES).map(type => (
-                                        <option key={type} value={type}>{type}</option>
-                                    ))}
-                                </select>
-                            </div>
-
-                            <div className="mb-3">
-                                <label className="form-label">Giá phòng</label>
-                                <div className="input-group">
-                                    <span className="input-group-text">₫</span>
-                                    <input
-                                        type="number"
-                                        className="form-control"
-                                        value={formData.price}
-                                        onChange={e => setFormData({ ...formData, price: e.target.value })}
-                                        required
-                                    />
-                                    <span className="input-group-text">/đêm</span>
-                                </div>
-                            </div>
-
-                            <div className="mb-3">
-                                <label className="form-label">Trạng thái</label>
-                                <select
-                                    className="form-select"
-                                    value={formData.status}
-                                    onChange={e => setFormData({ ...formData, status: e.target.value })}
-                                    required
-                                >
-                                    {Object.values(ROOM_STATUSES).map(status => (
-                                        <option key={status} value={status}>{status}</option>
-                                    ))}
-                                </select>
-                            </div>
-
-                            <div className="mb-3">
-                                <label className="form-label">Homestay</label>
-                                <select
-                                    className="form-select"
-                                    value={formData.homestay}
-                                    onChange={e => setFormData({ ...formData, homestay: e.target.value })}
-                                    required
-                                >
-                                    <option value="">Chọn Homestay</option>
-                                    {homestays.filter(h => h.id !== 'all').map(homestay => (
-                                        <option key={homestay.id} value={homestay.id}>
-                                            {homestay.name}
-                                        </option>
-                                    ))}
-                                </select>
-                            </div>
-
-                            <div className="mb-3">
-                                <label className="form-label">Tầng</label>
-                                <input
-                                    type="number"
-                                    className="form-control"
-                                    value={formData.floor}
-                                    onChange={e => setFormData({ ...formData, floor: e.target.value })}
-                                    required
-                                />
-                            </div>
-
-                            <div className="mb-3">
-                                <label className="form-label">Tiện nghi</label>
-                                <div className="row g-2">
-                                    {['TV', 'Tủ lạnh', 'Điều hòa', 'WiFi', 'Máy giặt', 'Bếp'].map(facility => (
-                                        <div className="col-md-6" key={facility}>
-                                            <div className="form-check">
+                        <div className="modal-body flex-grow-1 overflow-auto" style={{ maxHeight: '70vh' }}>
+                            <div className="row">
+                                {/* Basic Information Group */}
+                                <div className="col-md-6">
+                                    <div className="card mb-3">
+                                        <div className="card-header">
+                                            <h6 className="card-title mb-0">Thông Tin Cơ Bản</h6>
+                                        </div>
+                                        <div className="card-body">
+                                            <div className="mb-3">
+                                                <label className="form-label">Mã phòng</label>
                                                 <input
-                                                    type="checkbox"
-                                                    className="form-check-input"
-                                                    id={`facility-${facility}`}
-                                                    checked={formData.facilities.includes(facility)}
-                                                    onChange={(e) => {
-                                                        if (e.target.checked) {
-                                                            setFormData({
-                                                                ...formData,
-                                                                facilities: [...formData.facilities, facility]
-                                                            });
-                                                        } else {
-                                                            setFormData({
-                                                                ...formData,
-                                                                facilities: formData.facilities.filter(f => f !== facility)
-                                                            });
-                                                        }
-                                                    }}
+                                                    type="text"
+                                                    className="form-control"
+                                                    value={formData.roomId}
+                                                    onChange={e => setFormData({ ...formData, roomId: e.target.value })}
+                                                    required
                                                 />
-                                                <label className="form-check-label" htmlFor={`facility-${facility}`}>
-                                                    {facility}
-                                                </label>
+                                            </div>
+
+                                            <div className="mb-3">
+                                                <label className="form-label">Loại phòng</label>
+                                                <select
+                                                    className="form-select"
+                                                    value={formData.type}
+                                                    onChange={e => setFormData({ ...formData, type: e.target.value })}
+                                                    required
+                                                >
+                                                    {Object.values(ROOM_TYPES).map(type => (
+                                                        <option key={type} value={type}>{type}</option>
+                                                    ))}
+                                                </select>
+                                            </div>
+
+                                            <div className="mb-3">
+                                                <label className="form-label">Giá phòng</label>
+                                                <div className="input-group">
+                                                    <span className="input-group-text">₫</span>
+                                                    <input
+                                                        type="number"
+                                                        className="form-control"
+                                                        value={formData.price}
+                                                        onChange={e => setFormData({ ...formData, price: e.target.value })}
+                                                        required
+                                                    />
+                                                    <span className="input-group-text">/đêm</span>
+                                                </div>
                                             </div>
                                         </div>
-                                    ))}
+                                    </div>
+                                </div>
+
+                                {/* Location and Status Group */}
+                                <div className="col-md-6">
+                                    <div className="card mb-3">
+                                        <div className="card-header">
+                                            <h6 className="card-title mb-0">Vị Trí & Trạng Thái</h6>
+                                        </div>
+                                        <div className="card-body">
+                                            <div className="mb-3">
+                                                <label className="form-label">Trạng thái</label>
+                                                <select
+                                                    className="form-select"
+                                                    value={formData.status}
+                                                    onChange={e => setFormData({ ...formData, status: e.target.value })}
+                                                    required
+                                                >
+                                                    {Object.values(ROOM_STATUSES).map(status => (
+                                                        <option key={status} value={status}>{status}</option>
+                                                    ))}
+                                                </select>
+                                            </div>
+
+                                            <div className="mb-3">
+                                                <label className="form-label">Homestay</label>
+                                                <select
+                                                    className="form-select"
+                                                    value={formData.homestay}
+                                                    onChange={e => setFormData({ ...formData, homestay: e.target.value })}
+                                                    required
+                                                >
+                                                    <option value="">Chọn Homestay</option>
+                                                    {homestays.filter(h => h.id !== 'all').map(homestay => (
+                                                        <option key={homestay.id} value={homestay.id}>
+                                                            {homestay.name}
+                                                        </option>
+                                                    ))}
+                                                </select>
+                                            </div>
+
+                                            <div className="mb-3">
+                                                <label className="form-label">Tầng</label>
+                                                <input
+                                                    type="number"
+                                                    className="form-control"
+                                                    value={formData.floor}
+                                                    onChange={e => setFormData({ ...formData, floor: e.target.value })}
+                                                    required
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div className="mb-3">
-                                <label className="form-label">Mô tả</label>
-                                <textarea
-                                    className="form-control"
-                                    rows="3"
-                                    value={formData.description}
-                                    onChange={e => setFormData({ ...formData, description: e.target.value })}
-                                />
+                            {/* Facilities and Description Group */}
+                            <div className="row">
+                                <div className="col-12">
+                                    <div className="card mb-3">
+                                        <div className="card-header">
+                                            <h6 className="card-title mb-0">Tiện Nghi & Mô Tả</h6>
+                                        </div>
+                                        <div className="card-body">
+                                            <div className="mb-3">
+                                                <label className="form-label">Tiện nghi</label>
+                                                <div className="row g-2">
+                                                    {['TV', 'Tủ lạnh', 'Điều hòa', 'WiFi', 'Máy giặt', 'Bếp'].map(facility => (
+                                                        <div className="col-md-4" key={facility}>
+                                                            <div className="form-check">
+                                                                <input
+                                                                    type="checkbox"
+                                                                    className="form-check-input"
+                                                                    id={`facility-${facility}`}
+                                                                    checked={formData.facilities.includes(facility)}
+                                                                    onChange={(e) => {
+                                                                        if (e.target.checked) {
+                                                                            setFormData({
+                                                                                ...formData,
+                                                                                facilities: [...formData.facilities, facility]
+                                                                            });
+                                                                        } else {
+                                                                            setFormData({
+                                                                                ...formData,
+                                                                                facilities: formData.facilities.filter(f => f !== facility)
+                                                                            });
+                                                                        }
+                                                                    }}
+                                                                />
+                                                                <label
+                                                                    className="form-check-label"
+                                                                    htmlFor={`facility-${facility}`}
+                                                                >
+                                                                    {facility}
+                                                                </label>
+                                                            </div>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+
+                                            <div className="mb-3">
+                                                <label className="form-label">Mô tả</label>
+                                                <textarea
+                                                    className="form-control"
+                                                    rows="3"
+                                                    value={formData.description}
+                                                    onChange={e => setFormData({ ...formData, description: e.target.value })}
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div className="modal-footer border-0">
-                            <button type="button" className="btn btn-light" onClick={onClose}>Đóng</button>
+                            <button type="button" className="btn btn-outline-secondary" onClick={onClose}>Đóng</button>
                             <button type="submit" className="btn btn-primary">Thêm phòng</button>
                         </div>
                     </form>
@@ -528,12 +565,14 @@ const RoomManagement = () => {
                             placeholder="Tìm kiếm phòng..."
                             value={searchTerm}
                             onChange={(e) => setSearchTerm(e.target.value)}
+                            style={{ minWidth: '150px' }}
                         />
                     </div>
                     <select
                         className="form-select w-25"
                         value={selectedHomestay}
                         onChange={(e) => setSelectedHomestay(e.target.value)}
+                        style={{ minWidth: '150px' }}
                     >
                         {homestays.map(homestay => (
                             <option key={homestay.id} value={homestay.id}>
