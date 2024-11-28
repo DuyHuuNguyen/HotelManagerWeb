@@ -60,6 +60,12 @@
             <button class="search-button" onclick="searchPosts()"><i class="fas fa-search"></i> Tìm kiếm</button>
         </div>
 
+        <div id="imageModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="modalImage" alt="Large Image">
+            <div id="caption"></div>
+        </div>
+
         <div class="table-container">
             <div class="action-btn-top">
                 <button class="action-btn" onclick="addPost()"><i class="fas fa-plus"></i> Tạo mới</button>
@@ -82,7 +88,7 @@
             </table>
         </div>
 
-        <div class="container" style="display: none;">
+        <div class="container1" style="display: none;">
             <!-- Phần bên trái: Chỉnh sửa bài viết -->
             <div class="left-section">
                 <div class="edit-section">
@@ -169,7 +175,7 @@
             <div class="right-section">
                 <div class="form-actions">
                     <h3>Xuất bản</h3>
-                    <button class="btn-save" onclick="savePost()">Lưu dữ liệu</button>
+                    <button class="btn-save" onclick="savePostEdit()">Lưu dữ liệu</button>
                     <button class="btn-reset">Reset</button>
                 </div>
         
@@ -178,6 +184,107 @@
                     <input type="text" id="image-url" placeholder="Nhập URL hình ảnh" />
                     <div class="image-preview-container">
                         <img id="image-preview" src="" alt="Preview" style="display:none; width: 100%; height: auto;" />
+                    </div>
+                </div>                                                        
+            </div>
+        </div>
+
+        <div class="container2" style="display: none;">
+            <!-- Phần bên trái: Chỉnh sửa bài viết -->
+            <div class="left-section">
+                <div class="edit-section">
+        
+                    <div class="form-group">
+                        <label for="title">Tiêu đề bài viết <span>*</span></label>
+                        <input type="text" id="title1" placeholder="Thêm cơ sở mới gần khu vui chơi">
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="category">Danh mục <span>*</span></label>
+                        <select id="category1">
+                            <option>Tin tức</option>
+                            <option>Du lịch</option>
+                            <option>Kinh nghiệm</option>
+                            <option>Khám phá</option>
+                            <!-- Thêm các danh mục khác tại đây -->
+                        </select>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="status">Trạng thái</label>
+                        <select id="status1">
+                            <option>Xuất bản</option>
+                            <option>Nháp</option>
+                        </select>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="short-description">Mô tả ngắn</label>
+                        <div id="short-description1" class="editor">
+                            <div class="toolbar">
+                                <button onclick="applyBold()"><i class="fa fa-bold"></i></button>
+                                <button onclick="applyItalic()"><i class="fa fa-italic"></i></button>
+                                <button onclick="applyUnderline()"><i class="fa fa-underline"></i></button>
+                                <button onclick="applyStrikeThrough()"><i class="fa fa-strikethrough"></i></button>
+                                <button onclick="alignLeft()"><i class="fa fa-align-left"></i></button>
+                                <button onclick="alignCenter()"><i class="fa fa-align-center"></i></button>
+                                <button onclick="alignRight()"><i class="fa fa-align-right"></i></button>
+                                <button onclick="insertUnorderedList()"><i class="fa fa-list-ul"></i></button>
+                                <button onclick="insertOrderedList()"><i class="fa fa-list-ol"></i></button>
+                                <button onclick="insertLink()"><i class="fa fa-link"></i></button>
+                                <button onclick="insertImage()"><i class="fa fa-image"></i></button>
+                                <button onclick="insertTable()"><i class="fa fa-table"></i></button>
+                                <button onclick="changeFont()"><i class="fa fa-font"></i></button>
+                                <button onclick="changeTextSize()"><i class="fa fa-text-height"></i></button>
+                                <button onclick="changeTextColor()"><i class="fa fa-paint-brush"></i></button>
+                                <button onclick="insertEmoji()"><i class="fa fa-smile"></i></button>
+                                
+                            </div>
+                            <div contenteditable="true" id="short-description-textarea1" class="editable-textarea" placeholder="Giá rẻ dành cho sinh viên"></div>
+                        </div>
+                    </div>
+        
+                    <div class="form-group">
+                        <label for="content">Nội dung bài viết</label>
+                        <div id="content1" class="editor">
+                            <div class="toolbar">
+                                <button onclick="applyBold()"><i class="fa fa-bold"></i></button>
+                                <button onclick="applyItalic()"><i class="fa fa-italic"></i></button>
+                                <button onclick="applyUnderline()"><i class="fa fa-underline"></i></button>
+                                <button onclick="applyStrikeThrough()"><i class="fa fa-strikethrough"></i></button>
+                                <button onclick="alignLeft()"><i class="fa fa-align-left"></i></button>
+                                <button onclick="alignCenter()"><i class="fa fa-align-center"></i></button>
+                                <button onclick="alignRight()"><i class="fa fa-align-right"></i></button>
+                                <button onclick="insertUnorderedList()"><i class="fa fa-list-ul"></i></button>
+                                <button onclick="insertOrderedList()"><i class="fa fa-list-ol"></i></button>
+                                <button onclick="insertLink()"><i class="fa fa-link"></i></button>
+                                <button onclick="insertImage()"><i class="fa fa-image"></i></button>
+                                <button onclick="insertTable()"><i class="fa fa-table"></i></button>
+                                <button onclick="changeFont()"><i class="fa fa-font"></i></button>
+                                <button onclick="changeTextSize()"><i class="fa fa-text-height"></i></button>
+                                <button onclick="changeTextColor()"><i class="fa fa-paint-brush"></i></button>
+                                <button onclick="insertEmoji()"><i class="fa fa-smile"></i></button>
+                                <!-- Thêm các nút công cụ khác -->
+                            </div>
+                            <div contenteditable="true" id="content-textarea1" class="editable-textarea" placeholder="Đầy đủ nội thất"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Phần bên phải: Xuất bản và Hình ảnh -->
+            <div class="right-section">
+                <div class="form-actions">
+                    <h3>Xuất bản</h3>
+                    <button class="btn-save" onclick="savePostAdd()">Lưu dữ liệu</button>
+                    <button class="btn-reset">Reset</button>
+                </div>
+        
+                <div class="image-upload-section">
+                    <label for="image-url">URL Hình ảnh:</label>
+                    <input type="text" id="image-url1" placeholder="Nhập URL hình ảnh" />
+                    <div class="image-preview-container">
+                        <img id="image-preview1" src="" alt="Preview" style="display:none; width: 100%; height: auto;" />
                     </div>
                 </div>                                                        
             </div>
@@ -208,24 +315,32 @@
                 }
             }
         });
-// Hàm lưu bài viết và cập nhật dữ liệu vào localStorage (hoặc server nếu cần)
-function savePost() {
+// Hàm lưu bài viết và cập nhật dữ liệu vào file bai_vietData.json
+async function savePostEdit() {
     const postId = new URLSearchParams(window.location.search).get('postId');
-    const posts = JSON.parse(localStorage.getItem('postsData')) || [];
-    const post = posts.find(p => p.id == postId);
+    
+    try {
+        const response = await fetch('data/bai_vietData.json');
+        const posts = await response.json();
 
-    if (post) {
-        post.title = document.getElementById('title').value;
-        post.category = document.getElementById('category').value;
-        post.status = document.getElementById('status').value;
-        post.shortDescription = document.getElementById('short-description-textarea').innerHTML;
-        post.content = document.getElementById('content-textarea').innerHTML;
-        post.image = document.getElementById('image-url').value.trim(); // Cập nhật URL hình ảnh
+        const post = posts.find(p => p.id == postId);
+        
+        if (post) {
+            post.title = document.getElementById('title').value;
+            post.category = document.getElementById('category').value;
+            post.status = document.getElementById('status').value;
+            post.shortDescription = document.getElementById('short-description-textarea').innerHTML;
+            post.content = document.getElementById('content-textarea').innerHTML;
+            post.image = document.getElementById('image-url').value.trim(); // Cập nhật URL hình ảnh
 
-        localStorage.setItem('postsData', JSON.stringify(posts));
-        window.location.href = 'bai_viet.html'; // Quay lại danh sách bài viết
-    } else {
-        alert("Bài viết không tồn tại.");
+            // Lưu lại vào JSON
+            await savePostsToJson(posts);
+            window.location.href = 'bai_viet.html'; // Quay lại danh sách bài viết
+        } else {
+            alert("Bài viết không tồn tại.");
+        }
+    } catch (error) {
+        console.error('Lỗi khi lưu bài viết:', error);
     }
 }
 
@@ -290,11 +405,10 @@ function resetForm() {
 }
 
 // Hàm xử lý sự kiện chỉnh sửa bài viết
-function editPost(postId) {
-    // Lấy dữ liệu bài viết từ localStorage
-    const posts = JSON.parse(localStorage.getItem('postsData')) || [];
-
-    // Tìm bài viết cần chỉnh sửa
+async function editPost(postId) {
+    try{
+    const response = await fetch('data/bai_vietData.json');
+    const posts = await response.json();
     const post = posts.find(p => p.id === postId);
 
     if (post) {
@@ -308,7 +422,7 @@ function editPost(postId) {
         // Ẩn bảng và hiển thị container
         document.querySelector('.table-container').style.display = 'none';
         document.querySelector('.search-bar').style.display = 'none';
-        document.querySelector('.container').style.display = 'block';
+        document.querySelector('.container1').style.display = 'block';
 
         // Cập nhật breadcrumb về "Chỉnh sửa"
         document.querySelector('.breadcrumb span:last-child').textContent = 'Chỉnh sửa';
@@ -317,13 +431,44 @@ function editPost(postId) {
         history.pushState({}, "", `?postId=${postId}`);
     } else {
         alert('Không tìm thấy bài viết với ID: ' + postId);
+    }}catch (error) {
+        console.error('Lỗi khi tải dữ liệu bài viết:', error);
     }
 }
 
-// Hàm tải dữ liệu bài viết từ localStorage và hiển thị lên bảng
+// Lấy modal và các thành phần liên quan
+const modal = document.getElementById('imageModal');
+const modalImg = document.getElementById('modalImage');
+const captionText = document.getElementById('caption');
+const closeModal = document.getElementsByClassName('close')[0];
+
+// Hàm để mở modal khi click vào ảnh
+function showImage(src, alt) {
+    modal.style.display = "block"; // Hiển thị modal
+    modalImg.src = src; // Đặt nguồn ảnh vào modal
+    captionText.innerHTML = alt; // Đặt mô tả ảnh (nếu cần)
+}
+
+// Sự kiện để đóng modal khi nhấn vào nút đóng
+closeModal.onclick = function() {
+    modal.style.display = "none"; // Ẩn modal
+}
+
+// Hàm này sẽ được gọi trong `loadPosts` để thêm sự kiện click vào mỗi ảnh
+function addImageClickEvent() {
+    const images = document.querySelectorAll('.table-container img'); // Lấy tất cả ảnh trong bảng
+    images.forEach(img => {
+        img.addEventListener('click', function() {
+            showImage(this.src, this.alt); // Gọi hàm showImage khi click vào ảnh
+        });
+    });
+}
+
+// Hàm tải dữ liệu bài viết từ bai_vietData.json và hiển thị lên bảng
 async function loadPosts() {
     try {
-        const posts = JSON.parse(localStorage.getItem('postsData')) || [];
+        const response = await fetch('data/bai_vietData.json');
+        const posts = await response.json();
         const tableBody = document.querySelector('.table-container tbody');
         tableBody.innerHTML = ''; // Xóa dữ liệu cũ trước khi thêm dữ liệu mới
 
@@ -332,12 +477,12 @@ async function loadPosts() {
             row.innerHTML = `
                 <td>${index + 1}</td>
                 <td>${post.title}</td>
-                <td><img src="${post.image}" id='fullImage' alt="Image" width="150" height="150" </td>
+                <td><img src="${post.image}" id='fullImage' alt="Image" width="150" height="150"></td>
                 <td>${post.category}</td>
                 <td>${post.status}</td>
                 <td>${post.publishDate}</td>
                 <td>
-                    <div class="action-buttons"> 
+                    <div class="action-buttons">
                         <button class="edit-button" onclick="editPost(${post.id})"><i class="fas fa-edit"></i></button>
                         <button class="delete-button" onclick="deletePost(${post.id})"><i class="fas fa-trash"></i></button>
                     </div>
@@ -345,18 +490,19 @@ async function loadPosts() {
             `;
             tableBody.appendChild(row);
         });
+
+        // Thêm sự kiện click cho ảnh thumbnail
+        addImageClickEvent();
     } catch (error) {
         console.error('Lỗi khi tải dữ liệu bài viết:', error);
     }
-}
-
-// Hàm tải dữ liệu bài viết từ bai_viet.json và hiển thị thông tin lên form
+}   
+// Hàm tải dữ liệu bài viết từ bai_vietData.json và hiển thị thông tin lên form
 async function loadPostData() {
     const postId = new URLSearchParams(window.location.search).get('postId'); // Lấy postId từ URL
 
     try {
-        // Giả sử file bai_viet.json nằm trên server hoặc ở localStorage
-        const response = await fetch('bai_viet.json'); // Lấy dữ liệu từ bai_viet.json
+        const response = await fetch('data/bai_vietData.json');
         const posts = await response.json();
 
         // Tìm bài viết có postId tương ứng
@@ -385,7 +531,23 @@ async function loadPostData() {
 }
 
 // Gọi hàm loadPostData khi trang được tải
-window.onload = loadPostData;
+// window.onload = loadPostData;
+
+// Khi người dùng nhập URL hình ảnh, hiển thị ảnh xem trước
+document.getElementById('image-url').addEventListener('input', function() {
+    const imageUrl = this.value;
+    const imagePreview = document.getElementById('image-preview');
+    if (imageUrl) {
+        imagePreview.style.display = 'block';
+        imagePreview.src = imageUrl;
+    } else {
+        imagePreview.style.display = 'none';
+    }
+});
+
+
+// Gọi hàm loadPostData khi trang được tải
+// window.onload = loadPostData;
 
 // Khi người dùng nhập URL hình ảnh, hiển thị ảnh xem trước
 document.getElementById('image-url').addEventListener('input', function() {
@@ -399,24 +561,8 @@ document.getElementById('image-url').addEventListener('input', function() {
     }
 });
 
-
 // Gọi hàm loadPostData khi trang được tải
-window.onload = loadPostData;
-
-// Khi người dùng nhập URL hình ảnh, hiển thị ảnh xem trước
-document.getElementById('image-url').addEventListener('input', function() {
-    const imageUrl = this.value;
-    const imagePreview = document.getElementById('image-preview');
-    if (imageUrl) {
-        imagePreview.style.display = 'block'; // Hiển thị ảnh xem trước
-        imagePreview.src = imageUrl; // Cập nhật ảnh xem trước
-    } else {
-        imagePreview.style.display = 'none'; // Ẩn ảnh xem trước nếu không có URL
-    }
-});
-
-// Gọi hàm loadPostData khi trang được tải
-window.onload = loadPostData;
+// window.onload = loadPostData;
 
 // Khi người dùng nhập URL hình ảnh, hiển thị ảnh xem trước
 document.getElementById('image-url').addEventListener('input', function() {
@@ -431,11 +577,13 @@ document.getElementById('image-url').addEventListener('input', function() {
 });
 
 // Hàm tìm kiếm bài viết
-function searchPosts() {
+async function searchPosts() {
     const searchInput = document.getElementById('searchInput').value.toLowerCase();
     const categoryFilter = document.getElementById('categoryFilter').value;
 
-    const posts = JSON.parse(localStorage.getItem('postsData')) || [];
+    // const posts = JSON.parse(localStorage.getItem('postsData')) || [];
+    const response = await fetch('data/bai_vietData.json');
+        const posts = await response.json();
     
     const filteredPosts = posts.filter(post => {
         const titleMatch = post.title.toLowerCase().includes(searchInput);
@@ -444,6 +592,7 @@ function searchPosts() {
     });
 
     renderPosts(filteredPosts);
+    addImageClickEvent();
 }
 
 
@@ -470,19 +619,6 @@ function renderPosts(posts) {
         tableBody.appendChild(row);
     });
 }
-
-function openModal(img) {
-            const modal = document.getElementById('imageModal');
-            const fullImage = document.getElementById('fullImage');
-            modal.style.display = "flex";
-            // fullImage.src = img.src; 
-        }
-
-        function closeModal() {
-            const modal = document.getElementById('imageModal');
-            modal.style.display = "none";
-        } 
-
     // Hàm xử lý sự kiện xóa bài viết (chưa có logic cụ thể)
     function deletePost(postId) {
         alert(`Xóa bài viết với ID: ${postId}`);
@@ -495,17 +631,125 @@ function openModal(img) {
         // Hiển thị lại table-container và search-bar, ẩn phần container (chỉnh sửa)
         const tableContainer = document.querySelector('.table-container');
         const searchBar = document.querySelector('.search-bar');
-        const container = document.querySelector('.container');
+        const container = document.querySelector('.container1');
+        const container1 = document.querySelector('.container2');
         const breadcrumbDanhSach = document.getElementById('breadcrumb-danh-sach');
         
         // Ẩn phần chỉnh sửa và hiển thị lại danh sách
         container.style.display = 'none'; // Ẩn phần chỉnh sửa
+        container1.style.display = 'none';
         tableContainer.style.display = 'block'; // Hiển thị bảng
         searchBar.style.display = 'flex'; // Hiển thị thanh tìm kiếm
+        
         
         // Cập nhật lại breadcrumb về "Danh sách"
         breadcrumbDanhSach.textContent = 'Danh sách';
     });
+
+    // Lấy dữ liệu từ bai_viet.json
+async function getPosts() {
+    try {
+        const response = await fetch('data/bai_vietData.json');
+        const posts = await response.json();
+        return posts;
+    } catch (error) {
+        console.error('Lỗi khi tải dữ liệu bài viết:', error);
+        return [];
+    }
+}
+
+// Hàm Tạo mới bài viết
+function addPost() {
+    // Hiển thị container nhập liệu
+    const container = document.querySelector('.container2');
+    const searchBar = document.querySelector('.search-bar');
+    const tableContainer = document.querySelector('.table-container');
+    searchBar.style.display = 'none';
+    tableContainer.style.display = 'none';
+    container.style.display = 'block';
+
+    // Cập nhật breadcrumb về "Add Post"
+    document.querySelector('.breadcrumb span:last-child').textContent = 'Add Post';
+
+    // Xóa tất cả các trường nhập liệu
+    document.getElementById('title').value = '';
+    document.getElementById('category').value = 'Tin tức';
+    document.getElementById('status').value = 'Xuất bản';
+    document.getElementById('short-description-textarea').innerHTML = '';
+    document.getElementById('content-textarea').innerHTML = '';
+    document.getElementById('image-url').value = '';
+    document.getElementById('image-preview').style.display = 'block'; // Ẩn ảnh xem trước
+}
+
+// Hàm thêm bài viết
+async function savePostAdd() {
+    const title = document.getElementById('title1').value.trim();
+    const category = document.getElementById('category1').value;
+    const status = document.getElementById('status1').value;
+    const shortDescription = document.getElementById('short-description-textarea1').innerHTML.trim();
+    const content = document.getElementById('content-textarea1').innerHTML.trim();
+    const image = document.getElementById('image-url1').value.trim();
+
+    if (!title || !shortDescription || !content) {
+        alert('Vui lòng điền đầy đủ thông tin!');
+        return;
+    }
+
+    try {
+        const response = await fetch('data/bai_vietData.json');
+        const posts = await response.json();
+
+        const newId = posts.length > 0 ? Math.max(...posts.map(p => p.id)) + 1 : 1;
+        const newPost = {
+            id: newId,
+            title: title,
+            category: category,
+            status: status,
+            shortDescription: shortDescription,
+            content: content,
+            image: image,
+            publishDate: new Date().toLocaleDateString('vi-VN')
+        };
+
+        posts.push(newPost);
+        await savePostsToJson(posts);
+        alert('Lưu bài viết thành công!');
+        window.location.reload(); // Tải lại trang
+    } catch (error) {
+        console.error('Lỗi khi lưu bài viết:', error);
+        alert('Đã xảy ra lỗi khi lưu bài viết. Vui lòng thử lại!');
+    }
+}
+document.getElementById('image-url1').addEventListener('input', function() {
+    const imageUrl = this.value;
+    const imagePreview = document.getElementById('image-preview1');
+    if (imageUrl) {
+        imagePreview.style.display = 'block';
+        imagePreview.src = imageUrl;
+    } else {
+        imagePreview.style.display = 'none';
+    }
+});
+
+// Hàm lưu dữ liệu vào file bai_vietData.json
+async function savePostsToJson(posts) {
+    try {
+        const response = await fetch('data/bai_vietData.json', {
+            method: 'PUT', // Hoặc POST nếu API hỗ trợ
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(posts)
+        });
+
+        if (!response.ok) {
+            throw new Error('Không thể lưu dữ liệu vào bai_vietData.json');
+        }
+    } catch (error) {
+        console.error('Lỗi khi lưu bài viết:', error);
+    }
+}
+
     </script>
     <script>
         // Lấy các phần tử editor

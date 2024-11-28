@@ -461,3 +461,50 @@ img{
 .search-select:focus {
     border-color: #4299E1;
 }
+
+/* CSS cho modal */
+.modal {
+    display: none; /* Ẩn modal theo mặc định */
+    position: fixed; /* Đặt ở vị trí cố định */
+    z-index: 1; /* Đảm bảo modal luôn hiển thị trên cùng */
+    left: 0;
+    top: 0;
+    width: 100%; /* Chiếm toàn bộ màn hình */
+    height: 100%; /* Chiếm toàn bộ màn hình */
+    overflow: auto; /* Thêm cuộn nếu ảnh quá lớn */
+    background-color: rgba(0, 0, 0, 0.7); /* Nền mờ */
+  }
+  
+  .modal-content {
+    margin: auto;
+    display: block;
+    top: 90px;
+    width: auto; /* Chiếm 80% chiều rộng màn hình */
+    height: auto;
+    max-width: 100%; /* Giới hạn kích thước tối đa */
+    max-height: 90%;
+    object-fit: contain;
+    border-radius: 8px;
+  }
+  /* #caption{
+    margin-top: 10px;
+  } */
+  
+  .close {
+    position: absolute;
+    margin-top: 50px;
+    top: 10px;
+    right: 25px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
