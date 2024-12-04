@@ -2,57 +2,151 @@
     {
         "id": 1,
         "title": "Khám phá khu nghỉ dưỡng tuyệt vời ở Đà Lạt",
-        "image": "images/dalat.jpg",
-        "category": "Tin tức",
+        "image": "https://haycafe.vn/wp-content/uploads/2022/01/Hinh-anh-Da-Lat-suong-mu-800x468.jpg",
+        "category": "Khám phá",
         "status": "Xuất bản",
-        "publishDate": "2024-11-05"
+        "publishDate": "2024-11-05",
+         "shortDescription": "Khám phá những khu nghỉ dưỡng tuyệt vời tại Đà Lạt, nơi có không gian yên bình, khung cảnh thiên nhiên tuyệt đẹp và dịch vụ chất lượng.",
+        "content": "Đà Lạt, với khí hậu ôn hòa quanh năm, là địa điểm lý tưởng cho những ai tìm kiếm một kỳ nghỉ dưỡng thư giãn. Nơi đây có nhiều khu nghỉ dưỡng với tiện ích cao cấp như bể bơi ngoài trời, spa, và các dịch vụ chăm sóc sức khỏe. Bạn có thể thưởng thức các món ăn đặc sản như bánh mì xíu mại, lẩu gà lá é, hay dạo quanh các vườn hoa, tham quan các địa điểm nổi tiếng như Thung Lũng Tình Yêu, Hồ Xuân Hương, hay Chùa Linh Phước."
     },
     {
         "id": 2,
         "title": "Cẩm nang du lịch Phú Quốc 2024",
-        "image": "images/phuquoc.jpg",
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/d4/d2/f8/regent-phu-quoc-bai-truong.jpg?w=1400&h=-1&s=1",
         "category": "Du lịch",
         "status": "Nháp",
-        "publishDate": "2024-10-28"
+        "publishDate": "2024-10-28",
+        "shortDescription": "Phú Quốc là một thiên đường du lịch với bãi biển đẹp, rừng nguyên sinh và các khu nghỉ dưỡng sang trọng. Cùng khám phá những điểm đến không thể bỏ qua ở đảo ngọc.",
+        "content": "Phú Quốc nổi tiếng với bãi biển dài, cát trắng mịn và nước biển trong vắt. Đảo còn có các khu nghỉ dưỡng cao cấp và khu vui chơi giải trí tuyệt vời như Vinpearl Safari, VinWonders, và Dinh Cậu. Bên cạnh đó, Phú Quốc cũng là điểm đến lý tưởng để thưởng thức hải sản tươi sống, các món ăn đặc trưng như bánh canh chả cá hay gỏi cá trích."
     },
     {
         "id": 3,
-        "title": "Kinh nghiệm chọn HomeStay ở Sapa",
-        "image": "images/sapa.jpg",
+        "title": "Kinh nghiệm chọn HomeStay ở Phú Quốc",
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/23/0c/79/a7/regent-phu-quoc.jpg?w=1400&h=-1&s=1",
         "category": "Kinh nghiệm",
         "status": "Xuất bản",
-        "publishDate": "2024-09-15"
+        "publishDate": "2024-09-15",
+        "shortDescription": "Sapa là địa điểm du lịch nổi tiếng với các bản làng và cảnh đẹp hùng vĩ. Chọn HomeStay tại Sapa giúp bạn hòa mình vào đời sống địa phương.",
+        "content": "Sapa là một điểm đến lý tưởng cho những ai yêu thích khám phá vẻ đẹp thiên nhiên và văn hóa dân tộc thiểu số. Việc chọn một HomeStay tại Sapa sẽ giúp bạn có những trải nghiệm chân thực, từ việc sống cùng người dân địa phương cho đến thưởng thức những món ăn đậm đà bản sắc. Hãy tìm những ngôi nhà gỗ ấm cúng với view nhìn ra thung lũng mờ sương, trải nghiệm không gian sống giản dị nhưng đầy đủ tiện nghi."
     },
     {
         "id": 4,
         "title": "Tìm hiểu về HomeStay ở Hội An",
-        "image": "images/hoian.jpg",
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/10/93/45/9e/hoi-an-sincerity-hotel.jpg?w=2000&h=-1&s=1",
         "category": "Du lịch",
         "status": "Xuất bản",
-        "publishDate": "2024-08-30"
+        "publishDate": "2024-08-30",
+        "shortDescription": "HomeStay tại Hội An mang đến không gian yên bình, gần gũi với thiên nhiên, giúp bạn tận hưởng những ngày nghỉ dưỡng đầy thú vị.",
+        "content": "Hội An không chỉ nổi tiếng với phố cổ mà còn với các HomeStay xinh xắn, nằm giữa những cánh đồng lúa xanh mướt và bãi biển tuyệt đẹp. Các HomeStay ở Hội An mang lại không gian thoải mái, đầy đủ tiện nghi và đặc biệt là sự gần gũi với thiên nhiên. Đây là nơi lý tưởng để bạn thư giãn, thưởng thức ẩm thực địa phương và khám phá văn hóa Hội An."
     },
     {
         "id": 5,
         "title": "Những điểm đến lý tưởng ở Nha Trang",
-        "image": "images/nhatrang.jpg",
-        "category": "Tin tức",
-        "status": "Nháp",
-        "publishDate": "2024-07-20"
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/12/98/c2/d5/overview.jpg?w=2000&h=-1&s=1",
+        "category": "Du lịch",
+        "status": "Xuất bản",
+        "publishDate": "2024-06-18",
+         "shortDescription": "Nha Trang nổi tiếng với bãi biển đẹp và các khu du lịch biển hấp dẫn. Cùng khám phá những điểm đến không thể bỏ qua ở thành phố biển này.",
+        "content": "Nha Trang là điểm đến không thể bỏ qua khi bạn yêu thích biển cả và các hoạt động thể thao dưới nước. Thành phố này nổi bật với các bãi biển tuyệt đẹp như Bãi Dài, Bãi Trũ, và Hòn Mun. Ngoài ra, Nha Trang còn có các khu nghỉ dưỡng sang trọng, các công viên giải trí như Vinpearl Land, và các khu chợ đêm nhộn nhịp với các món ăn ngon."
     },
     {
         "id": 6,
         "title": "Top 5 khu nghỉ dưỡng đẹp nhất Phú Quốc",
-        "image": "images/phuquoc2.jpg",
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2a/6d/8e/4b/overview-to-the-pool.jpg?w=1400&h=-1&s=1",
         "category": "Du lịch",
         "status": "Xuất bản",
-        "publishDate": "2024-06-18"
+        "publishDate": "2024-06-18",
+        "shortDescription": "Phú Quốc nổi tiếng với những khu nghỉ dưỡng sang trọng và dịch vụ đẳng cấp. Cùng điểm qua top 5 khu nghỉ dưỡng đẹp nhất tại đảo ngọc này.",
+        "content": "Phú Quốc có nhiều khu nghỉ dưỡng 5 sao đẳng cấp quốc tế. Từ Vinpearl Phú Quốc, JW Marriott Phú Quốc cho đến The Shells Resort & Spa, các khu nghỉ dưỡng này đều mang đến trải nghiệm nghỉ dưỡng tuyệt vời. Với hệ thống biệt thự riêng tư, bể bơi vô cực, và các nhà hàng sang trọng, bạn sẽ có những ngày nghỉ khó quên tại đảo ngọc."
     },
     {
         "id": 7,
         "title": "Khu nghỉ dưỡng sang trọng ở Mũi Né",
-        "image": "images/muine.jpg",
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/28/11/f5/a2/le-viva-mui-ne-resort.jpg?w=1400&h=-1&s=1",
         "category": "Kinh nghiệm",
         "status": "Nháp",
-        "publishDate": "2024-05-25"
+        "publishDate": "2024-05-25",
+        "shortDescription": "Mũi Né là điểm đến lý tưởng cho những ai tìm kiếm sự yên bình và nghỉ dưỡng tại các khu resort cao cấp.",
+        "content": "Mũi Né không chỉ nổi tiếng với những đồi cát trắng tuyệt đẹp mà còn là nơi tập trung nhiều khu nghỉ dưỡng cao cấp. Bạn có thể tận hưởng không gian yên tĩnh, thư giãn tại các resort ven biển, với những dịch vụ tuyệt vời như massage thư giãn, bể bơi vô cực, và các hoạt động thể thao như lướt ván, chèo thuyền kayak."
+    },
+    {
+        "id": 8,
+        "title": "Trải nghiệm du lịch sinh thái ở Vườn Quốc Gia Phong Nha",
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/a1/95/a9/1-km-tour-inside-paradise.jpg?w=1400&h=-1&s=1",
+        "category": "Du lịch",
+        "status": "Xuất bản",
+        "publishDate": "2024-11-10",
+        "shortDescription": "Vườn Quốc Gia Phong Nha là điểm đến lý tưởng cho những ai yêu thích khám phá thiên nhiên hoang sơ, với hệ động thực vật phong phú và các hang động nổi tiếng.",
+        "content": "Vườn Quốc Gia Phong Nha-Kẻ Bàng, với hệ thống các hang động kỳ vĩ như Sơn Đoòng, Hang Én, là một trong những điểm đến du lịch sinh thái hấp dẫn tại Việt Nam. Nơi đây không chỉ nổi bật với những cảnh quan thiên nhiên tuyệt đẹp mà còn là nơi bảo tồn hệ sinh thái đa dạng. Các tour du lịch sinh thái tại Phong Nha sẽ đưa bạn đến với những khu rừng nguyên sinh, các dòng suối mát lành và các hệ động thực vật quý hiếm."
+    },
+    {
+        "id": 9,
+        "title": "Khám phá vẻ đẹp hoang sơ của biển Côn Đảo",
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/21/92/c6/84/the-secret-con-dao.jpg?w=1400&h=-1&s=1",
+        "category": "Khám phá",
+        "status": "Xuất bản",
+        "publishDate": "2024-11-01",
+        "shortDescription": "Côn Đảo, một hòn đảo hoang sơ và tĩnh lặng, là điểm đến lý tưởng để tránh xa sự ồn ào, tận hưởng biển xanh và khám phá những câu chuyện lịch sử đầy bí ẩn.",
+        "content": "Côn Đảo không chỉ thu hút du khách bởi vẻ đẹp hoang sơ của biển cả, bãi cát trắng mịn mà còn bởi những di tích lịch sử đầy sâu sắc. Đến với Côn Đảo, bạn sẽ được đắm mình trong làn nước trong xanh, tham gia các hoạt động thể thao dưới nước như lặn biển, chèo thuyền kayak. Ngoài ra, Côn Đảo còn nổi tiếng với các khu bảo tồn rùa và những di tích lịch sử liên quan đến cuộc đấu tranh giành độc lập của dân tộc."
+    },
+    {
+        "id": 10,
+        "title": "Chuyến hành trình khám phá Hà Giang đầy thử thách",
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/38/da/c1/caption.jpg?w=1400&h=-1&s=1",
+        "category": "Kinh nghiệm",
+        "status": "Nháp",
+        "publishDate": "2024-10-15",
+        "shortDescription": "Hà Giang với những cung đường đèo hiểm trở, những cánh đồng hoa tam giác mạch và cảnh sắc thiên nhiên hùng vĩ là thử thách cho những ai yêu thích phiêu lưu.",
+        "content": "Hà Giang là một trong những điểm đến hấp dẫn đối với những ai yêu thích khám phá và chinh phục những cung đường đèo đầy thử thách. Cung đường Mã Pí Lèng, với những khúc cua uốn lượn và phong cảnh núi non hùng vĩ, là điểm đến không thể bỏ qua. Ngoài ra, bạn cũng sẽ có cơ hội tham gia vào các lễ hội dân tộc, thưởng thức các món ăn đặc sản của người dân tộc Mông, Tày, H'mông và trải nghiệm không khí trong lành của vùng cao."
+    },
+    {
+        "id": 11,
+        "title": "Điểm danh các khu nghỉ dưỡng nổi tiếng ở Đà Nẵng",
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2e/13/51/a5/exterior.jpg?w=1400&h=-1&s=1",
+        "category": "Du lịch",
+        "status": "Xuất bản",
+        "publishDate": "2024-10-05",
+        "shortDescription": "Đà Nẵng không chỉ nổi tiếng với các bãi biển đẹp mà còn có các khu nghỉ dưỡng sang trọng, mang đến những trải nghiệm nghỉ dưỡng tuyệt vời cho du khách.",
+        "content": "Đà Nẵng, với những bãi biển dài và cát trắng mịn, là một trong những thành phố du lịch hấp dẫn tại Việt Nam. Các khu nghỉ dưỡng như InterContinental Danang Sun Peninsula Resort, Furama Resort, và Vinpearl Luxury Danang không chỉ cung cấp dịch vụ cao cấp mà còn có các tiện ích như bể bơi vô cực, spa thư giãn và các hoạt động thể thao dưới nước. Đây là những lựa chọn lý tưởng cho những ai muốn thư giãn và tận hưởng kỳ nghỉ hoàn hảo."
+    },
+    {
+        "id": 12,
+        "title": "Vì sao Phú Yên trở thành điểm đến không thể bỏ qua?",
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/2b/5e/7e/c6/wink-space-ground-floor.jpg?w=1400&h=-1&s=1",
+        "category": "Tin tức",
+        "status": "Xuất bản",
+        "publishDate": "2024-09-25",
+        "shortDescription": "Phú Yên đang trở thành một điểm đến hấp dẫn với cảnh quan hoang sơ, các bãi biển đẹp và nhiều địa danh nổi tiếng như Gành Đá Đĩa, Mũi Điện.",
+        "content": "Phú Yên là một trong những điểm đến du lịch mới nổi ở Việt Nam, nổi bật với cảnh quan thiên nhiên hoang sơ, những bãi biển đẹp như Bãi Xép, Bãi Môn và các di tích lịch sử, văn hóa đặc sắc. Gành Đá Đĩa, Mũi Điện và đầm Ô Loan là những điểm đến không thể bỏ qua khi đến Phú Yên. Bên cạnh đó, du khách còn có cơ hội thưởng thức các món hải sản tươi ngon như cá ngừ, sò huyết, mực nướng, khiến Phú Yên trở thành một điểm đến lý tưởng cho những ai yêu thích biển."
+    },
+    {
+        "id": 13,
+        "title": "Cẩm nang du lịch Đà Lạt: Lịch trình và mẹo vặt",
+        "image": "https://dynamic-media.tacdn.com/media/vr-ha-splice-j/0d/4b/13/f7.jpg?w=800&h=800",
+        "category": "Kinh nghiệm",
+        "status": "Nháp",
+        "publishDate": "2024-09-10",
+        "shortDescription": "Đà Lạt là một điểm đến lý tưởng cho kỳ nghỉ dưỡng, với khí hậu mát mẻ, phong cảnh lãng mạn và các địa điểm du lịch nổi tiếng như Thung Lũng Tình Yêu, Hồ Xuân Hương.",
+        "content": "Đà Lạt, với khí hậu mát mẻ và thiên nhiên xanh mướt, là một trong những điểm du lịch nổi tiếng ở miền Nam Việt Nam. Cẩm nang du lịch Đà Lạt sẽ giúp bạn lên kế hoạch cho một chuyến đi hoàn hảo. Bạn có thể thăm các vườn hoa, thưởng thức trà atiso tại các quán cà phê trong rừng, tham quan Thung Lũng Tình Yêu, Hồ Xuân Hương, và chinh phục các địa điểm cao nguyên như Lang Biang. Đặc biệt, đừng quên thưởng thức các món ăn ngon như bánh tráng nướng, sữa đậu nành và các món đặc sản địa phương."
+    },
+    {
+        "id": 14,
+        "title": "Điều gì làm cho Ninh Bình trở thành thiên đường du lịch?",
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/74/13/35/lalita-boutique-hotel.jpg?w=1400&h=-1&s=1",
+        "category": "Du lịch",
+        "status": "Xuất bản",
+        "publishDate": "2024-08-15",
+        "shortDescription": "Ninh Bình với những hang động kỳ vĩ, những dãy núi đá vôi và những cánh đồng lúa xanh mướt là một trong những điểm du lịch nổi tiếng tại miền Bắc Việt Nam.",
+        "content": "Ninh Bình được biết đến với những cảnh quan thiên nhiên tuyệt đẹp, bao gồm các khu di sản thiên nhiên như Tràng An, Tam Cốc và Bái Đính. Du khách có thể tham gia vào các chuyến thuyền ngắm cảnh, chiêm ngưỡng những dãy núi đá vôi, thăm các chùa chiền cổ kính, và khám phá các hang động huyền bí. Bên cạnh đó, Ninh Bình còn nổi tiếng với các món ăn đặc sản như cơm cháy, dê núi, và cá rô đồng."
+    },
+    {
+        "id": 15,
+        "title": "Trải nghiệm nghỉ dưỡng tại các resort 5 sao ở Phú Quốc",
+        "image": "https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/f1/20/33/movenpick-residences.jpg?w=1000&h=-1&s=1",
+        "category": "Tin tức",
+        "status": "Nháp",
+        "publishDate": "2024-07-30",
+        "shortDescription": "Phú Quốc nổi bật với các khu resort cao cấp 5 sao, nơi du khách có thể tận hưởng kỳ nghỉ dưỡng đẳng cấp với tiện nghi hiện đại và dịch vụ hoàn hảo.",
+        "content": "Phú Quốc là thiên đường nghỉ dưỡng với các khu resort 5 sao sang trọng như JW Marriott, Vinpearl Phú Quốc và InterContinental Phú Quốc. Những khu nghỉ dưỡng này không chỉ cung cấp các biệt thự riêng tư với hồ bơi vô cực, mà còn có các dịch vụ spa thư giãn, nhà hàng ẩm thực cao cấp và các hoạt động thể thao dưới nước như lặn biển, chèo thuyền kayak. Đây là địa điểm lý tưởng để tận hưởng kỳ nghỉ thư giãn, tạm biệt nhịp sống vội vã của thành phố."
     }
 ]
