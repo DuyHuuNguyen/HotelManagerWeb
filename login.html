@@ -357,12 +357,31 @@
   <!-- partial -->
   <script>
     // Lấy các phần tử cần thiết
-    const loginText = document.querySelector(".title-text .login");
-    const loginForm = document.querySelector("form.login");
-    const signupForm = document.querySelector("form.signup");
-    const loginBtn = document.querySelector("label.login");
-    const signupBtn = document.querySelector("label.signup");
-    const signupLink = document.querySelector("form .signup-link a");
+  const loginText = document.querySelector(".title-text .login");
+  const loginForm = document.querySelector("form.login");
+  const signupForm = document.querySelector("form.signup");
+  const loginBtn = document.querySelector("label.login");
+  const signupBtn = document.querySelector("label.signup");
+  const signupLink = document.querySelector("form .signup-link a");
+
+  // Lưu thông tin giáo viên vào localStorage nếu chưa có
+  const defaultEmail = "giaovien@gmail.com";
+  const defaultPassword = "123456";
+
+  // Kiểm tra và lưu trữ thông tin mặc định vào localStorage
+  if (!localStorage.getItem("teacher")) {
+    localStorage.setItem("teacher", JSON.stringify({ email: defaultEmail, password: defaultPassword }));
+  }
+
+  // Điền trước thông tin email và mật khẩu khi giáo viên đăng nhập
+  window.addEventListener("load", function() {
+    const teacher = JSON.parse(localStorage.getItem("teacher"));
+    if (teacher) {
+      // Điền email và mật khẩu mặc định vào form đăng nhập
+      loginForm.querySelector('input[type="text"]').value = teacher.email;
+      loginForm.querySelector('input[type="password"]').value = teacher.password;
+    }
+  });
 
     // Chuyển đổi giữa form Login và Signup
     signupBtn.onclick = () => {
@@ -478,10 +497,11 @@
         return;
       }
       // Kiểm tra thông tin đăng nhập
+      const teacher = JSON.parse(localStorage.getItem("teacher"));
       const users = JSON.parse(localStorage.getItem("users")) || [];
       const validUser = users.find((user) => user.email === email && user.password === password);
 
-      if (validUser) {
+      if (validUser||teacher && teacher.email === email && teacher.password === password) {
         showToast("Đăng nhập thành công!", "success");
         window.location.href = "index.html"; // Chuyển hướng tới trang index.html
       } else {
