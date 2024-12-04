@@ -965,8 +965,8 @@ const HotelManagement = () => {
                     <thead>
                         <tr>
                             <th style={{ width: "5%" }}>STT</th>
-                            <th style={{ width: "15%" }}>Tên phòng</th>
-                            <th style={{ width: "20%" }}>Hình ảnh</th>
+                            <th style={{ width: "20%" }}>Tên phòng</th>
+                            <th style={{ width: "15%" }}>Hình ảnh</th>
                             <th style={{ width: "15%" }}>HomeStay</th>
                             <th style={{ width: "25%" }}>Thông tin</th>
                             <th style={{ width: "10%" }}>Trạng thái</th>
@@ -1003,14 +1003,14 @@ const HotelManagement = () => {
                                     <div className="d-flex justify-content-center gap-2">
                                         <button
                                             className="btn btn-sm btn-outline-primary rounded"
-                                            title="Edit room"
+                                            title="Edit Room"
                                             onClick={() => handleEdit(room)}
                                         >
                                             <PencilIcon />
                                         </button>
                                         <button
                                             className="btn btn-sm btn-outline-danger rounded"
-                                            title="Delete room"
+                                            title="Delete Room"
                                             onClick={() => handleDelete(room)}
                                         >
                                             <TrashIcon />
