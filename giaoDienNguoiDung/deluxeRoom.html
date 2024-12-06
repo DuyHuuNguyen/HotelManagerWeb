@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Deluxe Room Details">
+    <meta name="keywords" content="Deluxe Room, Hotel, Luxury">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Deluxe Room Details</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Cabin', sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        .breadcrumb-section {
+            background-image: url('img/deluxe-room-banner.jpg');
+            background-size: cover;
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .breadcrumb-section h2 {
+            font-size: 48px;
+            font-weight: 700;
+        }
+
+        /* Deluxe Room Section */
+        .deluxe-room-details {
+            padding: 60px 0;
+            background-color: #fff;
+        }
+
+        .deluxe-room-details .row {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        /* Column 1: Image and Quick Info */
+        .room-image img {
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .room-image img:hover {
+            transform: scale(1.05);
+        }
+
+        .room-quick-info h3,
+        .room-quick-info ul {
+            font-weight: 600;
+        }
+
+        .room-quick-info ul li {
+            padding: 8px 0;
+            font-size: 16px;
+        }
+
+        /* Column 2: Detailed Description */
+        .room-description h4 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-top: 20px;
+        }
+
+        .room-description ul li {
+            font-size: 16px;
+            padding: 8px 0;
+        }
+
+        /* General Styles for Buttons */
+.cta-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+/* Primary Button */
+.cta-buttons .btn {
+    font-size: 18px;
+    font-weight: 700;
+    padding: 16px 40px;
+    border-radius: 50px; /* Bo góc tròn sang trọng */
+    transition: all 0.3s ease;
+    display: inline-block;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 1px;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Thêm bóng cho nút */
+}
+
+/* Primary Button: Blue Gradient */
+.cta-buttons .btn-primary {
+    background: linear-gradient(45deg, #003366, #0056b3); /* Gradient xanh đậm */
+    color: white;
+    border: 2px solid transparent;
+}
+
+.cta-buttons .btn-primary:hover {
+    background: linear-gradient(45deg, #004b87, #003366); /* Hiệu ứng gradient sâu hơn khi hover */
+    box-shadow: 0 8px 20px rgba(0, 86, 179, 0.3); /* Bóng đổ mạnh hơn khi hover */
+    transform: translateY(-2px); /* Hiệu ứng nâng nút lên khi hover */
+}
+
+/* Secondary Button: Gold */
+.cta-buttons .btn-secondary {
+    background-color: #d4af37; /* Màu vàng đồng */
+    color: white;
+    border: 2px solid #d4af37;
+}
+
+.cta-buttons .btn-secondary:hover {
+    background-color: #b38b2e; /* Màu vàng đậm hơn khi hover */
+    border-color: #b38b2e;
+    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2); /* Hiệu ứng bóng đổ khi hover */
+    transform: translateY(-2px);
+}
+
+/* Modal Styles */
+.modal-content {
+    border-radius: 15px;
+    padding: 30px;
+    background-color: #333; /* Màu nền modal đen xám */
+    border: 1px solid #444;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Hiệu ứng bóng đổ cho modal */
+    color: #e0e0e0; /* Màu chữ sáng để dễ đọc trên nền tối */
+}
+
+/* Modal Header */
+.modal-header {
+    border-bottom: 2px solid #d4af37; /* Dải vàng đồng giữa header */
+    padding-bottom: 10px;
+}
+
+.modal-title {
+    font-size: 26px;
+    font-weight: 700;
+    color: #d4af37; /* Tiêu đề màu vàng đồng */
+}
+
+.modal-body {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #f0f0f0; /* Chữ sáng cho nội dung modal */
+}
+
+.modal-body ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.modal-body ul li {
+    margin-bottom: 16px;
+}
+
+/* Modal Footer */
+.modal-footer {
+    border-top: 2px solid #444;
+    padding-top: 15px;
+}
+
+/* Modal Close Button */
+.modal-footer .btn-secondary {
+    background-color: #6c757d;
+    color: white;
+}
+
+.modal-footer .btn-secondary:hover {
+    background-color: #495057;
+}
+
+/* Additional Effects for Buttons */
+.cta-buttons .btn:active {
+    transform: scale(0.98); /* Hiệu ứng nhấn nút */
+}
+
+.cta-buttons .btn:focus {
+    outline: none; /* Loại bỏ viền khi chọn */
+    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.3); /* Viền sáng khi nút được chọn */
+}
+
+        /* Why Choose This Room */
+        .why-choose-room {
+            background-color: #fff;
+            padding: 40px 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-top: 60px;
+        }
+
+        .why-choose-room h3 {
+            font-size: 30px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .why-choose-room ul {
+            font-size: 16px;
+            list-style: none;
+            padding: 0;
+        }
+
+        .why-choose-room ul li {
+            padding: 12px 0;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid #e1e1e1;
+        }
+
+        .why-choose-room ul li i {
+            font-size: 22px;
+            margin-right: 15px;
+            color: #28a745;
+        }
+
+        .why-choose-room ul li span {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        /* Gallery Section */
+        .gallery-section {
+            background-color: #f4f4f4;
+            padding: 60px 30px;
+        }
+
+        .gallery-section h3 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 40px;
+        }
+
+        .gallery-section .row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .gallery-section .col-md-4 {
+            flex: 1;
+            position: relative;
+        }
+
+        .gallery-section img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-section img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Customer Testimonials */
+        .testimonials-section {
+            background-color: #fff;
+            padding: 60px 30px;
+            margin-top: 60px;
+        }
+
+        .testimonials-section h3 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 40px;
+        }
+
+        .testimonial-item {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .testimonial-item img {
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-item p {
+            font-size: 18px;
+            font-style: italic;
+            color: #666;
+        }
+
+        .testimonial-item h5 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 60px 30px;
+            background-color: #f4f4f4;
+            margin-top: 60px;
+        }
+
+        .faq-section h3 {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 40px;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+        }
+
+        .faq-item h5 {
+            font-size: 20px;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .faq-item p {
+            font-size: 16px;
+            color: #666;
+        }
+
+        /* Video Section */
+.video-section {
+    padding: 60px 0;
+    background-color: #f9f9f9; /* Tạo nền sáng cho phần video */
+    margin-bottom: 300px;
+}
+
+.video-section h3 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+/* Video Container */
+.video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* Aspect ratio 16:9 (16/9 = 1.77) */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    margin-bottom: 40px; /* Giúp tách phần video với các phần dưới */
+}
+
+/* Style iframe để khớp với container */
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .video-section h3 {
+        font-size: 28px; /* Giảm kích thước font tiêu đề trên màn hình nhỏ */
+    }
+}
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Offcanvas Menu Section Begin -->
+    <div class="offcanvas-menu-overlay"></div>
+    <div class="canvas-open">
+        <i class="icon_menu"></i>
+    </div>
+    <div class="offcanvas-menu-wrapper">
+        <div class="canvas-close">
+            <i class="icon_close"></i>
+        </div>
+       
+        <div class="header-configure-area">
+            
+            <a href="../index.html" class="bk-btn">Quản lý</a>
+        </div>
+        <nav class="mainmenu mobile-menu">
+            <ul>
+                <li class="active"><a href="./index.html">Trang Chủ</a></li>
+                <li><a href="./homeStay.html">HomeStay</a></li>
+                <!-- <li><a href="./about-us.html">About Us</a></li> -->
+                <!-- <li><a href="./pages.html"></a>
+                    <ul class="dropdown">
+                        <li><a href="./room-details.html">Room Details</a></li>
+                        <li><a href="#">Deluxe Room</a></li>
+                        <li><a href="#">Family Room</a></li>
+                        <li><a href="#">Premium Room</a></li>
+                    </ul>
+                </li> -->
+                <li><a href="./blog.html">Tin Tức</a></li>
+                <li><a href="./contact.html">Liên hệ</a></li>
+            </ul>
+        </nav>
+        <div id="mobile-menu-wrap"></div>
+        <div class="top-social">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-tripadvisor"></i></a>
+            <a href="#"><i class="fa fa-instagram"></i></a>
+        </div>
+        <ul class="top-widget">
+            <li><i class="fa fa-phone"></i> (12) 345 67890</li>
+            <li><i class="fa fa-envelope"></i> info.colorlib@gmail.com</li>
+        </ul>
+    </div>
+    <!-- Offcanvas Menu Section End -->
+
+    <!-- Header Section Begin -->
+    <header class="header-section">
+        <div class="top-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <ul class="tn-left">
+                            <li><i class="fa fa-phone"></i> (12) 345 67890</li>
+                            <li><i class="fa fa-envelope"></i> info.colorlib@gmail.com</li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="tn-right">
+                            <div class="top-social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-tripadvisor"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </div>
+                            <a href="../index.html" class="bk-btn">Quản lý</a>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="menu-item">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="logo">
+                            <a href="./index.html">
+                                <h3>Group10</h3>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-10">
+                        <div class="nav-menu">
+                            <nav class="mainmenu">
+                                <ul>
+                                    <li ><a href="./index.html">Trang Chủ</a></li>
+                                    <li class="active"><a href="./homeStay.html">HomeStay</a></li>
+                                    <!-- <li><a href="./about-us.html">About Us</a></li> -->
+                                    <!-- <li><a href="./pages.html">Pages</a>
+                                        <ul class="dropdown">
+                                            <li><a href="./room-details.html">Room Details</a></li>
+                                            <li><a href="./blog-details.html">Blog Details</a></li>
+                                            <li><a href="#">Family Room</a></li>
+                                            <li><a href="#">Premium Room</a></li>
+                                        </ul>
+                                    </li> -->
+                                    <li><a href="./blog.html">Bài viết</a></li>
+                                    <li><a href="./contact.html">Liên Hệ</a></li>
+                                </ul>
+                            </nav>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header End -->
+
+    <!-- Breadcrumb Section Begin -->
+    <div class="breadcrumb-section">
+        <div class="container">
+            <div class="breadcrumb-text">
+                <h2>Deluxe Room</h2>
+                <div class="bt-option">
+                    <a href="./index.html">Home</a>
+                    <a href="homeStay.html">Home Stay</a>
+                    <a href="rooms.html">Rooms</a>
+                    <span>Deluxe Room</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumb Section End -->
+
+    <!-- Deluxe Room Section -->
+    <section class="deluxe-room-details">
+        <div class="container">
+            <div class="row">
+                <!-- Column 1: Image and Quick Details -->
+                <div class="col-lg-6">
+                    <div class="room-image">
+                        <img src="https://i.pinimg.com/originals/54/47/c7/5447c76323d6f6f93c24eba837587b97.jpg" alt="Deluxe Room" class="img-fluid">
+                    </div>
+                    <div class="room-quick-info mt-4">
+                        <h3>Quick Overview</h3>
+                        <ul>
+                            <li><strong>Size:</strong> 45 m²</li>
+                            <li><strong>Capacity:</strong> 2 Adults, 1 Child</li>
+                            <li><strong>Bed:</strong> King-size</li>
+                            <li><strong>Floor:</strong> 3rd Floor</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Column 2: Detailed Description -->
+                <div class="col-lg-6">
+                    <h3>About Our Deluxe Room</h3>
+                    <p>Experience the ultimate comfort in our luxurious Deluxe Rooms. Featuring a king-size bed, spacious living area, and modern amenities, this room is perfect for couples or small families looking for a cozy yet elegant retreat.</p>
+                    <p>Our Deluxe Room offers a blend of sophisticated decor and practical comfort. You’ll enjoy stunning views of the city and exceptional services to make your stay memorable.</p>
+                    
+                    <!-- Buttons -->
+                    <div class="cta-buttons">
+                        <a href="#" class="btn btn-primary">Book Now</a>
+                        <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#learnMoreModal">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Modal for "Learn More" -->
+                <div class="modal fade" id="learnMoreModal" tabindex="-1" aria-labelledby="learnMoreModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="learnMoreModalLabel">Learn More about the Deluxe Room</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <h4>Room Features:</h4>
+                                <ul>
+                                    <li>King-size bed with high-quality bedding</li>
+                                    <li>Spacious living area with comfortable seating</li>
+                                    <li>Elegant decor with contemporary design</li>
+                                    <li>Stunning city views from your private window</li>
+                                    <li>Complimentary high-speed Wi-Fi and in-room entertainment</li>
+                                    <li>24/7 room service and housekeeping</li>
+                                </ul>
+                                <p>The Deluxe Room provides both luxury and comfort, making it an ideal choice for both business and leisure travelers. Whether you're here for work or relaxation, the room is designed to offer the best experience possible.</p>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Why Choose This Room -->
+            <div class="why-choose-room mt-5">
+                <h3>Why Choose This Room</h3>
+                <ul>
+                    <li><i class="fa fa-check-circle"></i><span>Modern Amenities for Your Comfort</span></li>
+                    <li><i class="fa fa-check-circle"></i><span>Perfect for Couples or Small Families</span></li>
+                    <li><i class="fa fa-check-circle"></i><span>Stunning Views</span></li>
+                    <li><i class="fa fa-check-circle"></i><span>Exclusive Discounts for Early Bookings</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- Deluxe Room Section End -->
+
+    <!-- Video Section Begin -->
+    <section class="video-section">
+        <div class="container">
+            <h3>Take a Tour of Our Deluxe Rooms</h3>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/ONhNhe0tQ6M" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+    <!-- Video Section End -->
+
+    <!-- Gallery Section Begin -->
+    <section class="gallery-section">
+        <div class="container">
+            <h3>Gallery</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="https://th.bing.com/th/id/OIP.2rqlcWuuMYYjXH91f7GtWwHaEK?rs=1&pid=ImgDetMain" alt="Room View">
+                </div>
+                <div class="col-md-4">
+                    <img src="https://images5.alphacoders.com/348/348785.jpg" alt="Room Decor">
+                </div>
+                <div class="col-md-4">
+                    <img src="https://th.bing.com/th/id/OIP.PeXLTAq4rYPNPueypjWwngHaEJ?rs=1&pid=ImgDetMain" alt="Room Space">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Gallery Section End -->
+
+    <!-- Testimonials Section Begin -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h3>What Our Guests Say</h3>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="testimonial-item">
+                        <img src="https://th.bing.com/th/id/OIP.QYtSweb1rEbaxZAoqn0VZgHaEK?rs=1&pid=ImgDetMain" alt="Guest 1">
+                        <p>"The room was incredible! The view was perfect, and the service was beyond expectations."</p>
+                        <h5>Cristiano Ronaldo</h5>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-item">
+                        <img src="https://th.bing.com/th/id/OIP.Xv9hlp_x_nfXwflUH2ZlrAHaF7?rs=1&pid=ImgDetMain" alt="Guest 2">
+                        <p>"An amazing experience! Highly recommend it for a relaxing weekend getaway."</p>
+                        <h5>Emma Waston</h5>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="testimonial-item">
+                        <img src="https://th.bing.com/th/id/OIP.9XfOyLPT7-V2m9gvf6nsvgHaHa?rs=1&pid=ImgDetMain" alt="Guest 3">
+                        <p>"Fantastic stay with excellent amenities. We’ll definitely be coming back!"</p>
+                        <h5>Son Tung MTP</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials Section End -->
+
+    <!-- FAQ Section Begin -->
+    <section class="faq-section">
+        <div class="container">
+            <h3>Frequently Asked Questions</h3>
+            <div class="faq-item">
+                <h5>Is breakfast included?</h5>
+                <p>Yes, breakfast is included with all bookings.</p>
+            </div>
+            <div class="faq-item">
+                <h5>Do you offer airport transfers?</h5>
+                <p>Yes, we offer airport transfers at an additional cost.</p>
+            </div>
+            <div class="faq-item">
+                <h5>Can I request early check-in?</h5>
+                <p>Early check-in is subject to availability. Please contact us for further details.</p>
+            </div>
+        </div>
+    </section>
+    <!-- FAQ Section End -->
+
+    <!-- Footer Section Begin -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="footer-text">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="ft-about">
+                            <div class="logo">
+                                <a href="#">
+                                    <img src="img/footer-logo.png" alt="">
+                                </a>
+                            </div>
+                            <p>We inspire and reach millions of travelers<br /> across 90 local websites</p>
+                            <div class="fa-social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-tripadvisor"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                                <a href="#"><i class="fa fa-youtube-play"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-1">
+                        <div class="ft-contact">
+                            <h6>Contact Us</h6>
+                            <ul>
+                                <li>(12) 345 67890</li>
+                                <li>info.colorlib@gmail.com</li>
+                                <li>856 Cordia Extension Apt. 356, Lake, United State</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3 offset-lg-1">
+                        <div class="ft-newslatter">
+                            <h6>New latest</h6>
+                            <p>Get the latest updates and offers.</p>
+                            <form action="#" class="fn-form">
+                                <input type="text" placeholder="Email">
+                                <button type="submit"><i class="fa fa-send"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="copyright-option">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7">
+                        <ul>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Terms of use</a></li>
+                            <li><a href="#">Privacy</a></li>
+                            <li><a href="#">Environmental Policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-5">
+                        <div class="co-text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Search model Begin -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch"><i class="icon_close"></i></div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search model end -->
+
+    <!-- Js Plugins -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <!-- <script src="js/jquery-3.3.1.min.js"></script> -->
+    <!-- <script src="js/bootstrap.min.js"></script> -->
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/jquery-ui.min.js"></script>
+    <script src="js/jquery.slicknav.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/main.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
