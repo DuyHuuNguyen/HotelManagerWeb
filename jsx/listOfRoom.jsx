@@ -8,7 +8,7 @@ const initialRooms = [
         name: "Deluxe Room with Hammock",
         image: "https://i.pinimg.com/736x/90/eb/df/90ebdf2408037ade7af157117b96b0dd.jpg",
         homestay: "Green Suites Hotel",
-        location: "Công viên Hạ Long",
+        location: "Công viên Hạ Long, Khu du lịch Bãi Cháy, Phường Bãi Cháy, Thành phố Hạ Long, Tỉnh Quảng Ninh, Việt Nam",
         price: 1550000,
         discount: 0,
         maxGuests: 12,
@@ -245,7 +245,7 @@ const AddRoomPage = ({ onSave, onCancel }) => {
                                                         <input
                                                             type="text"
                                                             name="name"
-                                                            className="form-control form-control-lg"
+                                                            className="form-control"
                                                             value={formData.name}
                                                             onChange={handleChange}
                                                             required
@@ -255,7 +255,7 @@ const AddRoomPage = ({ onSave, onCancel }) => {
                                                         <label className="form-label fw-bold">HomeStay</label>
                                                         <select
                                                             name="homestay"
-                                                            className="form-select form-select-lg"
+                                                            className="form-select"
                                                             value={formData.homestay}
                                                             onChange={handleChange}
                                                         >
@@ -434,13 +434,13 @@ const AddRoomPage = ({ onSave, onCancel }) => {
                                         <button
                                             type="button"
                                             onClick={handleCancel}
-                                            className="btn btn-outline-secondary btn-lg px-4"
+                                            className="btn btn-outline-secondary px-4"
                                         >
                                             Hủy
                                         </button>
                                         <button
                                             type="submit"
-                                            className="btn btn-primary btn-lg px-4"
+                                            className="btn btn-primary px-4"
                                         >
                                             Thêm phòng
                                         </button>
@@ -568,7 +568,7 @@ const EditRoomPage = ({ room, onSave, onCancel }) => {
                                                     <input
                                                         type="text"
                                                         name="name"
-                                                        className="form-control form-control-lg"
+                                                        className="form-control"
                                                         value={formData.name}
                                                         onChange={handleChange}
                                                         required
@@ -578,7 +578,7 @@ const EditRoomPage = ({ room, onSave, onCancel }) => {
                                                     <label className="form-label fw-bold">HomeStay</label>
                                                     <select
                                                         name="homestay"
-                                                        className="form-select form-select-lg"
+                                                        className="form-select"
                                                         value={formData.homestay}
                                                         onChange={handleChange}
                                                     >
@@ -757,13 +757,13 @@ const EditRoomPage = ({ room, onSave, onCancel }) => {
                                     <button
                                         type="button"
                                         onClick={handleCancel}
-                                        className="btn btn-outline-secondary btn-lg px-4"
+                                        className="btn btn-outline-secondary px-4"
                                     >
                                         Hủy
                                     </button>
                                     <button
                                         type="submit"
-                                        className="btn btn-primary btn-lg px-4"
+                                        className="btn btn-primary px-4"
                                     >
                                         Lưu dữ liệu
                                     </button>
@@ -965,8 +965,8 @@ const HotelManagement = () => {
                     <thead>
                         <tr>
                             <th style={{ width: "5%" }}>STT</th>
-                            <th style={{ width: "15%" }}>Tên phòng</th>
-                            <th style={{ width: "20%" }}>Hình ảnh</th>
+                            <th style={{ width: "20%" }}>Tên phòng</th>
+                            <th style={{ width: "15%" }}>Hình ảnh</th>
                             <th style={{ width: "15%" }}>HomeStay</th>
                             <th style={{ width: "25%" }}>Thông tin</th>
                             <th style={{ width: "10%" }}>Trạng thái</th>
@@ -1003,12 +1003,14 @@ const HotelManagement = () => {
                                     <div className="d-flex justify-content-center gap-2">
                                         <button
                                             className="btn btn-sm btn-outline-primary rounded"
+                                            title="Edit Room"
                                             onClick={() => handleEdit(room)}
                                         >
                                             <PencilIcon />
                                         </button>
                                         <button
                                             className="btn btn-sm btn-outline-danger rounded"
+                                            title="Delete Room"
                                             onClick={() => handleDelete(room)}
                                         >
                                             <TrashIcon />
