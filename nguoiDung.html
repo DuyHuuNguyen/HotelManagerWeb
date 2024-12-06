@@ -79,23 +79,18 @@
             <div class="breadcrumb">
                 <span>Trang chủ</span><span>/</span><span>HomeStay</span><span>/</span><span style="color: #A0AEC0;">Danh sách</span>
             </div>
-            <div class="max-w-7xl mx-auto bg-white rounded-lg shadow p-6 mb-6">
+            <div class="w-full lg:flex sm:block mx-auto bg-white rounded-lg shadow p-6 mb-6">
                 <!-- Search Form -->
-                <div class="mb-6">
-                    <h2 class="text-lg font-medium mb-4">Form tìm kiếm</h2>
-                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4">
+                <div class="lg:flex md:block sm:block mb-6 w-full">
+                    
+                    <div class="flex mb-4">
                         <input type="text" id="roomName" placeholder="Họ tên" 
-                            class="border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-500">
-                        <input type="text" id="customerName" placeholder="Vai trò" 
-                            class="border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-500">
-                        <input type="email" id="email" placeholder="Email" 
-                            class="border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-500">
-                        <input type="tel" id="phone" placeholder="Số điện thoại" 
-                            class="border rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                            class="border h-[42px] mr-2 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-green-500">
+                            
                     </div>
                     <div class="w-full">
                         <button onclick="searchBookings()" 
-                        class="flex bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition duration-200">
+                        class="flex border border-black text-black px-2 py-2 rounded-md transition duration-200">
                         <svg class="w-5 mr-1 flex items-center" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
                             <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z" clip-rule="evenodd" />
                           </svg>
@@ -104,18 +99,20 @@
                     </div>
                 </div>
                 <!-- Bookings Table -->
-               
+            
+            </div>
+            <div class="flex w-full justify-end">
+                <button class="bg-[#00ACC1] flex p-2 m-2 rounded-[5px] text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
+                        <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
+                      </svg>
+                      
+                    Tạo mới</button>
             </div>
             <div class="table-container">
-                <div class="flex w-full justify-end">
-                    <button class="bg-[#00ACC1] flex p-2 m-2 rounded-[5px] text-white">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="size-5">
-                            <path d="M10.75 4.75a.75.75 0 0 0-1.5 0v4.5h-4.5a.75.75 0 0 0 0 1.5h4.5v4.5a.75.75 0 0 0 1.5 0v-4.5h4.5a.75.75 0 0 0 0-1.5h-4.5v-4.5Z" />
-                          </svg>
-                          
-                        Tạo mới</button>
-                </div>
-                <table class="booking-table">
+               
+                <table class="booking-table relative">
+                    
                     <thead>
                        
                         <tr class="bg-gray-100">
@@ -140,6 +137,7 @@
                                 <td> 
                                     <div class="action-buttons"> 
                                     <button class="edit-button"><i class="fas fa-edit"></i></button>
+                                    <!-- <button class="btn btn-secondary"><i class="fas fa-edit"></i></button> -->
                                     <button class="delete-button"><i class="fas fa-trash"></i></button>
                                     </div>
                                 </td>
@@ -257,8 +255,8 @@
                                 <td>${user.id.status}</td>
                                 <td> 
                                     <div class="action-buttons"> 
-                                    <button class="edit-button"><i class="fas fa-edit"></i></button>
-                                    <button class="delete-button"><i class="fas fa-trash"></i></button>
+                                    <button class="btn btn-secondary me-2"><i class="fas fa-edit"></i></button>
+                                    <button class="btn btn-secondary"><i class="fas fa-trash"></i></button>
                                     </div>
                                 </td>`;
                 tbody.appendChild(row);
