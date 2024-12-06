@@ -236,6 +236,30 @@
 }
 table tr th{
     background-color: #dee2e6;
+    text-align: center;
+}
+table tbody tr td img {
+    max-width: 60%;
+    border-radius: 10%;
+    width: 120%;
+    height: 120%;
+}
+
+table tbody tr td:nth-child(3) {
+    width: 30%;
+    text-align: center;
+}
+table tbody tr td:nth-child(4) {
+    width: 12%;
+    text-align: center;
+}
+table tbody tr td:nth-child(5) {
+    width: 12%;
+    text-align: center;
+}
+table tbody tr td:nth-child(6) {
+    width: 12%;
+    text-align: center;
 }
 .action-btn-top {
     display: flex;
@@ -272,12 +296,6 @@ table tr th{
 
 .action-btn-top .action-btn i {
     margin-right: 0.5rem; /* Thêm khoảng cách giữa biểu tượng và văn bản */
-}
-  
-img{
-    border-radius: 14%;
-    width: 60%;
-    height: 60%;
 }
   .edit-button {
     background-color: #4299E1;
@@ -407,7 +425,6 @@ img{
         font-size: 0.9rem;
     }
 }
-
 /* Thanh tìm kiếm */
 .search-bar {
     display: flex;
