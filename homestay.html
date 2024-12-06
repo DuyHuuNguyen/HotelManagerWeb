@@ -10,41 +10,7 @@
   <link rel="stylesheet" href="css\homstay.css">
 
 
-<style>
-    .modal {
-    display: none; 
-    position: fixed;
-    z-index: 10;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-}
 
-.modal-content {
-    /* margin: auto; */
-   
-    /* max-width: 80%;
-    max-height: 80%; */
-}
-.image-container {
-    position: relative;
-}
-.thumbnail {
-    width: 200px;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.thumbnail:hover {
-    transform: scale(1.1);
-}
-
-</style>
 </head>
 <body>
     <header class="header">
@@ -245,7 +211,13 @@
                         
                         <td>${index + 1}</td>
                         <td>${homeStay.name}</td>
-                        <td><img src="${homeStay.image}" alt="${homeStay.name}" class="homestay-image"   onclick="openModal(this)"  ></td>
+
+
+                       
+
+                
+                             <td><img     src="${homeStay.image}" alt="${homeStay.name}"  class="homestay-image"  ></td>
+                  
                           
                        
 
@@ -272,17 +244,17 @@
 
 
 
-    //     function openModal(img) {
-    //         const modal = document.getElementById('imageModal');
-    //         const fullImage = document.getElementById('fullImage');
-    //         modal.style.display = "flex";
-    //         // fullImage.src = img.src; 
-    //     }
+        function showFullScreen(img) {
+            const fullscreenDiv = document.getElementById('fullscreen');
+            const fullscreenImg = document.getElementById('fullscreen-img');
+            fullscreenImg.src = img.src;
+            fullscreenDiv.style.display = 'flex';
+        }
 
-    //     function closeModal() {
-    //         const modal = document.getElementById('imageModal');
-    //         modal.style.display = "none";
-    //     } 
+        function closeFullScreen() {
+            const fullscreenDiv = document.getElementById('fullscreen');
+            fullscreenDiv.style.display = 'none';
+        }
     </script>
 </body>
 </html>
