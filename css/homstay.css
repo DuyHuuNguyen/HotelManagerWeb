@@ -128,8 +128,8 @@
   }
 
   .homestay-image {
-    width: 128px;
-    height: 96px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     border-radius: 0.25rem;
   }
