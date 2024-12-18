@@ -7,9 +7,12 @@
     <meta name="keywords" content="Sona, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Group10</title>
+
+    <title>Group10 - HomeStay Booking</title>
+
 
     <!-- Google Font -->
+     <link rel="website icon" href="img/homst.png">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
 
@@ -28,8 +31,20 @@
     <style>
         html {
             scroll-behavior: smooth;
+            overflow: visible;
         }
-
+        .sticky-header {
+            position: -webkit-sticky; /* For Safari */
+            position: sticky;
+            width: 100%;
+            top: 0;
+            z-index: 999999999999; /* Ensure it is above other content */
+            background-color: white; /* Optional: Ensure the header has a background */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better visibility */
+        }
+        body {
+            overflow: visible;
+        }
     </style>
 </head>
 
@@ -85,7 +100,7 @@
     <!-- Offcanvas Menu Section End -->
 
     <!-- Header Section Begin -->
-    <header class="header-section">
+    <header class="header-section ">
         <div class="top-nav">
             <div class="container">
                 <div class="row">
@@ -110,46 +125,51 @@
                 </div>
             </div>
         </div>
-        <div class="menu-item">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-2">
-                        <div class="logo">
-                            <a href="./index.html">
-                                <h3>Group10</h3>
-                            </a>
-                        </div>
+        
+    </header>
+
+    <div class="menu-item sticky-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="logo">
+                        <a href="./index.html">
+                            <h3>Group10</h3>
+                        </a>
                     </div>
-                    <div class="col-lg-10">
-                        <div class="nav-menu">
-                            <nav class="mainmenu">
-                                <ul>
-                                    <li class="active"><a href="./index.html">Trang Chủ</a></li>
-                                    <li><a href="./homeStay.html">Nhà Nghỉ</a></li>
-                                    <li><a href="./rooms.html">Danh Sách Phòng</a></li>
-                                    <!-- <li><a href="./about-us.html">About Us</a></li> -->
-                                    <!-- <li><a href="./pages.html">Pages</a>
-                                        <ul class="dropdown">
-                                            <li><a href="./room-details.html">Room Details</a></li>
-                                            <li><a href="./blog-details.html">Blog Details</a></li>
-                                            <li><a href="#">Family Room</a></li>
-                                            <li><a href="#">Premium Room</a></li>
-                                        </ul>
-                                    </li> -->
-                                    <li><a href="./blog.html">Bài viết</a></li>
-                                    <li><a href="./contact.html">Liên Hệ</a></li>
-                                </ul>
-                            </nav>
-                            
-                        </div>
+
+                </div>
+                <div class="col-lg-10">
+                    <div class="nav-menu">
+                        <nav class="mainmenu">
+                            <ul>
+                                <li class="active"><a href="./index.html">Trang Chủ</a></li>
+                                <li><a href="./homeStay.html">HomeStay</a></li>
+                                <!-- <li><a href="./about-us.html">About Us</a></li> -->
+                                <!-- <li><a href="./pages.html">Pages</a>
+                                    <ul class="dropdown">
+                                        <li><a href="./room-details.html">Room Details</a></li>
+                                        <li><a href="./blog-details.html">Blog Details</a></li>
+                                        <li><a href="#">Family Room</a></li>
+                                        <li><a href="#">Premium Room</a></li>
+                                    </ul>
+                                </li> -->
+                                <li><a href="./blog.html">Bài viết</a></li>
+                                <li><a href="./contact.html">Liên Hệ</a></li>
+                            </ul>
+                        </nav>
+                        
+
                     </div>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
+
     <!-- Header End -->
 
-    <!-- Hero Section Begin -->
+    <main>
+            <!-- Hero Section Begin -->
     <section class="hero-section" >
         <div class="container">
             <div class="row">
@@ -200,14 +220,14 @@
             <div class="hs-item set-bg" data-setbg="https://th.bing.com/th/id/R.6d4d0b4b3479f6ce94ab9c8f004ec636?rik=MN7d9NpGR%2fTiJg&pid=ImgRaw&r=0"></div>
             <div class="hs-item set-bg" data-setbg=" https://aworldtolive.com/wp-content/uploads/2024/09/16-unique-hotels-in-Thailand-PS-2048x1366.jpg"></div>
            
-            <div class="hs-item set-bg" data-setbg="https://pix10.agoda.net/hotelImages/632/632616/632616_14062609360020041472.jpg?ca=2&ce=1&s=1024x768"></div>
-            <div class="hs-item set-bg" data-setbg="https://lh3.googleusercontent.com/p/AF1QipOZJlQhl20k83PReLEHrP7nv6rIfs5umEj7lJTv=s1360-w1360-h1020"></div>
-            
-            
+ 
+            <div class="hs-item set-bg" data-setbg="img/hero/hero-3.jpg"></div>
+            <div class="hs-item set-bg" data-setbg="https://assets.cntraveller.in/photos/61ae3efeb519d3177e81ff10/master/pass/64670672_152335772591629_2280599886689854078_n.jpg"></div>  
+
         </div>
     </section>
     <!-- Hero Section End -->
-
+    
     <!-- Home Room Section Begin -->
     <section class="hp-room-section " id="homestay">
         <div class="container-fluid mt-5">
@@ -299,7 +319,10 @@
                                         </tr>
                                     </tbody>
                                 </table>
-                                <a href="rooms.html" class="primary-btn">Xem Chi Tiết</a>
+
+
+                                <a href="deluxeRoom.html" class="primary-btn">More Details</a>
+
                             </div>
                         </div>
                     </div>
@@ -399,6 +422,7 @@
         </div>
     </section>
     <!-- Blog Section End -->
+    </main>
      
 
     <!-- Footer Section Begin -->
