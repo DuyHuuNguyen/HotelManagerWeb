@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
 
     <!-- Css Styles -->
-    <!-- <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"> -->
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
@@ -34,7 +34,6 @@
             overflow: visible;
         }
         .sticky-header {
-            position: -webkit-sticky; /* For Safari */
             position: sticky;
             width: 100%;
             top: 0;
@@ -100,7 +99,7 @@
     <!-- Offcanvas Menu Section End -->
 
     <!-- Header Section Begin -->
-    <header class="header-section ">
+    <header class="header-section sticky-header">
         <div class="top-nav">
             <div class="container">
                 <div class="row">
@@ -125,46 +124,48 @@
                 </div>
             </div>
         </div>
-        
-    </header>
 
-    <div class="menu-item sticky-header">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-2">
-                    <div class="logo">
-                        <a href="./index.html">
-                            <h3>Group10</h3>
-                        </a>
+        <div class="menu-item ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-2">
+                        <div class="logo">
+                            <a href="./index.html">
+                                <h3>Group10</h3>
+                            </a>
+                        </div>
+
                     </div>
-
-                </div>
-                <div class="col-lg-10">
-                    <div class="nav-menu">
-                        <nav class="mainmenu">
-                            <ul>
-                                <li class="active"><a href="./index.html">Trang Chủ</a></li>
-                                <li><a href="./homeStay.html">HomeStay</a></li>
-                                <!-- <li><a href="./about-us.html">About Us</a></li> -->
-                                <!-- <li><a href="./pages.html">Pages</a>
-                                    <ul class="dropdown">
-                                        <li><a href="./room-details.html">Room Details</a></li>
-                                        <li><a href="./blog-details.html">Blog Details</a></li>
-                                        <li><a href="#">Family Room</a></li>
-                                        <li><a href="#">Premium Room</a></li>
-                                    </ul>
-                                </li> -->
-                                <li><a href="./blog.html">Bài viết</a></li>
-                                <li><a href="./contact.html">Liên Hệ</a></li>
-                            </ul>
-                        </nav>
+                    <div class="col-lg-10">
+                        <div class="nav-menu">
+                            <nav class="mainmenu">
+                                <ul>
+                                    <li class="active"><a href="./index.html">Trang Chủ</a></li>
+                                    <li><a href="./homeStay.html">HomeStay</a></li>
+                                    <!-- <li><a href="./about-us.html">About Us</a></li> -->
+                                    <!-- <li><a href="./pages.html">Pages</a>
+                                        <ul class="dropdown">
+                                            <li><a href="./room-details.html">Room Details</a></li>
+                                            <li><a href="./blog-details.html">Blog Details</a></li>
+                                            <li><a href="#">Family Room</a></li>
+                                            <li><a href="#">Premium Room</a></li>
+                                        </ul>
+                                    </li> -->
+                                    <li><a href="./blog.html">Bài viết</a></li>
+                                    <li><a href="./contact.html">Liên Hệ</a></li>
+                                </ul>
+                            </nav>
                         
-
+    
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+        
+    </header>
+
+   
 
     <!-- Header End -->
 
