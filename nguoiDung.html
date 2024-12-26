@@ -3,47 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HomeStay List</title>
+    <title>Danh sách người dùng</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css\homstay.css">
+    <link rel="stylesheet" href="css/nguoi-dung.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Custom CSS for table layout */
-        .table-container {
-            overflow-x: auto;
-            -webkit-overflow-scrolling: touch;
-            margin: 0;
-            padding: 0;
-        }
 
-        .booking-table {
-            min-width: 1000px; /* Minimum width to prevent content wrapping */
-            width: 100%;
-            table-layout: fixed; /* Fixed table layout */
-            border-collapse: collapse;
-        }
-
-        .booking-table th {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        /* Column widths */
-        .booking-table th:nth-child(1) { width: 5%; }  /* STT */
-        .booking-table th:nth-child(2) { width: 20%; } /* Tên phòng */
-        .booking-table th:nth-child(3) { width: 25%; } /* Thông tin khách hàng */
-        .booking-table th:nth-child(4) { width: 15%; } /* Dữ liệu phòng */
-        .booking-table th:nth-child(5) { width: 15%; } /* Thanh toán */
-        .booking-table th:nth-child(6) { width: 10%; } /* Trạng thái */
-        .booking-table th:nth-child(7) { width: 10%; } /* Hành động */
-
-        /* Table cell content */
-        .booking-table td {
-            word-wrap: break-word;
-            overflow-wrap: break-word;
-        }
-    </style>
+  
 </head>
 <body>
     <header class="header">
@@ -77,7 +43,7 @@
     <main class="main-content">
         <div class="" id="mainSection">
             <div class="breadcrumb">
-                <span>Trang chủ</span><span>/</span><span>HomeStay</span><span>/</span><span style="color: #A0AEC0;">Danh sách</span>
+                <span>Trang chủ</span><span>/</span><span>Người dùng<span><span>/</span><span style="color: #A0AEC0;">Danh sách</span>
             </div>
             <div class="w-full lg:flex sm:block mx-auto bg-white rounded-lg shadow p-6 mb-6">
                 <!-- Search Form -->
