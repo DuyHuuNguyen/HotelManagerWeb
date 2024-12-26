@@ -2,126 +2,126 @@
     {
         "id": 1,
         "tenDiaDiem": "Bãi biển Mỹ Khê",
-        "hinhAnh": "my_khe.jpg",
+        "hinhAnh": "https://photocute.net/wp-content/uploads/2021/06/bai-bien-my-khe-da-nang.jpg",
         "trangThai": "Hoạt động",
         "moTa": "Bãi biển Mỹ Khê nằm tại Đà Nẵng, nổi tiếng với bãi cát dài trắng mịn và là một trong những bãi biển đẹp nhất Việt Nam."
     },
     {
         "id": 2,
         "tenDiaDiem": "Chợ Hòa Bình",
-        "hinhAnh": "cho_hoa_binh.jpg",
+        "hinhAnh": "https://th.bing.com/th/id/R.dfed6bf1269a9afef88ee5aa74b4650f?rik=V5%2bCDmNGckJG4g&pid=ImgRaw&r=0",
         "trangThai": "Đang bảo trì",
         "moTa": "Chợ Hòa Bình là một trong những chợ truyền thống lớn tại TP. Hòa Bình, nơi bạn có thể tìm thấy nhiều sản phẩm nông sản địa phương."
     },
     {
         "id": 3,
         "tenDiaDiem": "Cầu Rồng",
-        "hinhAnh": "cau_rong.jpg",
+        "hinhAnh": "https://th.bing.com/th/id/R.8ed2986d83e81c675647cd24eb8512ca?rik=2uc%2bqnVpqmXZjA&pid=ImgRaw&r=0",
         "trangThai": "Hoạt động",
         "moTa": "Cầu Rồng là một trong những biểu tượng nổi bật của thành phố Đà Nẵng, với thiết kế độc đáo và các buổi trình diễn phun lửa vào các dịp lễ."
     },
     {
         "id": 4,
         "tenDiaDiem": "Tháp Rùa",
-        "hinhAnh": "thap_rua.jpg",
+        "hinhAnh": "https://th.bing.com/th/id/OIP.vhAOylsbpLM0gVs4lk9tQwHaEK?rs=1&pid=ImgDetMain",
         "trangThai": "Hoạt động",
         "moTa": "Tháp Rùa nằm giữa Hồ Gươm, Hà Nội, là một trong những địa điểm du lịch nổi tiếng với cảnh quan đẹp và gắn liền với truyền thuyết lịch sử."
     },
     {
         "id": 5,
         "tenDiaDiem": "Vịnh Hạ Long",
-        "hinhAnh": "vịnh_ha_long.jpg",
+        "hinhAnh": "https://th.bing.com/th/id/OIP.N5E_jHXd04ZTXPAvHoRCVgHaE9?rs=1&pid=ImgDetMain",
         "trangThai": "Hoạt động",
         "moTa": "Vịnh Hạ Long là một trong bảy kỳ quan thiên nhiên thế giới với hàng nghìn hòn đảo lớn nhỏ và cảnh quan tuyệt đẹp, thu hút hàng triệu du khách mỗi năm."
     },
     {
         "id": 6,
         "tenDiaDiem": "Chùa Một Cột",
-        "hinhAnh": "chua_mot_cot.jpg",
+        "hinhAnh": "https://th.bing.com/th/id/OIP.sHPZCbaMGf0QvTgvrJxADQHaEK?rs=1&pid=ImgDetMain",
         "trangThai": "Hoạt động",
         "moTa": "Chùa Một Cột là một trong những ngôi chùa nổi tiếng của Hà Nội, được xây dựng từ thời Lý và có kiến trúc độc đáo, gắn liền với lịch sử văn hóa của thủ đô."
     },
     {
         "id": 7,
         "tenDiaDiem": "Sapa",
-        "hinhAnh": "sapa.jpg",
+        "hinhAnh": "https://th.bing.com/th/id/R.3e5bd0051e2365d789106bdfe595742a?rik=EEKqHXqL%2fMdc0w&pid=ImgRaw&r=0",
         "trangThai": "Hoạt động",
         "moTa": "Sapa là một thị trấn du lịch nổi tiếng tại vùng Tây Bắc Việt Nam, với cảnh quan thiên nhiên tuyệt đẹp và các bản làng dân tộc thiểu số đặc sắc."
     },
     {
         "id": 8,
         "tenDiaDiem": "Phố Cổ Hà Nội",
-        "hinhAnh": "pho_co_ha_noi.jpg",
+        "hinhAnh": "https://th.bing.com/th/id/OIP.OLnxTo8CPQgCO2knUs7CewHaFj?rs=1&pid=ImgDetMain",
         "trangThai": "Hoạt động",
         "moTa": "Phố Cổ Hà Nội nổi bật với những ngôi nhà cổ kính, những con phố chật hẹp và các quán ăn truyền thống, là một điểm đến lý tưởng cho du khách muốn khám phá văn hóa thủ đô."
     },
     {
         "id": 9,
         "tenDiaDiem": "Lăng Bác",
-        "hinhAnh": "lang_bac.jpg",
+        "hinhAnh": "https://th.bing.com/th/id/R.38540de9ab7f2515f2b6be138e3a4a4c?rik=A2lrrcvBIFPySw&pid=ImgRaw&r=0",
         "trangThai": "Hoạt động",
         "moTa": "Lăng Bác là nơi an nghỉ của Chủ tịch Hồ Chí Minh, nơi đây không chỉ là điểm đến lịch sử mà còn là nơi thăm viếng của rất nhiều du khách trong nước và quốc tế."
     },
     {
         "id": 10,
         "tenDiaDiem": "Cố đô Huế",
-        "hinhAnh": "co_do_hue.jpg",
+        "hinhAnh": "https://th.bing.com/th/id/R.aa3c12049e091ac87360cfc922b76260?rik=sMCsqVWQn3%2bDIg&pid=ImgRaw&r=0",
         "trangThai": "Hoạt động",
         "moTa": "Cố đô Huế là di sản văn hóa thế giới, nơi còn lưu giữ những công trình kiến trúc cổ kính và các nghi lễ truyền thống từ thời nhà Nguyễn."
     },
     {
         "id": 11,
         "tenDiaDiem": "Hồ Hoàn Kiếm",
-        "hinhAnh": "ho_hoan_kiem.jpg",
+        "hinhAnh": "https://th.bing.com/th/id/R.9b1226e04e9e7026374a76b16c1d7463?rik=dN3TdlDhOQHU6A&pid=ImgRaw&r=0",
         "trangThai": "Hoạt động",
         "moTa": "Hồ Hoàn Kiếm nằm ở trung tâm thủ đô Hà Nội, là một thắng cảnh nổi tiếng, với những câu chuyện lịch sử huyền thoại gắn liền với truyền thuyết Rùa Vàng."
     },
     {
         "id": 12,
         "tenDiaDiem": "Động Phong Nha",
-        "hinhAnh": "dong_phong_nha.jpg",
+        "hinhAnh": "https://th.bing.com/th/id/OIP.MJaD9IZNO4xJJg73PjRYPwHaE7?rs=1&pid=ImgDetMain",
         "trangThai": "Hoạt động",
         "moTa": "Động Phong Nha là một trong những kỳ quan thiên nhiên nổi tiếng của Quảng Bình, với hệ thống hang động hùng vĩ và cảnh đẹp tự nhiên."
     },
     {
         "id": 13,
         "tenDiaDiem": "Núi Ba Na",
-        "hinhAnh": "nui_ba_na.jpg",
+        "hinhAnh": "https://th.bing.com/th/id/R.e44ec7d6b31832f18d8abd92e90fc0f6?rik=f%2b%2bO%2b64nSjT8%2fA&pid=ImgRaw&r=0",
         "trangThai": "Hoạt động",
         "moTa": "Núi Ba Na là điểm đến du lịch nổi tiếng ở Đà Nẵng, nơi bạn có thể trải nghiệm cáp treo dài nhất thế giới và thưởng ngoạn cảnh đẹp thiên nhiên hùng vĩ."
     },
     {
         "id": 14,
         "tenDiaDiem": "Hồ Tây",
-        "hinhAnh": "ho_tay.jpg",
+        "hinhAnh": "https://th.bing.com/th/id/R.2407f3b6bf3a464f8a60c84ab137c8c9?rik=oQLbG93N65fTwA&pid=ImgRaw&r=0",
         "trangThai": "Hoạt động",
         "moTa": "Hồ Tây là hồ nước lớn nhất Hà Nội, nổi tiếng với không gian thoáng đãng, là nơi lý tưởng cho các hoạt động dạo bộ và thưởng thức các món ăn vặt."
     },
     {
         "id": 15,
         "tenDiaDiem": "Thành Nhà Hồ",
-        "hinhAnh": "thanh_nha_ho.jpg",
+        "hinhAnh": "https://th.bing.com/th/id/OIP.3LiBQlG2ceyPsp8umdq7CgHaEG?rs=1&pid=ImgDetMain",
         "trangThai": "Hoạt động",
         "moTa": "Thành Nhà Hồ là di sản văn hóa thế giới được UNESCO công nhận, là một công trình kiến trúc đặc biệt từ thời nhà Hồ tại Thanh Hóa."
     },
     {
         "id": 16,
         "tenDiaDiem": "Đảo Cát Bà",
-        "hinhAnh": "dao_cat_ba.jpg",
+        "hinhAnh": "https://th.bing.com/th/id/OIP.5VhImwGuW7JXMxOolKGAeAHaFj?rs=1&pid=ImgDetMain",
         "trangThai": "Hoạt động",
         "moTa": "Đảo Cát Bà là một trong những hòn đảo đẹp nhất của Việt Nam, nổi bật với biển xanh, cát trắng và các hoạt động du lịch như leo núi, đi thuyền kayak."
     },
     {
         "id": 17,
         "tenDiaDiem": "Chùa Bái Đính",
-        "hinhAnh": "chua_bai_dinh.jpg",
+        "hinhAnh": "https://www.chuabaidinhninhbinh.vn/upload/news/content/51.2021/chua-bai-dinh%20(2).jpg",
         "trangThai": "Hoạt động",
         "moTa": "Chùa Bái Đính là một trong những ngôi chùa lớn nhất Việt Nam, nổi tiếng với quần thể kiến trúc và tượng Phật lớn."
     },
     {
         "id": 18,
         "tenDiaDiem": "Đảo Phú Quốc",
-        "hinhAnh": "dao_phu_quoc.jpg",
+        "hinhAnh": "https://th.bing.com/th/id/OIP.6lPH23jzOGF3C7ss31ajAAHaE8?rs=1&pid=ImgDetMain",
         "trangThai": "Hoạt động",
         "moTa": "Đảo Phú Quốc là một trong những thiên đường du lịch nổi tiếng với bãi biển đẹp, nước biển trong xanh và các khu nghỉ dưỡng cao cấp."
     }

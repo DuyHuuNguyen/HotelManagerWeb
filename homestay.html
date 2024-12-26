@@ -10,41 +10,7 @@
   <link rel="stylesheet" href="css\homstay.css">
 
 
-<style>
-    .modal {
-    display: none; 
-    position: fixed;
-    z-index: 10;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0, 0, 0, 0.8);
-    justify-content: center;
-    align-items: center;
-}
 
-.modal-content {
-    /* margin: auto; */
-   
-    /* max-width: 80%;
-    max-height: 80%; */
-}
-.image-container {
-    position: relative;
-}
-.thumbnail {
-    width: 200px;
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.thumbnail:hover {
-    transform: scale(1.1);
-}
-
-</style>
 </head>
 <body>
     <header class="header">
@@ -67,7 +33,7 @@
         <a href="danhmuc.html" class="nav-item"><i class="fas fa-list"></i><span>Danh mục</span></a>
         <a href="bai_viet.html" class="nav-item"><i class="fas fa-file-alt"></i><span>Bài viết</span></a>
         <a href="dia_diem.html" class="nav-item"><i class="fas fa-map-marker-alt"></i><span>Địa điểm</span></a>
-        <a href="homestay.html" class="nav-item active"><i class="fas fa-hotel"></i><span>HomeStay</span></a>
+        <a href="homestay.html" class="nav-item active"><i class="fas fa-hotel"></i><span>Nhà nghỉ</span></a>
         <a href="listOfRoom.html" class="nav-item"><i class="fas fa-bed"></i><span>Danh sách phòng</span></a>
         <a href="danhSachDatPhong.html" class="nav-item"><i class="fas fa-calendar-alt"></i><span>Danh sách đặt phòng</span></a>
         <a href="comment.html" class="nav-item"><i class="fas fa-comments"></i><span>Quản lý bình luận</span></a>
@@ -78,11 +44,11 @@
     <main class="main-content">
         <!-- fix lỗi cho nó trùng với các trang khác -->
         <div class="breadcrumb" >
-            <span>Trang chủ</span><span>/</span><span>HomeStay</span><span>/</span><span style="color: #A0AEC0;">Danh sách</span>
+            <span>Trang chủ</span><span>/</span><span>Nhà nghỉ</span><span>/</span><span style="color: #A0AEC0;">Danh sách</span>
         </div>
          <!-- Nút mở modal -->
          <button class="btn  btn-primary  open-modal-btn btn-style" onclick="openModal()"  >
-            + Homestay
+            + Nhà nghỉ
         </button>
         
         <body class="bg-light">
@@ -96,7 +62,7 @@
             <div class="modal-content" id="modalContent">
                 <span class="close-button" onclick="closeModal()">&times;</span>
                 <div class="form-container" style="margin: 0; box-shadow: none;">
-                    <h2 class="card-title">Thêm Homestay Mới</h2>
+                    <h2 class="card-title">Thêm Nhà Nghỉ Mới</h2>
                     
                     <form id="homestayForm">
                         <!-- Upload Image Section -->
@@ -116,7 +82,7 @@
         
                         <!-- Name Input -->
                         <div class="mb-3">
-                            <label for="name" class="form-label">Tên Homestay</label>
+                            <label for="name" class="form-label">Tên nhà nghỉ</label>
                             <input type="text" class="form-control" id="name" required>
                         </div>
         
@@ -147,7 +113,7 @@
                         <!-- Submit Button -->
                         <div class="text-end">
                             <button type="submit"  class="btn  btn-primary " style="font-size: 13px;">
-                                Thêm Homestay
+                                Thêm nhà nghỉ
                             </button>
                         </div>
                     </form>
@@ -198,7 +164,7 @@
                 <thead>
                     <tr>
                         <th>STT</th>
-                        <th>Tên HomeStay</th>
+                        <th>Tên nhà nghỉ</th>
                         <th>Hình ảnh</th>
                         <th>Thông tin</th>
                         <th>Trạng thái</th>
@@ -245,12 +211,14 @@
                         
                         <td>${index + 1}</td>
                         <td>${homeStay.name}</td>
-                        <td><img src="${homeStay.image}" alt="${homeStay.name}" class="homestay-image"   onclick="openModal(this)"  ></td>
-                          <div id="imageModal" class="modal" onclick="closeModal()"">
-                            <span class="close" onclick="closeModal()">&times;</span>
-                            <img  src="${homeStay.image}" id='fullimage' style="width:500px; height:auto">
-                           
-                        </div>
+
+
+                       
+
+                
+                             <td><img     src="${homeStay.image}" alt="${homeStay.name}"  class="homestay-image"  ></td>
+                  
+                          
                        
 
                         <td>
@@ -276,17 +244,17 @@
 
 
 
-        function openModal(img) {
-            const modal = document.getElementById('imageModal');
-            const fullImage = document.getElementById('fullImage');
-            modal.style.display = "flex";
-            // fullImage.src = img.src; 
+        function showFullScreen(img) {
+            const fullscreenDiv = document.getElementById('fullscreen');
+            const fullscreenImg = document.getElementById('fullscreen-img');
+            fullscreenImg.src = img.src;
+            fullscreenDiv.style.display = 'flex';
         }
 
-        function closeModal() {
-            const modal = document.getElementById('imageModal');
-            modal.style.display = "none";
-        } 
+        function closeFullScreen() {
+            const fullscreenDiv = document.getElementById('fullscreen');
+            fullscreenDiv.style.display = 'none';
+        }
     </script>
 </body>
 </html>

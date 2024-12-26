@@ -1,0 +1,354 @@
+       /* Custom Styles */
+       body {
+        font-family: 'Cabin', sans-serif;
+        background-color: #f9f9f9;
+    }
+
+    .breadcrumb-section {
+        background-image: url('img/deluxe-room-banner.jpg');
+        background-size: cover;
+        color: white;
+        padding: 80px 0;
+        text-align: center;
+    }
+
+    .breadcrumb-section h2 {
+        font-size: 48px;
+        font-weight: 700;
+    }
+
+    /* Deluxe Room Section */
+    .deluxe-room-details {
+        padding: 60px 0;
+        background-color: #fff;
+    }
+
+    .deluxe-room-details .row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    /* Column 1: Image and Quick Info */
+    .room-image img {
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .room-image img:hover {
+        transform: scale(1.05);
+    }
+
+    .room-quick-info h3,
+    .room-quick-info ul {
+        font-weight: 600;
+    }
+
+    .room-quick-info ul li {
+        padding: 8px 0;
+        font-size: 16px;
+    }
+
+    /* Column 2: Detailed Description */
+    .room-description h4 {
+        font-size: 24px;
+        font-weight: 700;
+        margin-top: 20px;
+    }
+
+    .room-description ul li {
+        font-size: 16px;
+        padding: 8px 0;
+    }
+
+    /* General Styles for Buttons */
+.cta-buttons {
+margin-top: 30px;
+display: flex;
+gap: 15px;
+}
+
+/* Primary Button */
+.cta-buttons .btn {
+font-size: 18px;
+font-weight: 700;
+padding: 16px 40px;
+border-radius: 50px; /* Bo góc tròn sang trọng */
+transition: all 0.3s ease;
+display: inline-block;
+text-transform: uppercase;
+text-align: center;
+letter-spacing: 1px;
+text-decoration: none;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Thêm bóng cho nút */
+}
+
+/* Primary Button: Blue Gradient */
+.cta-buttons .btn-primary {
+background: linear-gradient(45deg, #003366, #0056b3); /* Gradient xanh đậm */
+color: white;
+border: 2px solid transparent;
+}
+
+.cta-buttons .btn-primary:hover {
+background: linear-gradient(45deg, #004b87, #003366); /* Hiệu ứng gradient sâu hơn khi hover */
+box-shadow: 0 8px 20px rgba(0, 86, 179, 0.3); /* Bóng đổ mạnh hơn khi hover */
+transform: translateY(-2px); /* Hiệu ứng nâng nút lên khi hover */
+}
+
+/* Secondary Button: Gold */
+.cta-buttons .btn-secondary {
+background-color: #d4af37; /* Màu vàng đồng */
+color: white;
+border: 2px solid #d4af37;
+}
+
+.cta-buttons .btn-secondary:hover {
+background-color: #b38b2e; /* Màu vàng đậm hơn khi hover */
+border-color: #b38b2e;
+box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2); /* Hiệu ứng bóng đổ khi hover */
+transform: translateY(-2px);
+}
+
+/* Modal Styles */
+.modal-content {
+border-radius: 15px;
+padding: 30px;
+background-color: #333; /* Màu nền modal đen xám */
+border: 1px solid #444;
+box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Hiệu ứng bóng đổ cho modal */
+color: #e0e0e0; /* Màu chữ sáng để dễ đọc trên nền tối */
+}
+
+/* Modal Header */
+.modal-header {
+border-bottom: 2px solid #d4af37; /* Dải vàng đồng giữa header */
+padding-bottom: 10px;
+}
+
+.modal-title {
+font-size: 26px;
+font-weight: 700;
+color: #d4af37; /* Tiêu đề màu vàng đồng */
+}
+
+.modal-body {
+font-size: 18px;
+line-height: 1.6;
+color: #f0f0f0; /* Chữ sáng cho nội dung modal */
+}
+
+.modal-body ul {
+list-style: none;
+padding-left: 0;
+}
+
+.modal-body ul li {
+margin-bottom: 16px;
+}
+
+/* Modal Footer */
+.modal-footer {
+border-top: 2px solid #444;
+padding-top: 15px;
+}
+
+/* Modal Close Button */
+.modal-footer .btn-secondary {
+background-color: #6c757d;
+color: white;
+}
+
+.modal-footer .btn-secondary:hover {
+background-color: #495057;
+}
+
+/* Additional Effects for Buttons */
+.cta-buttons .btn:active {
+transform: scale(0.98); /* Hiệu ứng nhấn nút */
+}
+
+.cta-buttons .btn:focus {
+outline: none; /* Loại bỏ viền khi chọn */
+box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.3); /* Viền sáng khi nút được chọn */
+}
+
+    /* Why Choose This Room */
+    .why-choose-room {
+        background-color: #fff;
+        padding: 40px 30px;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-top: 60px;
+    }
+
+    .why-choose-room h3 {
+        font-size: 30px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+    .why-choose-room ul {
+        font-size: 16px;
+        list-style: none;
+        padding: 0;
+    }
+
+    .why-choose-room ul li {
+        padding: 12px 0;
+        display: flex;
+        align-items: center;
+        border-bottom: 1px solid #e1e1e1;
+    }
+
+    .why-choose-room ul li i {
+        font-size: 22px;
+        margin-right: 15px;
+        color: #28a745;
+    }
+
+    .why-choose-room ul li span {
+        font-size: 18px;
+        font-weight: 600;
+    }
+    /* Gallery Section */
+    .gallery-section {
+        background-color: #f4f4f4;
+        padding: 60px 30px;
+    }
+
+    .gallery-section h3 {
+        text-align: center;
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+
+    .gallery-section .row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .gallery-section .col-md-4 {
+        flex: 1;
+        position: relative;
+    }
+
+    .gallery-section img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        transition: transform 0.3s ease;
+    }
+
+    .gallery-section img:hover {
+        transform: scale(1.1);
+    }
+
+    /* Customer Testimonials */
+    .testimonials-section {
+        background-color: #fff;
+        padding: 60px 30px;
+        margin-top: 60px;
+    }
+
+    .testimonials-section h3 {
+        text-align: center;
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+
+    .testimonial-item {
+        margin-bottom: 30px;
+        text-align: center;
+    }
+
+    .testimonial-item img {
+        border-radius: 50%;
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+        margin-bottom: 20px;
+    }
+
+    .testimonial-item p {
+        font-size: 18px;
+        font-style: italic;
+        color: #666;
+    }
+
+    .testimonial-item h5 {
+        font-size: 20px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+        padding: 60px 30px;
+        background-color: #f4f4f4;
+        margin-top: 60px;
+    }
+
+    .faq-section h3 {
+        text-align: center;
+        font-size: 28px;
+        margin-bottom: 40px;
+    }
+
+    .faq-item {
+        margin-bottom: 20px;
+    }
+
+    .faq-item h5 {
+        font-size: 20px;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .faq-item p {
+        font-size: 16px;
+        color: #666;
+    }
+
+    /* Video Section */
+.video-section {
+padding: 60px 0;
+background-color: #f9f9f9; /* Tạo nền sáng cho phần video */
+margin-bottom: 300px;
+}
+
+.video-section h3 {
+text-align: center;
+font-size: 32px;
+font-weight: 700;
+margin-bottom: 30px;
+color: #333;
+}
+
+/* Video Container */
+.video-container {
+position: relative;
+padding-bottom: 56.25%; /* Aspect ratio 16:9 (16/9 = 1.77) */
+height: 0;
+overflow: hidden;
+max-width: 100%;
+background: #000;
+margin-bottom: 40px; /* Giúp tách phần video với các phần dưới */
+}
+
+/* Style iframe để khớp với container */
+.video-container iframe {
+position: absolute;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+.video-section h3 {
+    font-size: 28px; /* Giảm kích thước font tiêu đề trên màn hình nhỏ */
+}
+}
