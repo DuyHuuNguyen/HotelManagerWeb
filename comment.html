@@ -24,34 +24,14 @@
                 </div>
                 <span>Admin</span>
             </div>
-            <a href="giaoDienNguoiDung/index.html" 
-                style="
-                    background-color: #4285f4; 
-                    color: white; 
-                    padding: 0.3rem 0.5rem; 
-                    border-radius: 8px; 
-                    text-decoration: none; 
-                    display: flex; 
-                    font-size: medium  !important;
-                    align-items: center; 
-                    gap: 0.5rem; 
-                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-                    transition: background-color 0.3s ease, transform 0.3s ease;
-                    font-weight: 200;
-                "
-                onmouseover="
-                    this.style.backgroundColor='#3367d6';
-                    this.style.transform='translateY(-2px)';
-                    this.style.boxShadow='0 6px 8px rgba(0, 0, 0, 0.15)';
-                "
-                onmouseout="
-                    this.style.backgroundColor='#4285f4';
-                    this.style.transform='translateY(0)';
-                    this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)';
-                ">
-                <span>Trang chủ</span>
-                <i class="fas fa-arrow-right"></i>
-            </a>
+            <div class="admin-profile">
+                <div class="admin-avatar">
+                    <a class="home" href="giaoDienNguoiDung/index.html">
+                        <i class="fas fa-home"></i>
+                    </a>
+                </div>
+                <a class="home" href="giaoDienNguoiDung/index.html"><span>Trang chủ</span></a>
+            </div>
         </div>
     </header>
 
@@ -73,7 +53,7 @@
             <div class="breadcrumb">
                 <span>Trang chủ</span><span>/</span><span>Bình luận</span><span>/</span><span style="color: #A0AEC0;">Danh sách</span>
             </div>
-            
+            <h1 class="text-center fw-bold">QUẢN LÍ BÌNH LUẬN</h1>
             <div class="search-box">
                 <table class="search-table">
                     <tr class="search-header" onclick="toggleSearchBox()">

@@ -589,16 +589,16 @@ const RoomManagement = () => {
                         <i className="bi bi-funnel"></i> Lọc
                     </button>
                     <button
+                        className="btn btn-outline-secondary text-nowrap"
+                        onClick={() => setShowBookingModal(true)}
+                    >
+                        <i className="bi bi-calendar-check"></i> Đặt phòng
+                    </button>
+                    <button
                         className="btn btn-primary text-nowrap"
                         onClick={() => setShowAddRoomModal(true)}
                     >
                         <i className="bi bi-plus-lg"></i> Thêm phòng
-                    </button>
-                    <button
-                        className="btn btn-success text-nowrap"
-                        onClick={() => setShowBookingModal(true)}
-                    >
-                        <i className="bi bi-calendar-check"></i> Đặt phòng
                     </button>
                 </div>
             </div>
