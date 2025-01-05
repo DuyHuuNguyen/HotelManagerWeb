@@ -7,9 +7,11 @@
     <meta name="keywords" content="Deluxe Room, Hotel, Luxury">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Deluxe Room Details</title>
+    <title>Nhóm 10</title>
 
-    <!-- Google Fonts -->
+
+    <!-- Google Font -->
+     <link rel="website icon" href="img/homst.png">
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
 
@@ -17,364 +19,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
-
-    <style>
-        /* Custom Styles */
-        body {
-            font-family: 'Cabin', sans-serif;
-            background-color: #f9f9f9;
-        }
-
-        .breadcrumb-section {
-            background-image: url('img/deluxe-room-banner.jpg');
-            background-size: cover;
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .breadcrumb-section h2 {
-            font-size: 48px;
-            font-weight: 700;
-        }
-
-        /* Deluxe Room Section */
-        .deluxe-room-details {
-            padding: 60px 0;
-            background-color: #fff;
-        }
-
-        .deluxe-room-details .row {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-        }
-
-        /* Column 1: Image and Quick Info */
-        .room-image img {
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .room-image img:hover {
-            transform: scale(1.05);
-        }
-
-        .room-quick-info h3,
-        .room-quick-info ul {
-            font-weight: 600;
-        }
-
-        .room-quick-info ul li {
-            padding: 8px 0;
-            font-size: 16px;
-        }
-
-        /* Column 2: Detailed Description */
-        .room-description h4 {
-            font-size: 24px;
-            font-weight: 700;
-            margin-top: 20px;
-        }
-
-        .room-description ul li {
-            font-size: 16px;
-            padding: 8px 0;
-        }
-
-        /* General Styles for Buttons */
-.cta-buttons {
-    margin-top: 30px;
-    display: flex;
-    gap: 15px;
-}
-
-/* Primary Button */
-.cta-buttons .btn {
-    font-size: 18px;
-    font-weight: 700;
-    padding: 16px 40px;
-    border-radius: 50px; /* Bo góc tròn sang trọng */
-    transition: all 0.3s ease;
-    display: inline-block;
-    text-transform: uppercase;
-    text-align: center;
-    letter-spacing: 1px;
-    text-decoration: none;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Thêm bóng cho nút */
-}
-
-/* Primary Button: Blue Gradient */
-.cta-buttons .btn-primary {
-    background: linear-gradient(45deg, #003366, #0056b3); /* Gradient xanh đậm */
-    color: white;
-    border: 2px solid transparent;
-}
-
-.cta-buttons .btn-primary:hover {
-    background: linear-gradient(45deg, #004b87, #003366); /* Hiệu ứng gradient sâu hơn khi hover */
-    box-shadow: 0 8px 20px rgba(0, 86, 179, 0.3); /* Bóng đổ mạnh hơn khi hover */
-    transform: translateY(-2px); /* Hiệu ứng nâng nút lên khi hover */
-}
-
-/* Secondary Button: Gold */
-.cta-buttons .btn-secondary {
-    background-color: #d4af37; /* Màu vàng đồng */
-    color: white;
-    border: 2px solid #d4af37;
-}
-
-.cta-buttons .btn-secondary:hover {
-    background-color: #b38b2e; /* Màu vàng đậm hơn khi hover */
-    border-color: #b38b2e;
-    box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2); /* Hiệu ứng bóng đổ khi hover */
-    transform: translateY(-2px);
-}
-
-/* Modal Styles */
-.modal-content {
-    border-radius: 15px;
-    padding: 30px;
-    background-color: #333; /* Màu nền modal đen xám */
-    border: 1px solid #444;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3); /* Hiệu ứng bóng đổ cho modal */
-    color: #e0e0e0; /* Màu chữ sáng để dễ đọc trên nền tối */
-}
-
-/* Modal Header */
-.modal-header {
-    border-bottom: 2px solid #d4af37; /* Dải vàng đồng giữa header */
-    padding-bottom: 10px;
-}
-
-.modal-title {
-    font-size: 26px;
-    font-weight: 700;
-    color: #d4af37; /* Tiêu đề màu vàng đồng */
-}
-
-.modal-body {
-    font-size: 18px;
-    line-height: 1.6;
-    color: #f0f0f0; /* Chữ sáng cho nội dung modal */
-}
-
-.modal-body ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.modal-body ul li {
-    margin-bottom: 16px;
-}
-
-/* Modal Footer */
-.modal-footer {
-    border-top: 2px solid #444;
-    padding-top: 15px;
-}
-
-/* Modal Close Button */
-.modal-footer .btn-secondary {
-    background-color: #6c757d;
-    color: white;
-}
-
-.modal-footer .btn-secondary:hover {
-    background-color: #495057;
-}
-
-/* Additional Effects for Buttons */
-.cta-buttons .btn:active {
-    transform: scale(0.98); /* Hiệu ứng nhấn nút */
-}
-
-.cta-buttons .btn:focus {
-    outline: none; /* Loại bỏ viền khi chọn */
-    box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.3); /* Viền sáng khi nút được chọn */
-}
-
-        /* Why Choose This Room */
-        .why-choose-room {
-            background-color: #fff;
-            padding: 40px 30px;
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            margin-top: 60px;
-        }
-
-        .why-choose-room h3 {
-            font-size: 30px;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-
-        .why-choose-room ul {
-            font-size: 16px;
-            list-style: none;
-            padding: 0;
-        }
-
-        .why-choose-room ul li {
-            padding: 12px 0;
-            display: flex;
-            align-items: center;
-            border-bottom: 1px solid #e1e1e1;
-        }
-
-        .why-choose-room ul li i {
-            font-size: 22px;
-            margin-right: 15px;
-            color: #28a745;
-        }
-
-        .why-choose-room ul li span {
-            font-size: 18px;
-            font-weight: 600;
-        }
-        /* Gallery Section */
-        .gallery-section {
-            background-color: #f4f4f4;
-            padding: 60px 30px;
-        }
-
-        .gallery-section h3 {
-            text-align: center;
-            font-size: 28px;
-            margin-bottom: 40px;
-        }
-
-        .gallery-section .row {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-        }
-
-        .gallery-section .col-md-4 {
-            flex: 1;
-            position: relative;
-        }
-
-        .gallery-section img {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery-section img:hover {
-            transform: scale(1.1);
-        }
-
-        /* Customer Testimonials */
-        .testimonials-section {
-            background-color: #fff;
-            padding: 60px 30px;
-            margin-top: 60px;
-        }
-
-        .testimonials-section h3 {
-            text-align: center;
-            font-size: 28px;
-            margin-bottom: 40px;
-        }
-
-        .testimonial-item {
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .testimonial-item img {
-            border-radius: 50%;
-            width: 80px;
-            height: 80px;
-            object-fit: cover;
-            margin-bottom: 20px;
-        }
-
-        .testimonial-item p {
-            font-size: 18px;
-            font-style: italic;
-            color: #666;
-        }
-
-        .testimonial-item h5 {
-            font-size: 20px;
-            font-weight: 600;
-            color: #333;
-        }
-
-        /* FAQ Section */
-        .faq-section {
-            padding: 60px 30px;
-            background-color: #f4f4f4;
-            margin-top: 60px;
-        }
-
-        .faq-section h3 {
-            text-align: center;
-            font-size: 28px;
-            margin-bottom: 40px;
-        }
-
-        .faq-item {
-            margin-bottom: 20px;
-        }
-
-        .faq-item h5 {
-            font-size: 20px;
-            font-weight: 600;
-            color: #333;
-        }
-
-        .faq-item p {
-            font-size: 16px;
-            color: #666;
-        }
-
-        /* Video Section */
-.video-section {
-    padding: 60px 0;
-    background-color: #f9f9f9; /* Tạo nền sáng cho phần video */
-    margin-bottom: 300px;
-}
-
-.video-section h3 {
-    text-align: center;
-    font-size: 32px;
-    font-weight: 700;
-    margin-bottom: 30px;
-    color: #333;
-}
-
-/* Video Container */
-.video-container {
-    position: relative;
-    padding-bottom: 56.25%; /* Aspect ratio 16:9 (16/9 = 1.77) */
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    background: #000;
-    margin-bottom: 40px; /* Giúp tách phần video với các phần dưới */
-}
-
-/* Style iframe để khớp với container */
-.video-container iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .video-section h3 {
-        font-size: 28px; /* Giảm kích thước font tiêu đề trên màn hình nhỏ */
-    }
-}
-
-    </style>
+    <link rel="stylesheet" href="css/deluxeRoom.css" type="text/css">
 </head>
 
 <body>
@@ -396,7 +41,7 @@
         <nav class="mainmenu mobile-menu">
             <ul>
                 <li class="active"><a href="./index.html">Trang Chủ</a></li>
-                <li><a href="./homeStay.html">HomeStay</a></li>
+                <li><a href="./homeStay.html">Nhà Nghỉ</a></li>
                 <!-- <li><a href="./about-us.html">About Us</a></li> -->
                 <!-- <li><a href="./pages.html"></a>
                     <ul class="dropdown">
@@ -465,7 +110,7 @@
                             <nav class="mainmenu">
                                 <ul>
                                     <li ><a href="./index.html">Trang Chủ</a></li>
-                                    <li class="active"><a href="./homeStay.html">HomeStay</a></li>
+                                    <li class="active"><a href="./homeStay.html">Nhà Nghỉ</a></li>
                                     <!-- <li><a href="./about-us.html">About Us</a></li> -->
                                     <!-- <li><a href="./pages.html">Pages</a>
                                         <ul class="dropdown">
@@ -492,12 +137,12 @@
     <div class="breadcrumb-section">
         <div class="container">
             <div class="breadcrumb-text">
-                <h2>Deluxe Room</h2>
+                <h2>Phòng Deluxe</h2>
                 <div class="bt-option">
-                    <a href="./index.html">Home</a>
-                    <a href="homeStay.html">Home Stay</a>
-                    <a href="rooms.html">Rooms</a>
-                    <span>Deluxe Room</span>
+                    <a href="./index.html">Trang Chủ</a>
+                    <a href="homeStay.html">Nhà Nghỉ</a>
+                    <a href="rooms.html">Phòng</a>
+                    <span>Phòng Deluxe</span>
                 </div>
             </div>
         </div>
@@ -514,26 +159,26 @@
                         <img src="https://i.pinimg.com/originals/54/47/c7/5447c76323d6f6f93c24eba837587b97.jpg" alt="Deluxe Room" class="img-fluid">
                     </div>
                     <div class="room-quick-info mt-4">
-                        <h3>Quick Overview</h3>
+                        <h3>Tổng Quan</h3>
                         <ul>
-                            <li><strong>Size:</strong> 45 m²</li>
-                            <li><strong>Capacity:</strong> 2 Adults, 1 Child</li>
-                            <li><strong>Bed:</strong> King-size</li>
-                            <li><strong>Floor:</strong> 3rd Floor</li>
+                            <li><strong>Kích thước:</strong> 45 m²</li>
+                            <li><strong>Khả năng chứa:</strong> 2 Người, 1 Trẻ em</li>
+                            <li><strong>Giường:</strong> King-size</li>
+                            <li><strong>Tầng:</strong> 3rd Floor</li>
                         </ul>
                     </div>
                 </div>
 
                 <!-- Column 2: Detailed Description -->
                 <div class="col-lg-6">
-                    <h3>About Our Deluxe Room</h3>
-                    <p>Experience the ultimate comfort in our luxurious Deluxe Rooms. Featuring a king-size bed, spacious living area, and modern amenities, this room is perfect for couples or small families looking for a cozy yet elegant retreat.</p>
-                    <p>Our Deluxe Room offers a blend of sophisticated decor and practical comfort. You’ll enjoy stunning views of the city and exceptional services to make your stay memorable.</p>
+                    <h3>Về Phòng Deluxe</h3>
+                    <p>Trải nghiệm sự thoải mái tuyệt vời trong phòng Deluxe của chúng tôi. Phòng Deluxe được trang bị giường king-size, khu vực sống, và các tiện nghi hiện đại, phù hợp cho cặp đôi hoặc gia đình nhỏ tìm kiếm một khu vực thoải mái nhưng cũng sang trọng.</p>
+                    <p>Phòng Deluxe của chúng tôi mang đến sự kết hợp giữa thiết kế hiện đại và sự thoải mái thực tế. Bạn sẽ thưởng thức được các cảnh quan thành phố tuyệt đẹp và các dịch vụ ngoại tuyến để làm cho chuyến đi của bạn trở nên đáng nhớ.</p>
                     
                     <!-- Buttons -->
                     <div class="cta-buttons">
-                        <a href="#" class="btn btn-primary">Book Now</a>
-                        <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#learnMoreModal">Learn More</a>
+                        <a href="#" class="btn btn-primary">Đặt phòng</a>
+                        <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#learnMoreModal">Tìm hiểu thêm</a>
                     </div>
                 </div>
 
@@ -542,22 +187,22 @@
                     <div class="modal-dialog modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="learnMoreModalLabel">Learn More about the Deluxe Room</h5>
+                                <h5 class="modal-title" id="learnMoreModalLabel">Tìm hiểu thêm về phòng Deluxe</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <h4>Room Features:</h4>
+                                <h4>Đặc điểm của phòng:</h4>
                                 <ul>
-                                    <li>King-size bed with high-quality bedding</li>
-                                    <li>Spacious living area with comfortable seating</li>
-                                    <li>Elegant decor with contemporary design</li>
-                                    <li>Stunning city views from your private window</li>
-                                    <li>Complimentary high-speed Wi-Fi and in-room entertainment</li>
-                                    <li>24/7 room service and housekeeping</li>
+                                    <li>Giường king-size với bộ lót cao cấp</li>
+                                    <li>Khu vực sống rộng rãi với ghế ngồi thoải mái</li>
+                                    <li>Thiết kế hiện đại với trang trí sang trọng</li>
+                                    <li>Cảnh quan thành phố tuyệt đẹp từ cửa sổ riêng tư của bạn</li>
+                                    <li>Wi-Fi cao cấp miễn phí và truyền hình trong phòng</li>
+                                    <li>Dịch vụ phòng 24/7 và dọn dẹp</li>
                                 </ul>
-                                <p>The Deluxe Room provides both luxury and comfort, making it an ideal choice for both business and leisure travelers. Whether you're here for work or relaxation, the room is designed to offer the best experience possible.</p>
+                                <p>Phòng Deluxe cung cấp sự sang trọng và thoải mái, là lựa chọn hoàn hảo cho cả du lịch và hành chính. Bất kể bạn đến đây để làm việc hay giải trí, phòng được thiết kế để mang lại trải nghiệm tuyệt vời nhất.</p>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -569,12 +214,12 @@
 
             <!-- Why Choose This Room -->
             <div class="why-choose-room mt-5">
-                <h3>Why Choose This Room</h3>
+                <h3>Tại sao chọn phòng này</h3>
                 <ul>
-                    <li><i class="fa fa-check-circle"></i><span>Modern Amenities for Your Comfort</span></li>
-                    <li><i class="fa fa-check-circle"></i><span>Perfect for Couples or Small Families</span></li>
-                    <li><i class="fa fa-check-circle"></i><span>Stunning Views</span></li>
-                    <li><i class="fa fa-check-circle"></i><span>Exclusive Discounts for Early Bookings</span></li>
+                    <li><i class="fa fa-check-circle"></i><span>Tiện nghi hiện đại cho sự thoải mái của bạn</span></li>
+                    <li><i class="fa fa-check-circle"></i><span>Phù hợp cho cặp đôi hoặc gia đình nhỏ</span></li>
+                    <li><i class="fa fa-check-circle"></i><span>Cảnh quan thành phố tuyệt đẹp</span></li>
+                    <li><i class="fa fa-check-circle"></i><span>Khuyến mãi đặc biệt cho các đặt phòng sớm</span></li>
                 </ul>
             </div>
         </div>
@@ -584,7 +229,7 @@
     <!-- Video Section Begin -->
     <section class="video-section">
         <div class="container">
-            <h3>Take a Tour of Our Deluxe Rooms</h3>
+            <h3>Tham quan phòng Deluxe của chúng tôi</h3>
             <div class="video-container">
                 <iframe src="https://www.youtube.com/embed/ONhNhe0tQ6M" frameborder="0" allowfullscreen></iframe>
             </div>
@@ -595,7 +240,7 @@
     <!-- Gallery Section Begin -->
     <section class="gallery-section">
         <div class="container">
-            <h3>Gallery</h3>
+            <h3>Hình ảnh</h3>
             <div class="row">
                 <div class="col-md-4">
                     <img src="https://th.bing.com/th/id/OIP.2rqlcWuuMYYjXH91f7GtWwHaEK?rs=1&pid=ImgDetMain" alt="Room View">
@@ -614,26 +259,26 @@
     <!-- Testimonials Section Begin -->
     <section class="testimonials-section">
         <div class="container">
-            <h3>What Our Guests Say</h3>
+            <h3>Những đánh giá của khách hàng</h3>
             <div class="row">
                 <div class="col-md-4">
                     <div class="testimonial-item">
                         <img src="https://th.bing.com/th/id/OIP.QYtSweb1rEbaxZAoqn0VZgHaEK?rs=1&pid=ImgDetMain" alt="Guest 1">
-                        <p>"The room was incredible! The view was perfect, and the service was beyond expectations."</p>
+                        <p>"Phòng tuyệt vời! Cảnh quan tuyệt vời, và dịch vụ vượt quá mong đợi."</p>
                         <h5>Cristiano Ronaldo</h5>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="testimonial-item">
                         <img src="https://th.bing.com/th/id/OIP.Xv9hlp_x_nfXwflUH2ZlrAHaF7?rs=1&pid=ImgDetMain" alt="Guest 2">
-                        <p>"An amazing experience! Highly recommend it for a relaxing weekend getaway."</p>
+                        <p>"Một trải nghiệm tuyệt vời! Rất khuyến khích cho một chuyến đi cuối tuần thư giãn."</p>
                         <h5>Emma Waston</h5>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="testimonial-item">
                         <img src="https://th.bing.com/th/id/OIP.9XfOyLPT7-V2m9gvf6nsvgHaHa?rs=1&pid=ImgDetMain" alt="Guest 3">
-                        <p>"Fantastic stay with excellent amenities. We’ll definitely be coming back!"</p>
+                        <p>"Một trải nghiệm tuyệt vời! Rất khuyến khích cho một chuyến đi cuối tuần thư giãn."</p>
                         <h5>Son Tung MTP</h5>
                     </div>
                 </div>
@@ -645,18 +290,18 @@
     <!-- FAQ Section Begin -->
     <section class="faq-section">
         <div class="container">
-            <h3>Frequently Asked Questions</h3>
+            <h3>Câu hỏi thường gặp</h3>
             <div class="faq-item">
-                <h5>Is breakfast included?</h5>
-                <p>Yes, breakfast is included with all bookings.</p>
+                <h5>Bữa sáng có được bao gồm không?</h5>
+                <p>Có, bữa sáng được bao gồm với tất cả các đặt phòng.</p>
             </div>
             <div class="faq-item">
-                <h5>Do you offer airport transfers?</h5>
-                <p>Yes, we offer airport transfers at an additional cost.</p>
+                <h5>Bạn có cung cấp dịch vụ đưa đón sân bay không?</h5>
+                <p>Có, chúng tôi cung cấp dịch vụ đưa đón sân bay với chi phí phụ thêm.</p>
             </div>
             <div class="faq-item">
-                <h5>Can I request early check-in?</h5>
-                <p>Early check-in is subject to availability. Please contact us for further details.</p>
+                <h5>Tôi có thể yêu cầu đến sớm không?</h5>
+                <p>Đến sớm là tùy thuộc vào sự khả dụng. Vui lòng liên hệ chúng tôi để biết thêm chi tiết.</p>
             </div>
         </div>
     </section>
@@ -671,10 +316,10 @@
                         <div class="ft-about">
                             <div class="logo">
                                 <a href="#">
-                                    <img src="img/footer-logo.png" alt="">
+                                    <h2 style="color: white;">Nhóm 10</h2>
                                 </a>
                             </div>
-                            <p>We inspire and reach millions of travelers<br /> across 90 local websites</p>
+            
                             <div class="fa-social">
                                 <a href="#"><i class="fa fa-facebook"></i></a>
                                 <a href="#"><i class="fa fa-twitter"></i></a>
@@ -686,18 +331,16 @@
                     </div>
                     <div class="col-lg-3 offset-lg-1">
                         <div class="ft-contact">
-                            <h6>Contact Us</h6>
+                            <h6>Liên hệ chúng tôi</h6>
                             <ul>
-                                <li>(12) 345 67890</li>
-                                <li>info.colorlib@gmail.com</li>
-                                <li>856 Cordia Extension Apt. 356, Lake, United State</li>
+                                <li>(84) 345 67890</li>
+                                <li>group10hci@gmail.com</li>
+                                <li>Trường Đại Học Nông Lâm Thành Phố Hồ Chí Minh. Khu phố 6, Phường Linh Trung, TP. Thủ Đức, TP. Hồ Chí Minh.</li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-lg-3 offset-lg-1">
                         <div class="ft-newslatter">
-                            <h6>New latest</h6>
-                            <p>Get the latest updates and offers.</p>
                             <form action="#" class="fn-form">
                                 <input type="text" placeholder="Email">
                                 <button type="submit"><i class="fa fa-send"></i></button>
@@ -712,15 +355,16 @@
                 <div class="row">
                     <div class="col-lg-7">
                         <ul>
-                            <li><a href="#">Contact</a></li>
-                            <li><a href="#">Terms of use</a></li>
-                            <li><a href="#">Privacy</a></li>
-                            <li><a href="#">Environmental Policy</a></li>
+                            <li><a href="index.html">Trang Chủ</a></li>
+                            <li><a href="homeStay.html">Nhà Nghỉ</a></li>
+                            <li><a href="./rooms.html">Danh Sách Phòng</a></li>
+                            <li><a href="blog.html">Bài Viết</a></li>
+                            <li><a href="contact.html">Liên Hệ</a></li>
                         </ul>
                     </div>
                     <div class="col-lg-5">
                         <div class="co-text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://duyhuunguyen.github.io/GroupWeb/GroupWeb/public/index.html" target="_blank">group10hci</a>
   <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
                     </div>
                 </div>

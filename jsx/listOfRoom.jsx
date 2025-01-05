@@ -222,235 +222,237 @@ const AddRoomPage = ({ onSave, onCancel }) => {
     };
 
     return (
-            <div className="container-fluid p-4">
-                <div className="card">
-                    <div className="card-body d-flex flex-column">
-                        <form onSubmit={handleSubmit} className="d-flex flex-column flex-grow-1">
-                            {/* Scrollable content area */}
-                            <div 
-                                className="flex-grow-1 overflow-auto" 
-                                style={{ maxHeight: '55vh', paddingRight: '15px' }}
-                            >
-                                {/* Basic Information Group */}
-                                <div className="row mb-4">
-                                    <div className="col-12">
-                                        <div className="card border-light bg-light">
-                                            <div className="card-header">
-                                                <h5 className="mb-0">Thông tin cơ bản</h5>
-                                            </div>
-                                            <div className="card-body">
-                                                <div className="row g-3">
-                                                    <div className="col-md-6">
-                                                        <label className="form-label fw-bold">Tên phòng</label>
-                                                        <input
-                                                            type="text"
-                                                            name="name"
-                                                            className="form-control"
-                                                            value={formData.name}
-                                                            onChange={handleChange}
-                                                            required
-                                                        />
-                                                    </div>
-                                                    <div className="col-md-6">
-                                                        <label className="form-label fw-bold">HomeStay</label>
-                                                        <select
-                                                            name="homestay"
-                                                            className="form-select"
-                                                            value={formData.homestay}
-                                                            onChange={handleChange}
-                                                        >
-                                                            {homestayOptions.map(option => (
-                                                                <option key={option} value={option}>{option}</option>
-                                                            ))}
-                                                        </select>
-                                                    </div>
+        <div className="container-fluid p-4">
+            <div className="card">
+                <div className="card-body d-flex flex-column">
+                    <form onSubmit={handleSubmit} className="d-flex flex-column flex-grow-1">
+                        {/* Scrollable content area */}
+                        <div
+                            className="flex-grow-1 overflow-auto"
+                            style={{ maxHeight: '55vh', paddingRight: '15px' }}
+                        >
+                            {/* Basic Information Group */}
+                            <div className="row mb-4">
+                                <div className="col-12">
+                                    <div className="card border-light bg-light">
+                                        <div className="card-header">
+                                            <h5 className="mb-0">Thông tin cơ bản</h5>
+                                        </div>
+                                        <div className="card-body">
+                                            <div className="row g-3">
+                                                <div className="col-md-6">
+                                                    <label className="form-label fw-bold">Tên phòng</label>
+                                                    <input
+                                                        type="text"
+                                                        name="name"
+                                                        className="form-control"
+                                                        value={formData.name}
+                                                        onChange={handleChange}
+                                                        required
+                                                        autoFocus={true}
+                                                    />
                                                 </div>
+                                                <div className="col-md-6">
+                                                    <label className="form-label fw-bold">HomeStay</label>
+                                                    <select
+                                                        name="homestay"
+                                                        className="form-select"
+                                                        value={formData.homestay}
+                                                        onChange={handleChange}
+                                                    >
+                                                        {homestayOptions.map(option => (
+                                                            <option key={option} value={option}>{option}</option>
+                                                        ))}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div className="col mt-2">
+                                                <label className="form-label fw-bold">Địa điểm</label>
+                                                <input
+                                                    type="text"
+                                                    name="location"
+                                                    className="form-control"
+                                                    value={formData.location}
+                                                    onChange={handleChange}
+                                                    required
+                                                />
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-    
-                                {/* Pricing and Capacity Group */}
-                                <div className="row mb-4">
-                                    <div className="col-12">
-                                        <div className="card border-light bg-light">
-                                            <div className="card-header">
-                                                <h5 className="mb-0">Giá và sức chứa</h5>
-                                            </div>
-                                            <div className="card-body">
-                                                <div className="row g-3">
-                                                    <div className="col-md-3">
-                                                        <label className="form-label fw-bold">Giá (VND)</label>
-                                                        <div className="input-group">
-                                                            <input
-                                                                type="number"
-                                                                name="price"
-                                                                className="form-control"
-                                                                value={formData.price}
-                                                                onChange={handleChange}
-                                                                required
-                                                            />
-                                                            <span className="input-group-text">VND</span>
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-md-3">
-                                                        <label className="form-label fw-bold">Giảm giá (%)</label>
-                                                        <div className="input-group">
-                                                            <input
-                                                                type="number"
-                                                                name="discount"
-                                                                className="form-control"
-                                                                value={formData.discount}
-                                                                onChange={handleChange}
-                                                            />
-                                                            <span className="input-group-text">%</span>
-                                                        </div>
-                                                    </div>
-                                                    <div className="col-md-3">
-                                                        <label className="form-label fw-bold">Số người tối đa</label>
+                            </div>
+
+                            {/* Pricing and Capacity Group */}
+                            <div className="row mb-4">
+                                <div className="col-12">
+                                    <div className="card border-light bg-light">
+                                        <div className="card-header">
+                                            <h5 className="mb-0">Giá và sức chứa</h5>
+                                        </div>
+                                        <div className="card-body">
+                                            <div className="row g-3">
+                                                <div className="col-md-3">
+                                                    <label className="form-label fw-bold">Giá (VND)</label>
+                                                    <div className="d-flex flex-nowrap input-group">
                                                         <input
                                                             type="number"
-                                                            name="maxGuests"
+                                                            name="price"
                                                             className="form-control"
-                                                            value={formData.maxGuests}
-                                                            onChange={handleMaxGuestsChange}
-                                                            min="1"
+                                                            value={formData.price}
+                                                            onChange={handleChange}
                                                             required
                                                         />
-                                                    </div>
-                                                    <div className="col-md-3">
-                                                        <label className="form-label fw-bold">Kích thước phòng</label>
-                                                        <div className="input-group">
-                                                            <input
-                                                                type="text"
-                                                                name="roomSize"
-                                                                className="form-control"
-                                                                value={formData.roomSize}
-                                                                onChange={handleChange}
-                                                            />
-                                                            <span className="input-group-text">m²</span>
-                                                        </div>
+                                                        <span className="input-group-text">VND</span>
                                                     </div>
                                                 </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-    
-                                {/* Room Details Group */}
-                                <div className="row mb-4">
-                                    <div className="col-12">
-                                        <div className="card border-light bg-light">
-                                            <div className="card-header">
-                                                <h5 className="mb-0">Chi tiết phòng</h5>
-                                            </div>
-                                            <div className="card-body">
-                                                <div className="row g-3">
-                                                    <div className="col-md-4">
-                                                        <label className="form-label fw-bold">Kiểu phòng</label>
-                                                        <select
-                                                            name="type"
-                                                            className="form-select"
-                                                            value={formData.type}
+                                                <div className="col-md-3">
+                                                    <label className="form-label fw-bold">Giảm giá (%)</label>
+                                                    <div className="input-group">
+                                                        <input
+                                                            type="number"
+                                                            name="discount"
+                                                            className="form-control"
+                                                            value={formData.discount}
                                                             onChange={handleChange}
-                                                        >
-                                                            {roomTypes.map(type => (
-                                                                <option key={type.id} value={type.name}>{type.name}</option>
-                                                            ))}
-                                                        </select>
+                                                        />
+                                                        <span className="input-group-text">%</span>
                                                     </div>
-                                                    <div className="col-md-4">
-                                                        <label className="form-label fw-bold">Trạng thái</label>
-                                                        <select
-                                                            name="status"
-                                                            className="form-select"
-                                                            value={formData.status}
-                                                            onChange={handleChange}
-                                                        >
-                                                            {statusOptions.map(status => (
-                                                                <option key={status} value={status}>{status}</option>
-                                                            ))}
-                                                        </select>
-                                                    </div>
-                                                    <div className="col-md-4">
-                                                        <label className="form-label fw-bold">Cấu hình giường</label>
+                                                </div>
+                                                <div className="col-md-3">
+                                                    <label className="form-label fw-bold">Số người tối đa</label>
+                                                    <input
+                                                        type="number"
+                                                        name="maxGuests"
+                                                        className="form-control"
+                                                        value={formData.maxGuests}
+                                                        onChange={handleMaxGuestsChange}
+                                                        min="1"
+                                                        required
+                                                    />
+                                                </div>
+                                                <div className="col-md-3">
+                                                    <label className="form-label fw-bold">Kích thước phòng</label>
+                                                    <div className="d-flex flex-nowrap input-group">
                                                         <input
                                                             type="text"
-                                                            name="bedConfiguration"
+                                                            name="roomSize"
                                                             className="form-control"
-                                                            value={formData.bedConfiguration}
+                                                            value={formData.roomSize}
                                                             onChange={handleChange}
                                                         />
+                                                        <span className="input-group-text">m²</span>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-    
-                                {/* Description and Amenities Group */}
-                                <div className="row mb-4">
-                                    <div className="col-12">
-                                        <div className="card border-light bg-light">
-                                            <div className="card-header">
-                                                <h5 className="mb-0">Mô tả và tiện nghi</h5>
-                                            </div>
-                                            <div className="card-body">
-                                                <div className="row g-3">
-                                                    <div className="col-md-6">
-                                                        <label className="form-label fw-bold">Mô tả phòng</label>
-                                                        <textarea
-                                                            name="description"
-                                                            className="form-control"
-                                                            value={formData.description}
-                                                            onChange={handleChange}
-                                                            rows="4"
-                                                        />
-                                                    </div>
-                                                    <div className="col-md-6">
-                                                        <label className="form-label fw-bold">Tiện nghi phòng</label>
-                                                        <textarea
-                                                            name="roomAmenities"
-                                                            className="form-control"
-                                                            value={formData.roomAmenities}
-                                                            onChange={handleChange}
-                                                            rows="4"
-                                                        />
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-    
-                                {/* Images Group */}
-                                <ImageUploadSection />
                             </div>
-    
-                            {/* Action Buttons - Fixed at bottom */}
-                            <div className="row mt-3">
+
+                            {/* Room Details Group */}
+                            <div className="row mb-4">
                                 <div className="col-12">
-                                    <div className="d-flex justify-content-end gap-2">
-                                        <button
-                                            type="button"
-                                            onClick={handleCancel}
-                                            className="btn btn-outline-secondary px-4"
-                                        >
-                                            Hủy
-                                        </button>
-                                        <button
-                                            type="submit"
-                                            className="btn btn-primary px-4"
-                                        >
-                                            Thêm phòng
-                                        </button>
+                                    <div className="card border-light bg-light">
+                                        <div className="card-header">
+                                            <h5 className="mb-0">Chi tiết phòng</h5>
+                                        </div>
+                                        <div className="card-body">
+                                            <div className="row g-3">
+                                                <div className="col-md-6">
+                                                    <label className="form-label fw-bold">Kiểu phòng</label>
+                                                    <select
+                                                        name="type"
+                                                        className="form-select"
+                                                        value={formData.type}
+                                                        onChange={handleChange}
+                                                    >
+                                                        {roomTypes.map(type => (
+                                                            <option key={type.id} value={type.name}>{type.name}</option>
+                                                        ))}
+                                                    </select>
+                                                </div>
+                                                <div className="col-md-6">
+                                                    <label className="form-label fw-bold">Trạng thái</label>
+                                                    <select
+                                                        name="status"
+                                                        className="form-select"
+                                                        value={formData.status}
+                                                        onChange={handleChange}
+                                                    >
+                                                        {statusOptions.map(status => (
+                                                            <option key={status} value={status}>{status}</option>
+                                                        ))}
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </form>
-                    </div>
+
+                            {/* Description and Amenities Group */}
+                            <div className="row mb-4">
+                                <div className="col-12">
+                                    <div className="card border-light bg-light">
+                                        <div className="card-header">
+                                            <h5 className="mb-0">Mô tả và tiện nghi</h5>
+                                        </div>
+                                        <div className="card-body">
+                                            <div className="row g-3">
+                                                <div className="col-md-6">
+                                                    <label className="form-label fw-bold">Mô tả phòng</label>
+                                                    <textarea
+                                                        name="description"
+                                                        className="form-control"
+                                                        value={formData.description}
+                                                        onChange={handleChange}
+                                                        rows="4"
+                                                    />
+                                                </div>
+                                                <div className="col-md-6">
+                                                    <label className="form-label fw-bold">Tiện nghi phòng</label>
+                                                    <textarea
+                                                        name="roomAmenities"
+                                                        className="form-control"
+                                                        value={formData.roomAmenities}
+                                                        onChange={handleChange}
+                                                        rows="4"
+                                                    />
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Images Group */}
+                            <ImageUploadSection />
+                        </div>
+
+                        {/* Action Buttons - Fixed at bottom */}
+                        <div className="row mt-3">
+                            <div className="col-12">
+                                <div className="d-flex justify-content-end gap-2">
+                                    <button
+                                        type="button"
+                                        onClick={handleCancel}
+                                        className="btn btn-outline-secondary px-4"
+                                    >
+                                        Hủy
+                                    </button>
+                                    <button
+                                        type="submit"
+                                        className="btn btn-primary px-4"
+                                    >
+                                        Thêm phòng
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
+        </div>
     );
 };
 
@@ -550,8 +552,8 @@ const EditRoomPage = ({ room, onSave, onCancel }) => {
                 <div className="card-body d-flex flex-column">
                     <form onSubmit={handleSubmit} className="d-flex flex-column flex-grow-1">
                         {/* Scrollable content area */}
-                        <div 
-                            className="flex-grow-1 overflow-auto" 
+                        <div
+                            className="flex-grow-1 overflow-auto"
                             style={{ maxHeight: '55vh', paddingRight: '15px' }}
                         >
                             {/* Basic Information Group */}
@@ -572,6 +574,7 @@ const EditRoomPage = ({ room, onSave, onCancel }) => {
                                                         value={formData.name}
                                                         onChange={handleChange}
                                                         required
+                                                        autoFocus={true}
                                                     />
                                                 </div>
                                                 <div className="col-md-6">
@@ -588,11 +591,22 @@ const EditRoomPage = ({ room, onSave, onCancel }) => {
                                                     </select>
                                                 </div>
                                             </div>
+                                            <div className="col mt-2">
+                                                <label className="form-label fw-bold">Địa điểm</label>
+                                                <input
+                                                    type="text"
+                                                    name="location"
+                                                    className="form-control"
+                                                    value={formData.location}
+                                                    onChange={handleChange}
+                                                    required
+                                                />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-    
+
                             {/* Pricing and Capacity Group */}
                             <div className="row mb-4">
                                 <div className="col-12">
@@ -604,7 +618,7 @@ const EditRoomPage = ({ room, onSave, onCancel }) => {
                                             <div className="row g-3">
                                                 <div className="col-md-3">
                                                     <label className="form-label fw-bold">Giá (VND)</label>
-                                                    <div className="input-group">
+                                                    <div className="d-flex flex-nowrap input-group">
                                                         <input
                                                             type="number"
                                                             name="price"
@@ -643,7 +657,7 @@ const EditRoomPage = ({ room, onSave, onCancel }) => {
                                                 </div>
                                                 <div className="col-md-3">
                                                     <label className="form-label fw-bold">Kích thước phòng</label>
-                                                    <div className="input-group">
+                                                    <div className="d-flex flex-nowrap input-group">
                                                         <input
                                                             type="text"
                                                             name="roomSize"
@@ -659,7 +673,7 @@ const EditRoomPage = ({ room, onSave, onCancel }) => {
                                     </div>
                                 </div>
                             </div>
-    
+
                             {/* Room Details Group */}
                             <div className="row mb-4">
                                 <div className="col-12">
@@ -669,7 +683,7 @@ const EditRoomPage = ({ room, onSave, onCancel }) => {
                                         </div>
                                         <div className="card-body">
                                             <div className="row g-3">
-                                                <div className="col-md-4">
+                                                <div className="col-md-6">
                                                     <label className="form-label fw-bold">Kiểu phòng</label>
                                                     <select
                                                         name="type"
@@ -682,7 +696,7 @@ const EditRoomPage = ({ room, onSave, onCancel }) => {
                                                         ))}
                                                     </select>
                                                 </div>
-                                                <div className="col-md-4">
+                                                <div className="col-md-6">
                                                     <label className="form-label fw-bold">Trạng thái</label>
                                                     <select
                                                         name="status"
@@ -695,22 +709,12 @@ const EditRoomPage = ({ room, onSave, onCancel }) => {
                                                         ))}
                                                     </select>
                                                 </div>
-                                                <div className="col-md-4">
-                                                    <label className="form-label fw-bold">Cấu hình giường</label>
-                                                    <input
-                                                        type="text"
-                                                        name="bedConfiguration"
-                                                        className="form-control"
-                                                        value={formData.bedConfiguration}
-                                                        onChange={handleChange}
-                                                    />
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-    
+
                             {/* Description and Amenities Group */}
                             <div className="row mb-4">
                                 <div className="col-12">
@@ -745,11 +749,11 @@ const EditRoomPage = ({ room, onSave, onCancel }) => {
                                     </div>
                                 </div>
                             </div>
-    
+
                             {/* Images Group */}
                             <ImageUploadSection />
                         </div>
-    
+
                         {/* Action Buttons - Fixed at bottom */}
                         <div className="row mt-3">
                             <div className="col-12">
@@ -779,6 +783,9 @@ const EditRoomPage = ({ room, onSave, onCancel }) => {
 
 const HotelManagement = () => {
     const [rooms, setRooms] = useState(initialRooms);
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 5;
+    const totalPages = Math.ceil(rooms.length / itemsPerPage);
     const [searchTerm, setSearchTerm] = useState("");
     const [showAddForm, setShowAddForm] = useState(false);
     const [editingRoom, setEditingRoom] = useState(null);
@@ -809,9 +816,8 @@ const HotelManagement = () => {
         setRooms(filteredRooms);
     };
 
-    const handleAddRoom = (e) => {
-        e.preventDefault();
-        setRooms([...rooms, { ...newRoom, id: rooms.length + 1, image: "/api/placeholder/300/200" }]);
+    const handleAddRoom = (newRoomData) => {
+        setRooms(prevRooms => [...prevRooms, { ...newRoomData, id: prevRooms.length + 1, image: "/api/placeholder/300/200" }]);
         setShowAddForm(false);
         setNewRoom({
             name: "",
@@ -850,10 +856,10 @@ const HotelManagement = () => {
     };
 
     return (
-        <div className="container-fluid p-4 ">
+        <div className="">
 
             {/* Search Bar */}
-            <div className="card mb-4 search-bar">
+            <div className="card mb-4 search-bar shadow-sm">
                 <div className="card-body">
                     <form onSubmit={handleSearch} className="row g-3">
                         <div className="col-md-9">
@@ -868,7 +874,7 @@ const HotelManagement = () => {
                                 {searchTerm && (
                                     <button
                                         type="button"
-                                        className="btn btn-link position-absolute end-0 top-50 translate-middle-y text-secondary border-0 bg-transparent"
+                                        className="btn btn-out position-absolute end-0 top-50 translate-middle-y text-secondary border-0 bg-transparent"
                                         style={{ zIndex: 5, padding: '0.375rem 0.75rem' }}
                                         onClick={handleClear}
                                     >
@@ -879,7 +885,7 @@ const HotelManagement = () => {
                         </div>
                         <div className="col-md-3">
                             <div className="d-flex gap-2">
-                                <button type="submit" className="btn btn-outline-success">
+                                <button type="submit" className="btn btn-outline-secondary">
                                     <SearchIcon />
                                 </button>
                                 <button
@@ -961,7 +967,7 @@ const HotelManagement = () => {
 
             {/* Rooms Table */}
             <div className="table-container">
-                <table className="table table-bordered">
+                <table className="table table-bordered table-light">
                     <thead>
                         <tr>
                             <th style={{ width: "5%" }}>STT</th>
@@ -994,15 +1000,14 @@ const HotelManagement = () => {
                                     <div><strong>Loại phòng:</strong> {room.type}</div>
                                 </td>
                                 <td>
-                                    <span className={`badge ${room.status === 'Đang trống' ? 'bg-success bg-gradient' :
-                                        room.status === 'Đã đặt' ? 'bg-warning bg-gradient' : 'bg-danger bg-gradient'}`}>
+                                    <span className="badge bg-secondary bg-gradient">
                                         {room.status}
                                     </span>
                                 </td>
                                 <td>
                                     <div className="d-flex justify-content-center gap-2">
                                         <button
-                                            className="btn btn-sm btn-outline-primary rounded"
+                                            className="btn btn-sm btn-outline-secondary rounded"
                                             title="Edit Room"
                                             onClick={() => handleEdit(room)}
                                         >
@@ -1021,6 +1026,30 @@ const HotelManagement = () => {
                         ))}
                     </tbody>
                 </table>
+            {/* Pagination */}
+            <div className="d-flex justify-content-center align-items-center mt-3">
+                <nav>
+                    <ul className="pagination mb-0">
+                        <li className="page-item">
+                            <button className="page-link" disabled={currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>
+                                Trước
+                            </button>
+                        </li>
+                        {Array.from({ length: totalPages }, (_, index) => (
+                            <li key={index} className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
+                                <button className="page-link" onClick={() => setCurrentPage(index + 1)}>
+                                    {index + 1}
+                                </button>
+                            </li>
+                        ))}
+                        <li className="page-item">
+                            <button className="page-link" disabled={currentPage === totalPages} onClick={() => setCurrentPage(currentPage + 1)}>
+                                Sau
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
             </div>
 
             {/* Delete Confirmation Modal */}
