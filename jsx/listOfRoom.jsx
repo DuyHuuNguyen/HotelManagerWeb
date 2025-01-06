@@ -249,6 +249,7 @@ const AddRoomPage = ({ onSave, onCancel }) => {
                                                         value={formData.name}
                                                         onChange={handleChange}
                                                         required
+                                                        autoFocus={true}
                                                     />
                                                 </div>
                                                 <div className="col-md-6">
@@ -292,7 +293,7 @@ const AddRoomPage = ({ onSave, onCancel }) => {
                                             <div className="row g-3">
                                                 <div className="col-md-3">
                                                     <label className="form-label fw-bold">Giá (VND)</label>
-                                                    <div className="input-group">
+                                                    <div className="d-flex flex-nowrap input-group">
                                                         <input
                                                             type="number"
                                                             name="price"
@@ -331,7 +332,7 @@ const AddRoomPage = ({ onSave, onCancel }) => {
                                                 </div>
                                                 <div className="col-md-3">
                                                     <label className="form-label fw-bold">Kích thước phòng</label>
-                                                    <div className="input-group">
+                                                    <div className="d-flex flex-nowrap input-group">
                                                         <input
                                                             type="text"
                                                             name="roomSize"
@@ -573,6 +574,7 @@ const EditRoomPage = ({ room, onSave, onCancel }) => {
                                                         value={formData.name}
                                                         onChange={handleChange}
                                                         required
+                                                        autoFocus={true}
                                                     />
                                                 </div>
                                                 <div className="col-md-6">
@@ -616,7 +618,7 @@ const EditRoomPage = ({ room, onSave, onCancel }) => {
                                             <div className="row g-3">
                                                 <div className="col-md-3">
                                                     <label className="form-label fw-bold">Giá (VND)</label>
-                                                    <div className="input-group">
+                                                    <div className="d-flex flex-nowrap input-group">
                                                         <input
                                                             type="number"
                                                             name="price"
@@ -655,7 +657,7 @@ const EditRoomPage = ({ room, onSave, onCancel }) => {
                                                 </div>
                                                 <div className="col-md-3">
                                                     <label className="form-label fw-bold">Kích thước phòng</label>
-                                                    <div className="input-group">
+                                                    <div className="d-flex flex-nowrap input-group">
                                                         <input
                                                             type="text"
                                                             name="roomSize"
@@ -781,6 +783,9 @@ const EditRoomPage = ({ room, onSave, onCancel }) => {
 
 const HotelManagement = () => {
     const [rooms, setRooms] = useState(initialRooms);
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 5;
+    const totalPages = Math.ceil(rooms.length / itemsPerPage);
     const [searchTerm, setSearchTerm] = useState("");
     const [showAddForm, setShowAddForm] = useState(false);
     const [editingRoom, setEditingRoom] = useState(null);
@@ -811,9 +816,8 @@ const HotelManagement = () => {
         setRooms(filteredRooms);
     };
 
-    const handleAddRoom = (e) => {
-        e.preventDefault();
-        setRooms([...rooms, { ...newRoom, id: rooms.length + 1, image: "/api/placeholder/300/200" }]);
+    const handleAddRoom = (newRoomData) => {
+        setRooms(prevRooms => [...prevRooms, { ...newRoomData, id: prevRooms.length + 1, image: "/api/placeholder/300/200" }]);
         setShowAddForm(false);
         setNewRoom({
             name: "",
@@ -852,10 +856,10 @@ const HotelManagement = () => {
     };
 
     return (
-        <div className="container-fluid p-4 ">
+        <div className="">
 
             {/* Search Bar */}
-            <div className="card mb-4 search-bar">
+            <div className="card mb-4 search-bar shadow-sm">
                 <div className="card-body">
                     <form onSubmit={handleSearch} className="row g-3">
                         <div className="col-md-9">
@@ -881,7 +885,7 @@ const HotelManagement = () => {
                         </div>
                         <div className="col-md-3">
                             <div className="d-flex gap-2">
-                                <button type="submit" className="btn btn-outline-success">
+                                <button type="submit" className="btn btn-outline-secondary">
                                     <SearchIcon />
                                 </button>
                                 <button
@@ -996,15 +1000,14 @@ const HotelManagement = () => {
                                     <div><strong>Loại phòng:</strong> {room.type}</div>
                                 </td>
                                 <td>
-                                    <span className={`badge ${room.status === 'Đang trống' ? 'bg-success bg-gradient' :
-                                        room.status === 'Đã đặt' ? 'bg-warning bg-gradient' : 'bg-danger bg-gradient'}`}>
+                                    <span className="badge bg-secondary bg-gradient">
                                         {room.status}
                                     </span>
                                 </td>
                                 <td>
                                     <div className="d-flex justify-content-center gap-2">
                                         <button
-                                            className="btn btn-sm btn-outline-primary rounded"
+                                            className="btn btn-sm btn-outline-secondary rounded"
                                             title="Edit Room"
                                             onClick={() => handleEdit(room)}
                                         >
@@ -1023,6 +1026,30 @@ const HotelManagement = () => {
                         ))}
                     </tbody>
                 </table>
+            {/* Pagination */}
+            <div className="d-flex justify-content-center align-items-center mt-3">
+                <nav>
+                    <ul className="pagination mb-0">
+                        <li className="page-item">
+                            <button className="page-link" disabled={currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>
+                                Trước
+                            </button>
+                        </li>
+                        {Array.from({ length: totalPages }, (_, index) => (
+                            <li key={index} className={`page-item ${currentPage === index + 1 ? 'active' : ''}`}>
+                                <button className="page-link" onClick={() => setCurrentPage(index + 1)}>
+                                    {index + 1}
+                                </button>
+                            </li>
+                        ))}
+                        <li className="page-item">
+                            <button className="page-link" disabled={currentPage === totalPages} onClick={() => setCurrentPage(currentPage + 1)}>
+                                Sau
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
             </div>
 
             {/* Delete Confirmation Modal */}
