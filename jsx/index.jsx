@@ -11,9 +11,9 @@ const generateMonthlyData = (baseValue, variance) => {
 const ProgressBar = ({ value, max }) => (
   <div className="progress mt-2 mb-3" style={{ height: "10px" }}>
     <div 
-      className="progress-bar bg-primary" 
+      className="progress-bar" 
       role="progressbar" 
-      style={{ width: `${(value/max * 100)}%` }}
+      style={{ width: `${(value/max * 100)}%`, backgroundColor: "#00ACC1" }}
       aria-valuenow={value} 
       aria-valuemin="0" 
       aria-valuemax={max}
@@ -38,7 +38,7 @@ const StatsCard = ({ title, value, icon, trend }) => (
             )}
           </div>
           <div className="bg-secondary bg-opacity-10 p-3 rounded">
-            <i className={`fas fa-${icon.replace(/[^a-z-]/g, '')} fa-2x text-primary`}></i>
+            <i className={`fas fa-${icon.replace(/[^a-z-]/g, '')} fa-2x`} style={{ color: "#00ACC1" }}></i>
           </div>
         </div>
       </div>
@@ -58,8 +58,8 @@ const ChartSection = ({ title, data, chartId, type = 'line' }) => {
         datasets: [{
           label: title,
           data: data,
-          borderColor: '#0d6efd',
-          backgroundColor: type === 'bar' ? '#0d6efd' : 'transparent',
+          borderColor: '#00ACC1',
+          backgroundColor: type === 'bar' ? '#00ACC1' : 'transparent',
           tension: 0.4
         }]
       },
@@ -222,7 +222,7 @@ const Dashboard = () => {
                 </div>
                 <ProgressBar value={stats.rooms.maintenance} max={stats.rooms.total} />
 
-                <div className="alert alert-primary mt-3">
+                <div className="alert alert-secondary mt-3">
                   <i className="fas fa-info-circle me-2"></i>
                   Tỷ lệ lấp đầy: {occupancyRate}%
                 </div>
