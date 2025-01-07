@@ -1,0 +1,227 @@
+ /* Rooms Section */
+ section {
+    padding: 80px 20px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.btn {
+    padding: 15px 30px;
+    background-color: #58c6a9;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 30px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin: 10px;
+    display: inline-block;
+}
+
+.btn:hover {
+    background-color: #47a790;
+    transform: translateY(-3px);
+}
+
+#rooms {
+    background-color: #fff;
+    padding: 0 100px 40px;
+}
+
+.room-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.room-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.room-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
+}
+
+.room-card .room-img {
+    flex: 1;
+    min-width: 250px;
+}
+
+.room-card .room-img img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.room-card .details {
+    flex: 1;
+    min-width: 250px;
+}
+
+.room-card h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #dfa974;
+}
+
+.room-card p {
+    font-size: 16px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Facilities Section */
+#facilities {
+    background-color: #f0f5f1;
+}
+
+#facilities ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    list-style: none;
+}
+
+#facilities ul li {
+    background-color: #dfa974;
+    color: white;
+    padding: 15px 30px;
+    margin: 10px;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+
+/* Container chính cho phần Đặt phòng */
+#booking {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Phần chứa nội dung Đặt phòng */
+.booking-container {
+    background-color: rgba(255, 255, 255, 0.9); /* Nền mờ trắng tạo hiệu ứng trong suốt */
+    border-radius: 15px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1); /* Đổ bóng sang trọng */
+    padding: 40px;
+    width: 100%;
+    text-align: center;
+    backdrop-filter: blur(15px); /* Tạo hiệu ứng mờ cho nền */
+}
+
+/* Cấu trúc nội dung Đặt phòng */
+.booking-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Phần văn bản bên trái */
+.booking-text {
+    flex: 1;
+    padding-right: 20px; /* Khoảng cách giữa văn bản và nút */
+}
+
+.booking-heading {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: fadeIn 1s ease-out;
+}
+
+/* Văn bản phụ bên trái */
+.booking-subtext {
+    font-size: 1.2rem;
+    color: #7f8c8d;
+    line-height: 1.6;
+    font-style: italic;
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Nút Đặt phòng ngay bên phải */
+.booking-btn {
+    text-align: right;
+}
+
+.btn-book-now {
+    background-color: #dfa974; 
+    color: white;
+    font-size: 1.1rem;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 50px; /* Hình tròn mềm mại */
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    font-weight: bold;
+}
+
+/* Hiệu ứng hover cho nút */
+.btn-book-now:hover {
+    background-color: #e64a19; /* Màu cam đậm khi hover */
+    transform: translateY(-5px); /* Nâng nút lên khi hover */
+}
+
+/* Animation FadeIn */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .room-card {
+        width: 100%;
+    }
+
+    #rooms, #facilities, #book-now, #information {
+        padding: 40px 20px;
+    }
+
+    .btn {
+        padding: 12px 24px;
+        font-size: 16px;
+    }
+
+    #book-now .btn-container {
+        flex-direction: column;
+    }
+}
