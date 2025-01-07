@@ -859,7 +859,7 @@ const HotelManagement = () => {
     return (
         <div className="">
             <div className="d-flex mb-4 search-bar gap-2">
-                <form onSubmit={handleSearch} className="d-flex me-auto gap-2">
+                <form onSubmit={handleSearch} className="d-flex me-auto gap-2 w-50">
                     <div className="input-group">
                         <input
                             type="text"
