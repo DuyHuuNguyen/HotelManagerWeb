@@ -36,7 +36,6 @@ html, body {
 	height: 100%;
 	font-family: "Cabin", sans-serif;
 	-webkit-font-smoothing: antialiased;
-	font-smoothing: antialiased;
 }
 h1, h2, h3, h4, h5, h6 {
 	margin: 0;
@@ -64,11 +63,6 @@ h6 {
 }
 p {
 	font-size: 16px;
-	font-family: "Cabin", sans-serif;
-	color: #6b6b6b;
-	font-weight: 400;
-	line-height: 26px;
-	margin: 0 0 15px 0;
 }
 img {
 	max-width: 100%;
@@ -411,11 +405,11 @@ ul, ol {
 .menu-item .nav-menu .mainmenu li:hover>a:after {
 	opacity: 1;
 }
-.menu-item .nav-menu .mainmenu li:hover .dropdown {
+/* .menu-item .nav-menu .mainmenu li:hover .dropdown {
 	top: 77px;
 	opacity: 1;
 	visibility: visible;
-}
+} */
 .menu-item .nav-menu .mainmenu li a {
 	font-size: 16px;
 	color: #19191a;
@@ -1950,14 +1944,10 @@ ul, ol {
 /*-------------------------------- Respinsive Media Styles --------------------------------*/
 
 @media only screen and (min-width: 1554px) and (max-width: 1920px) {
-	.hp-room-items .hp-room-item .hr-text {
-		bottom: -200px;
-	}
+
 }
 @media only screen and (min-width: 1200px) and (max-width: 1250px) {
-	.hp-room-items .hp-room-item .hr-text {
-		bottom: -288px;
-	}
+	
 }
 @media only screen and (min-width: 1200px) {
 	.container {
@@ -1973,12 +1963,8 @@ ul, ol {
 	.testimonial-slider.owl-carousel .owl-nav button.owl-next {
 		right: -150px;
 	}
-	.hp-room-items .hp-room-item .hr-text {
-		bottom: -322px;
-	}
-	.hp-room-items .hp-room-item:hover .hr-text {
-		bottom: 80px;
-	}
+	
+	
 }
 @media only screen and (max-width: 991px) {
 	.top-nav {
