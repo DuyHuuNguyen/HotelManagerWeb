@@ -49,6 +49,9 @@
             background-color: white;
             z-index: 1;
         }
+        .diaDiem{
+            font-size: 50px;
+        }
     </style>
 </head>
 <body>
@@ -113,7 +116,7 @@
     <main class="main-content"> 
         <div class="" id="mainSection">
             <div class="breadcrumb">
-                <span>Trang chủ</span><span>/</span><span>HomeStay</span><span>/</span><span style="color: #A0AEC0;">Danh sách</span>
+                <span>Trang chủ</span><span>/</span><span>HomeStay</span><span>/</span><span style="color: #A0AEC0;">Danh sách Đặt Phòng</span>
             </div>
             <div class="max-w-7xl mx-auto bg-white rounded-lg shadow p-6 mb-6">
                 <!-- Search Form -->
@@ -166,9 +169,9 @@
         const bookings = [
             {
                 id: 1,
-                roomName: 'phong luxury',
+                roomName: 'Deluxe Room with Hammock',
                 customerInfo: {
-                    name: 'Nguyễn Văn A',
+                    name: 'Nguyễn Đình Hiếu',
                     email: 'nguyenvana@gmail.com',
                     phone: '0928817266',
                     address: 'Tòa nhà note 69 tầng'
@@ -185,9 +188,9 @@
 
              {
                 id: 2,
-                roomName: 'Phòng 5*',
+                roomName: 'Harmony',
                 customerInfo: {
-                    name: 'Nguyễn Văn B',
+                    name: 'Nguyễn Đình Hiếu',
                     email: 'nguyenvana@gmail.com',
                     phone: '0928817266',
                     address: 'Tòa nhà note 69 tầng'
@@ -205,9 +208,9 @@
            
             {
                 id: 3,
-                roomName: 'Homestay',
+                roomName: '714',
                 customerInfo: {
-                    name: 'Nguyễn Văn B',
+                    name: 'Nguyễn Đình Hiếu',
                     email: 'nguyenvana@gmail.com',
                     phone: '0928817266',
                     address: 'Tòa nhà note 69 tầng'
@@ -220,6 +223,24 @@
                     totalAmount: '2.400.000'
                 },
                 status: 'Thanh toán trực tiếp'
+            },
+            {
+                id: 3,
+                roomName: '987',
+                customerInfo: {
+                    name: 'Nguyễn Đình Hiếu',
+                    email: 'nguyenvana@gmail.com',
+                    phone: '0928817266',
+                    address: 'Tòa nhà note 69 tầng'
+                },
+                bookingDetails: {
+                    checkIn: '2023-03-17 23:18',
+                    checkOut: '2023-03-20 23:18',
+                    adults: 2,
+                    children: 1,
+                    totalAmount: '2.400.000'
+                },
+                status: 'Thanh toán trước'
             }
         ];
         
