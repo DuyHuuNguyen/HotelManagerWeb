@@ -1,227 +1,175 @@
- /* Rooms Section */
- section {
-    padding: 80px 20px;
-    text-align: center;
-    transition: all 0.3s ease-in-out;
+.container-homestay {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
 }
 
-h2 {
-    font-size: 36px;
+.content-homestay {
+    flex: 2;
+    margin-top: 30px;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto; /* Để căn giữa */
+    overflow: hidden; /* Ẩn các phần hình ảnh tràn */
+    border-radius: 10px;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    transform: translateX(0); /* Vị trí bắt đầu */
+    will-change: transform; /* Tăng hiệu suất */
+}
+
+.carousel img {
+    width: 100%;
+    flex: 0 0 100%; /* Mỗi ảnh chiếm 100% bề rộng carousel */
+    border-radius: 10px;
+}
+
+.carousel-thumbs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.carousel-thumbs img {
+    width: 50px;
+    height: 50px;
+    margin: 0 5px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.3s ease, outline 0.3s ease-in-out;
+}
+
+.carousel-thumbs img:hover {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+.carousel-thumbs img.active-thumb {
+    opacity: 1;
+    outline: 2px solid #dfa974; /* Màu outline cho ảnh được chọn */
+    outline-offset: 3px; /* Khoảng cách giữa outline và ảnh */
+}
+
+.sidebar {
+    flex: 1;
+    margin-top: 30px;
+    border-left: 2px solid #ddd;
+    padding-left: 20px;
+}
+
+.services {
+    margin-bottom: 30px;
+}
+
+.services ul {
+    list-style: none;
+    padding: 0;
+}
+
+.services li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.services img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.services h2 {
+    font-size: 1.5rem;
     margin-bottom: 20px;
 }
 
-p {
-    font-size: 18px;
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 30px;
-    max-width: 1000px;
-    margin: 0 auto;
+.services ul li i {
+    margin-right: 10px;
 }
 
-.btn {
-    padding: 15px 30px;
-    background-color: #58c6a9;
-    color: white;
-    text-transform: uppercase;
-    font-weight: bold;
-    border-radius: 30px;
-    font-size: 18px;
-    letter-spacing: 1px;
-    text-decoration: none;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    margin: 10px;
-    display: inline-block;
-}
-
-.btn:hover {
-    background-color: #47a790;
-    transform: translateY(-3px);
-}
-
-#rooms {
-    background-color: #fff;
-    padding: 0 100px 40px;
-}
-
-.room-card-container {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-}
-
-.room-card {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.room-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 45px rgba(0, 0, 0, 0.2);
-}
-
-.room-card .room-img {
-    flex: 1;
-    min-width: 250px;
-}
-
-.room-card .room-img img {
+iframe {
     width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: 8px;
+    height: 250px;
+    border: 0;
+    border-radius: 10px;
+    margin-top: 20px;
 }
 
-.room-card .details {
-    flex: 1;
-    min-width: 250px;
-}
-
-.room-card h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #dfa974;
-}
-
-.room-card p {
-    font-size: 16px;
-    color: #666;
-    line-height: 1.6;
-}
-
-/* Facilities Section */
-#facilities {
-    background-color: #f0f5f1;
-}
-
-#facilities ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 0;
-    list-style: none;
-}
-
-#facilities ul li {
-    background-color: #dfa974;
-    color: white;
-    padding: 15px 30px;
-    margin: 10px;
-    border-radius: 30px;
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease;
-}
-
-/* Container chính cho phần Đặt phòng */
-#booking {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-/* Phần chứa nội dung Đặt phòng */
-.booking-container {
-    background-color: rgba(255, 255, 255, 0.9); /* Nền mờ trắng tạo hiệu ứng trong suốt */
-    border-radius: 15px;
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.1); /* Đổ bóng sang trọng */
-    padding: 40px;
-    width: 100%;
-    text-align: center;
-    backdrop-filter: blur(15px); /* Tạo hiệu ứng mờ cho nền */
-}
-
-/* Cấu trúc nội dung Đặt phòng */
-.booking-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Phần văn bản bên trái */
-.booking-text {
-    flex: 1;
-    padding-right: 20px; /* Khoảng cách giữa văn bản và nút */
-}
-
-.booking-heading {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    animation: fadeIn 1s ease-out;
-}
-
-/* Văn bản phụ bên trái */
-.booking-subtext {
+.extra-content {
+    margin-top: 10px;
     font-size: 1.2rem;
-    color: #7f8c8d;
-    line-height: 1.6;
-    font-style: italic;
-    animation: fadeIn 1.5s ease-out;
+    color: #555;
 }
 
-/* Nút Đặt phòng ngay bên phải */
-.booking-btn {
-    text-align: right;
+.extra-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
 }
 
-.btn-book-now {
-    background-color: #dfa974; 
-    color: white;
-    font-size: 1.1rem;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 50px; /* Hình tròn mềm mại */
-    cursor: pointer;
-    transition: transform 0.3s ease, background-color 0.3s ease;
+.extra-content p {
+    margin-bottom: 15px;
+}
+
+.contact-info {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    color: #2c3e50;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+}
+
+.cta-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px;
+    background: transparent;
+    outline: 2px solid #ddd;
+    color: #19191a;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cta-section p {
+    font-size: 1.2rem;
     font-weight: bold;
+    margin: 0;
+    margin-right: 50px;
 }
 
-/* Hiệu ứng hover cho nút */
-.btn-book-now:hover {
-    background-color: #e64a19; /* Màu cam đậm khi hover */
-    transform: translateY(-5px); /* Nâng nút lên khi hover */
+.btn-view-rooms {
+    display: inline-block;
+    text-decoration: none;
+    color: #dfa974;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid #dfa974;
+    border-radius: 5px;
+    background: transparent;
+    transition: all 0.3s ease;
 }
 
-/* Animation FadeIn */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateY(0);
-    }
+.btn-view-rooms:hover {
+    background: #dfa974;
+    color: white;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .room-card {
-        width: 100%;
-    }
-
-    #rooms, #facilities, #book-now, #information {
-        padding: 40px 20px;
-    }
-
-    .btn {
-        padding: 12px 24px;
-        font-size: 16px;
-    }
-
-    #book-now .btn-container {
-        flex-direction: column;
-    }
+.map-homestay h2 {
+    font-size: 1.5rem;
 }
