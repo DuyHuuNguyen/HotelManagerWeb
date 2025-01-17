@@ -41,6 +41,11 @@
     justify-content: center;
   }
 
+  .home {
+    text-decoration: none;
+    color: white;
+}
+
   .sidebar {
     width: 250px;
     background-color: #2D3748;

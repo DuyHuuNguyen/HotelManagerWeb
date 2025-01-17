@@ -116,11 +116,11 @@ const ImageUploadSection = () => {
                             onDrop={handleDrop}
                         >
                             <div className="text-center">
-                                <i className="fas fa-cloud-upload-alt fa-3x text-primary mb-3"></i>
+                                <i className="fas fa-cloud-upload-alt fa-3x text-secondary mb-3"></i>
                                 <p className="mb-2">Kéo và thả hình ảnh vào đây hoặc</p>
                                 <button
                                     type="button"
-                                    className="btn btn-outline-primary btn-sm"
+                                    className="btn btn-outline-secondary btn-sm"
                                     onClick={() => fileInputRef.current.click()}
                                 >
                                     Chọn tệp
@@ -166,8 +166,7 @@ const AddRoomPage = ({ onSave, onCancel }) => {
         description: '',
         roomAmenities: '',
         images: [],
-        roomSize: '',
-        bedConfiguration: ''
+        roomSize: ''
     });
 
     const handleSubmit = (e) => {
@@ -249,6 +248,7 @@ const AddRoomPage = ({ onSave, onCancel }) => {
                                                         value={formData.name}
                                                         onChange={handleChange}
                                                         required
+                                                        autoFocus={true}
                                                     />
                                                 </div>
                                                 <div className="col-md-6">
@@ -292,7 +292,7 @@ const AddRoomPage = ({ onSave, onCancel }) => {
                                             <div className="row g-3">
                                                 <div className="col-md-3">
                                                     <label className="form-label fw-bold">Giá (VND)</label>
-                                                    <div className="input-group">
+                                                    <div className="d-flex flex-nowrap input-group">
                                                         <input
                                                             type="number"
                                                             name="price"
@@ -331,7 +331,7 @@ const AddRoomPage = ({ onSave, onCancel }) => {
                                                 </div>
                                                 <div className="col-md-3">
                                                     <label className="form-label fw-bold">Kích thước phòng</label>
-                                                    <div className="input-group">
+                                                    <div className="d-flex flex-nowrap input-group">
                                                         <input
                                                             type="text"
                                                             name="roomSize"
@@ -441,7 +441,8 @@ const AddRoomPage = ({ onSave, onCancel }) => {
                                     </button>
                                     <button
                                         type="submit"
-                                        className="btn btn-primary px-4"
+                                        className="btn px-4"
+                                        style={{ backgroundColor: '#00ACC1', color: 'white' }}
                                     >
                                         Thêm phòng
                                     </button>
@@ -573,6 +574,7 @@ const EditRoomPage = ({ room, onSave, onCancel }) => {
                                                         value={formData.name}
                                                         onChange={handleChange}
                                                         required
+                                                        autoFocus={true}
                                                     />
                                                 </div>
                                                 <div className="col-md-6">
@@ -616,7 +618,7 @@ const EditRoomPage = ({ room, onSave, onCancel }) => {
                                             <div className="row g-3">
                                                 <div className="col-md-3">
                                                     <label className="form-label fw-bold">Giá (VND)</label>
-                                                    <div className="input-group">
+                                                    <div className="d-flex flex-nowrap input-group">
                                                         <input
                                                             type="number"
                                                             name="price"
@@ -655,7 +657,7 @@ const EditRoomPage = ({ room, onSave, onCancel }) => {
                                                 </div>
                                                 <div className="col-md-3">
                                                     <label className="form-label fw-bold">Kích thước phòng</label>
-                                                    <div className="input-group">
+                                                    <div className="d-flex flex-nowrap input-group">
                                                         <input
                                                             type="text"
                                                             name="roomSize"
@@ -765,7 +767,8 @@ const EditRoomPage = ({ room, onSave, onCancel }) => {
                                     </button>
                                     <button
                                         type="submit"
-                                        className="btn btn-primary px-4"
+                                        className="btn px-4"
+                                        style={{ backgroundColor: '#00ACC1', color: 'white' }}
                                     >
                                         Lưu dữ liệu
                                     </button>
@@ -781,6 +784,9 @@ const EditRoomPage = ({ room, onSave, onCancel }) => {
 
 const HotelManagement = () => {
     const [rooms, setRooms] = useState(initialRooms);
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 5;
+    const totalPages = Math.ceil(rooms.length / itemsPerPage);
     const [searchTerm, setSearchTerm] = useState("");
     const [showAddForm, setShowAddForm] = useState(false);
     const [editingRoom, setEditingRoom] = useState(null);
@@ -811,9 +817,8 @@ const HotelManagement = () => {
         setRooms(filteredRooms);
     };
 
-    const handleAddRoom = (e) => {
-        e.preventDefault();
-        setRooms([...rooms, { ...newRoom, id: rooms.length + 1, image: "/api/placeholder/300/200" }]);
+    const handleAddRoom = (newRoomData) => {
+        setRooms(prevRooms => [...prevRooms, { ...newRoomData, id: prevRooms.length + 1, image: "/api/placeholder/300/200" }]);
         setShowAddForm(false);
         setNewRoom({
             name: "",
@@ -852,51 +857,46 @@ const HotelManagement = () => {
     };
 
     return (
-        <div className="container-fluid p-4 ">
-
-            {/* Search Bar */}
-            <div className="card mb-4 search-bar">
-                <div className="card-body">
-                    <form onSubmit={handleSearch} className="row g-3">
-                        <div className="col-md-9">
-                            <div className="input-group">
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    placeholder="Tìm kiếm theo tên phòng hoặc homestay..."
-                                    value={searchTerm}
-                                    onChange={(e) => setSearchTerm(e.target.value)}
-                                />
-                                {searchTerm && (
-                                    <button
-                                        type="button"
-                                        className="btn btn-out position-absolute end-0 top-50 translate-middle-y text-secondary border-0 bg-transparent"
-                                        style={{ zIndex: 5, padding: '0.375rem 0.75rem' }}
-                                        onClick={handleClear}
-                                    >
-                                        <i className="fas fa-times"></i>
-                                    </button>
-                                )}
-                            </div>
-                        </div>
-                        <div className="col-md-3">
-                            <div className="d-flex gap-2">
-                                <button type="submit" className="btn btn-outline-success">
-                                    <SearchIcon />
-                                </button>
-                                <button
-                                    className="btn btn-primary  flex-grow-1"
-                                    onClick={() => setShowAddForm(!showAddForm)}
-                                >
-                                    Tạo mới
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+        <div className="">
+            <div className="d-flex mb-4 search-bar gap-2">
+                <form onSubmit={handleSearch} className="d-flex me-auto gap-2 w-50">
+                    <div className="input-group">
+                        <input
+                            type="text"
+                            className="form-control text-truncate"
+                            placeholder="Tìm kiếm"
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                            style={{
+                                textOverflow: 'ellipsis',
+                                whiteSpace: 'nowrap',
+                                overflow: 'hidden'
+                            }}
+                        />
+                        {searchTerm && (
+                            <button
+                                type="button"
+                                className="btn position-absolute end-0 top-50 translate-middle-y text-secondary border-0 bg-transparent"
+                                style={{ zIndex: 5, padding: '0.375rem 0.75rem' }}
+                                onClick={handleClear}
+                            >
+                                <i className="fas fa-times"></i>
+                            </button>
+                        )}
+                    </div>
+                    <button type="submit" className="btn btn-outline-secondary">
+                        <SearchIcon />
+                    </button>
+                </form>
+                <button
+                    className="btn"
+                    style={{ backgroundColor: '#00ACC1', color: 'white' }}
+                    onClick={() => setShowAddForm(!showAddForm)}
+                >
+                    <i className="fas fa-plus me-2"></i>
+                    Tạo mới
+                </button>
             </div>
-
-            {/* Add Room Form */}
             {showAddForm && (
                 <div
                     className="modal fade show"
@@ -905,7 +905,7 @@ const HotelManagement = () => {
                 >
                     <div className="modal-dialog modal-dialog-centered modal-lg">
                         <div className="modal-content">
-                            <div className="modal-header bg-primary text-white py-3">
+                            <div className="modal-header text-white py-3" style={{ backgroundColor: '#00ACC1' }}>
                                 <div className="d-flex justify-content-between align-items-center w-100">
                                     <h4 className="mb-0">Thêm phòng mới</h4>
                                     <button
@@ -937,7 +937,7 @@ const HotelManagement = () => {
                 >
                     <div className="modal-dialog modal-dialog-centered modal-lg">
                         <div className="modal-content">
-                            <div className="modal-header bg-primary text-white py-3">
+                            <div className="modal-header text-white py-3" style={{ backgroundColor: '#00ACC1' }}>
                                 <div className="d-flex justify-content-between align-items-center w-100">
                                     <h4 className="mb-0">Chỉnh sửa thông tin phòng</h4>
                                     <button
@@ -979,7 +979,7 @@ const HotelManagement = () => {
                         {rooms.map((room, index) => (
                             <tr key={room.id}>
                                 <td>{index + 1}</td>
-                                <td>{room.name}</td>
+                                <td className="text-truncate" style={{ maxWidth: "150px" }} title={room.name}>{room.name}</td>
                                 <td>
                                     <img
                                         src={room.image}
@@ -987,24 +987,23 @@ const HotelManagement = () => {
                                         className="room-image"
                                     />
                                 </td>
-                                <td>{room.homestay}</td>
+                                <td className="text-truncate" style={{ maxWidth: "150px" }} title={room.homestay}>{room.homestay}</td>
                                 <td>
-                                    <div><strong>Địa điểm:</strong> {room.location}</div>
+                                    <div className="text-truncate" style={{ maxWidth: "200px" }} title={room.location}><strong>Địa điểm:</strong> {room.location}</div>
                                     <div><strong>Giá:</strong> {room.price.toLocaleString()} vnd</div>
                                     <div><strong>Giảm giá:</strong> {room.discount}</div>
                                     <div><strong>Số người tối đa:</strong> {room.maxGuests}</div>
                                     <div><strong>Loại phòng:</strong> {room.type}</div>
                                 </td>
                                 <td>
-                                    <span className={`badge ${room.status === 'Đang trống' ? 'bg-success bg-gradient' :
-                                        room.status === 'Đã đặt' ? 'bg-warning bg-gradient' : 'bg-danger bg-gradient'}`}>
+                                    <span className="badge bg-secondary bg-gradient">
                                         {room.status}
                                     </span>
                                 </td>
                                 <td>
                                     <div className="d-flex justify-content-center gap-2">
                                         <button
-                                            className="btn btn-sm btn-outline-primary rounded"
+                                            className="btn btn-sm btn-outline-secondary rounded"
                                             title="Edit Room"
                                             onClick={() => handleEdit(room)}
                                         >
@@ -1023,6 +1022,30 @@ const HotelManagement = () => {
                         ))}
                     </tbody>
                 </table>
+                {/* Pagination */}
+                <div className="d-flex justify-content-center align-items-center mt-3">
+                    <nav>
+                        <ul className="pagination mb-0">
+                            <li className="page-item">
+                                <button className="page-link" style= {{ color: "#00ACC1"}} disabled={currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>
+                                    Trước
+                                </button>
+                            </li>
+                            {Array.from({ length: totalPages }, (_, index) => (
+                                <li key={index} className={`page-item ${currentPage === index + 1 ? 'active' : ''}`} style={{ color: "#00ACC1" }}>
+                                    <button className="page-link" onClick={() => setCurrentPage(index + 1)} style= {{backgroundColor: "#00ACC1", color: "white"}}>
+                                        {index + 1}
+                                    </button>
+                                </li>
+                            ))}
+                            <li className="page-item">
+                                <button className="page-link" style= {{ color: "#00ACC1"}} disabled={currentPage === totalPages} onClick={() => setCurrentPage(currentPage + 1)}>
+                                    Sau
+                                </button>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
             </div>
 
             {/* Delete Confirmation Modal */}
@@ -1033,8 +1056,8 @@ const HotelManagement = () => {
                 >
                     <div className="modal-dialog modal-dialog-centered">
                         <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title">Xác nhận xóa</h5>
+                            <div className="modal-header" style={{ backgroundColor: '#00ACC1' }}>
+                                <h5 className="modal-title text-white">Xác nhận xóa</h5>
                                 <button
                                     type="button"
                                     className="btn-close"

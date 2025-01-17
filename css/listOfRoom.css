@@ -43,6 +43,20 @@ a:hover {
     justify-content: center;
 }
 
+.breadcrumb a {
+    text-decoration: none;
+    color: #4A5568;
+}
+
+.breadcrumb a:hover {
+    color: #2D3748;
+}
+
+.home {
+    text-decoration: none;
+    color: white;
+}
+
 .sidebar {
     width: 250px;
     background-color: #2D3748;

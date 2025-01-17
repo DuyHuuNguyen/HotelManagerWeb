@@ -28,34 +28,14 @@
                 </div>
                 <span>Admin</span>
             </div>
-            <a href="giaoDienNguoiDung/index.html" 
-                style="
-                    background-color: #4285f4; 
-                    color: white; 
-                    padding: 0.3rem 0.5rem; 
-                    border-radius: 8px; 
-                    text-decoration: none; 
-                    display: flex; 
-                    font-size: medium  !important;
-                    align-items: center; 
-                    gap: 0.5rem; 
-                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
-                    transition: background-color 0.3s ease, transform 0.3s ease;
-                    font-weight: 200;
-                "
-                onmouseover="
-                    this.style.backgroundColor='#3367d6';
-                    this.style.transform='translateY(-2px)';
-                    this.style.boxShadow='0 6px 8px rgba(0, 0, 0, 0.15)';
-                "
-                onmouseout="
-                    this.style.backgroundColor='#4285f4';
-                    this.style.transform='translateY(0)';
-                    this.style.boxShadow='0 4px 6px rgba(0, 0, 0, 0.1)';
-                ">
-                <span>Trang chủ</span>
-                <i class="fas fa-arrow-right"></i>
-            </a>
+            <div class="admin-profile">
+                <div class="admin-avatar">
+                    <a class="home" href="giaoDienNguoiDung/index.html">
+                        <i class="fas fa-home"></i>
+                    </a>
+                </div>
+                <a class="home" href="giaoDienNguoiDung/index.html"><span>Trang chủ</span></a>
+            </div>
         </div>
     </header>
 
@@ -65,7 +45,7 @@
         <a href="bai_viet.html" class="nav-item"><i class="fas fa-file-alt"></i><span>Bài viết</span></a>
         <a href="dia_diem.html" class="nav-item"><i class="fas fa-map-marker-alt"></i><span>Địa điểm</span></a>
         <a href="homestay.html" class="nav-item "><i class="fas fa-hotel"></i><span>Nhà nghỉ</span></a>
-        <a href="listOfRoom.html" class="nav-item"><i class="fas fa-bed"></i><span>Danh sách phòng</span></a>
+        <a href="rooms.html" class="nav-item"><i class="fas fa-bed"></i><span>Danh sách phòng</span></a>
         <a href="danhSachDatPhong.html" class="nav-item"><i class="fas fa-calendar-alt"></i><span>Danh sách đặt phòng</span></a>
         <a href="comment.html" class="nav-item"><i class="fas fa-comments"></i><span>Quản lý bình luận</span></a>
         <a href="role.html" class="nav-item"><i class="fas fa-user-cog"></i><span>Vai trò</span></a>
@@ -77,6 +57,7 @@
             <div class="breadcrumb">
                 <span>Trang chủ</span><span>/</span><span>Người dùng<span><span> /</span><span style="color: #A0AEC0;"></span>
             </div>
+            <h1 class="font-bold text-center text-4xl">NGƯỜI DÙNG</h1>
             <div class="w-full lg:flex sm:block mx-auto bg-white rounded-lg shadow p-6 mb-6">
                 <!-- Search Form -->
                 <div class="block mb-6 w-full">

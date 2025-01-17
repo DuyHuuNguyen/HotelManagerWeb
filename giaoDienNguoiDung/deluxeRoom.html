@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="css/font-awesome.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
     <link rel="stylesheet" href="css/deluxeRoom.css" type="text/css">
+    <!-- Magnific Popup CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
 </head>
 
 <body>
@@ -152,86 +154,82 @@
     <!-- Deluxe Room Section -->
     <section class="deluxe-room-details">
         <div class="container">
-            <div class="row">
+            <div class="row align-items-center">
                 <!-- Column 1: Image and Quick Details -->
                 <div class="col-lg-6">
-                    <div class="room-image">
-                        <img src="https://i.pinimg.com/originals/54/47/c7/5447c76323d6f6f93c24eba837587b97.jpg" alt="Deluxe Room" class="img-fluid">
-                    </div>
-                    <div class="room-quick-info mt-4">
-                        <h3>Tổng Quan</h3>
-                        <ul>
-                            <li><strong>Kích thước:</strong> 45 m²</li>
-                            <li><strong>Khả năng chứa:</strong> 2 Người, 1 Trẻ em</li>
-                            <li><strong>Giường:</strong> King-size</li>
-                            <li><strong>Tầng:</strong> 3rd Floor</li>
-                        </ul>
+                    <div class="room-image mb-4 mb-lg-0">
+                        <img src="https://i.pinimg.com/originals/54/47/c7/5447c76323d6f6f93c24eba837587b97.jpg" alt="Deluxe Room" class="img-fluid shadow">
                     </div>
                 </div>
-
+                
                 <!-- Column 2: Detailed Description -->
                 <div class="col-lg-6">
-                    <h3>Về Phòng Deluxe</h3>
-                    <p>Trải nghiệm sự thoải mái tuyệt vời trong phòng Deluxe của chúng tôi. Phòng Deluxe được trang bị giường king-size, khu vực sống, và các tiện nghi hiện đại, phù hợp cho cặp đôi hoặc gia đình nhỏ tìm kiếm một khu vực thoải mái nhưng cũng sang trọng.</p>
-                    <p>Phòng Deluxe của chúng tôi mang đến sự kết hợp giữa thiết kế hiện đại và sự thoải mái thực tế. Bạn sẽ thưởng thức được các cảnh quan thành phố tuyệt đẹp và các dịch vụ ngoại tuyến để làm cho chuyến đi của bạn trở nên đáng nhớ.</p>
-                    
-                    <!-- Buttons -->
-                    <div class="cta-buttons">
-                        <a href="#" class="btn btn-primary">Đặt phòng</a>
-                        <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#learnMoreModal">Tìm hiểu thêm</a>
-                    </div>
-                </div>
+                    <div class="room-description">
+                        <h3 class="mb-4">Về Phòng Deluxe</h3>
+                        <p>Trải nghiệm sự thoải mái tuyệt vời trong phòng Deluxe của chúng tôi. Phòng Deluxe được trang bị giường king-size, khu vực sinh hoạt rộng rãi và các tiện nghi hiện đại, phù hợp cho cặp đôi hoặc gia đình nhỏ tìm kiếm một không gian thoải mái và sang trọng.</p>
+                        <p>Phòng Deluxe của chúng tôi mang đến sự kết hợp hoàn hảo giữa thiết kế hiện đại và sự thoải mái thực tế. Bạn sẽ được tận hưởng tầm nhìn tuyệt đẹp ra thành phố và các dịch vụ đẳng cấp để tạo nên một kỳ nghỉ đáng nhớ.</p>
+                        
+                        <!-- Quick Info -->
+                        <div class="room-quick-info mt-4">
+                            <h4 class="mb-3">Tổng Quan</h4>
+                            <ul class="list-unstyled">
+                                <li><i class="fa fa-check-circle mr-2 text-primary"></i>Diện tích: 45 m²</li>
+                                <li><i class="fa fa-check-circle mr-2 text-primary"></i>Sức chứa: 2 Người lớn, 1 Trẻ em</li>
+                                <li><i class="fa fa-check-circle mr-2 text-primary"></i>Giường: King-size</li>
+                                <li><i class="fa fa-check-circle mr-2 text-primary"></i>Tầng: 3</li>
+                            </ul>
+                        </div>
 
-                <!-- Modal for "Learn More" -->
-                <div class="modal fade" id="learnMoreModal" tabindex="-1" aria-labelledby="learnMoreModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="learnMoreModalLabel">Tìm hiểu thêm về phòng Deluxe</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <h4>Đặc điểm của phòng:</h4>
-                                <ul>
-                                    <li>Giường king-size với bộ lót cao cấp</li>
-                                    <li>Khu vực sống rộng rãi với ghế ngồi thoải mái</li>
-                                    <li>Thiết kế hiện đại với trang trí sang trọng</li>
-                                    <li>Cảnh quan thành phố tuyệt đẹp từ cửa sổ riêng tư của bạn</li>
-                                    <li>Wi-Fi cao cấp miễn phí và truyền hình trong phòng</li>
-                                    <li>Dịch vụ phòng 24/7 và dọn dẹp</li>
-                                </ul>
-                                <p>Phòng Deluxe cung cấp sự sang trọng và thoải mái, là lựa chọn hoàn hảo cho cả du lịch và hành chính. Bất kể bạn đến đây để làm việc hay giải trí, phòng được thiết kế để mang lại trải nghiệm tuyệt vời nhất.</p>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                            </div>
+                        <!-- Buttons -->
+                        <div class="cta-buttons mt-4">
+                            <a href="#" class="btn btn-primary mr-3">Đặt phòng ngay</a>
+                            <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#learnMoreModal">Tìm hiểu thêm</a>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <!-- Why Choose This Room -->
-            <div class="why-choose-room mt-5">
-                <h3>Tại sao chọn phòng này</h3>
-                <ul>
-                    <li><i class="fa fa-check-circle"></i><span>Tiện nghi hiện đại cho sự thoải mái của bạn</span></li>
-                    <li><i class="fa fa-check-circle"></i><span>Phù hợp cho cặp đôi hoặc gia đình nhỏ</span></li>
-                    <li><i class="fa fa-check-circle"></i><span>Cảnh quan thành phố tuyệt đẹp</span></li>
-                    <li><i class="fa fa-check-circle"></i><span>Khuyến mãi đặc biệt cho các đặt phòng sớm</span></li>
-                </ul>
-            </div>
         </div>
     </section>
+    <!-- Modal for "Learn More" -->
+    <div class="modal fade" id="learnMoreModal" tabindex="-1" aria-labelledby="learnMoreModalLabel" aria-hidden="true" style="z-index: 9999;">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="learnMoreModalLabel">Tìm hiểu thêm về phòng Deluxe</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h4>Đặc điểm của phòng:</h4>
+                    <ul>
+                        <li>Giường king-size với bộ lót cao cấp</li>
+                        <li>Khu vực sống rộng rãi với ghế ngồi thoải mái</li>
+                        <li>Thiết kế hiện đại với trang trí sang trọng</li>
+                        <li>Cảnh quan thành phố tuyệt đẹp từ cửa sổ riêng tư của bạn</li>
+                        <li>Wi-Fi cao cấp miễn phí và truyền hình trong phòng</li>
+                        <li>Dịch vụ phòng 24/7 và dọn dẹp</li>
+                    </ul>
+                    <p>Phòng Deluxe cung cấp sự sang trọng và thoải mái, là lựa chọn hoàn hảo cho cả du lịch và hành chính. Bất kể bạn đến đây để làm việc hay giải trí, phòng được thiết kế để mang lại trải nghiệm tuyệt vời nhất.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Deluxe Room Section End -->
 
     <!-- Video Section Begin -->
     <section class="video-section">
         <div class="container">
-            <h3>Tham quan phòng Deluxe của chúng tôi</h3>
-            <div class="video-container">
-                <iframe src="https://www.youtube.com/embed/ONhNhe0tQ6M" frameborder="0" allowfullscreen></iframe>
+            <div class="row">
+                <div class="col-lg-12">
+                    <h3>Khám phá phòng Deluxe</h3>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/ONhNhe0tQ6M" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -240,45 +238,127 @@
     <!-- Gallery Section Begin -->
     <section class="gallery-section">
         <div class="container">
-            <h3>Hình ảnh</h3>
+            <h3>Hình ảnh phòng Deluxe</h3>
             <div class="row">
                 <div class="col-md-4">
-                    <img src="https://th.bing.com/th/id/OIP.2rqlcWuuMYYjXH91f7GtWwHaEK?rs=1&pid=ImgDetMain" alt="Room View">
+                    <div class="gallery-item">
+                        <a href="https://th.bing.com/th/id/OIP.2rqlcWuuMYYjXH91f7GtWwHaEK?rs=1&pid=ImgDetMain" class="gallery-link" data-title="Phòng Deluxe với tầm nhìn tuyệt đẹp">
+                            <img src="https://th.bing.com/th/id/OIP.2rqlcWuuMYYjXH91f7GtWwHaEK?rs=1&pid=ImgDetMain" alt="Phòng Deluxe với tầm nhìn tuyệt đẹp">
+                            <span class="gallery-overlay">Xem thêm</span>
+                        </a>
+                        <div class="gallery-description">
+                            Khám phá không gian sang trọng với tầm nhìn toàn cảnh biểm.
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <img src="https://images5.alphacoders.com/348/348785.jpg" alt="Room Decor">
+                    <div class="gallery-item">
+                        <a href="https://images5.alphacoders.com/348/348785.jpg" class="gallery-link" data-title="Khu vực sinh hoạt rộng rãi">
+                            <img src="https://images5.alphacoders.com/348/348785.jpg" alt="Khu vực sinh hoạt rộng rãi">
+                            <span class="gallery-overlay">Xem thêm</span>
+                        </a>
+                        <div class="gallery-description">
+                            Không gian sinh hoạt thoải mái, lý tưởng cho gia đình và bạn bè.
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-4">
-                    <img src="https://th.bing.com/th/id/OIP.PeXLTAq4rYPNPueypjWwngHaEJ?rs=1&pid=ImgDetMain" alt="Room Space">
+                    <div class="gallery-item">
+                        <a href="https://th.bing.com/th/id/OIP.PeXLTAq4rYPNPueypjWwngHaEJ?rs=1&pid=ImgDetMain" class="gallery-link" data-title="Giường King-size tiện nghi">
+                            <img src="https://th.bing.com/th/id/OIP.PeXLTAq4rYPNPueypjWwngHaEJ?rs=1&pid=ImgDetMain" alt="Giường King-size tiện nghi">
+                            <span class="gallery-overlay">Xem thêm</span>
+                        </a>
+                        <div class="gallery-description">
+                            Thiết kế nội thất sang trọng, tiện nghi. Không gian rộng rãi, thoáng mát. Tầm nhìn tuyệt đẹp.
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- Gallery Section End -->
 
+    <!-- Why Choose Room Section Begin -->
+    <section class="why-choose-room">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <h3 class="text-center mb-5">Tại sao chọn phòng Deluxe?</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="feature-item d-flex align-items-center mb-4">
+                                <div class="icon mr-3">
+                                    <i class="fa fa-wifi text-primary"></i>
+                                </div>
+                                <div class="content">
+                                    <h5>Wifi miễn phí</h5>
+                                    <p>T��n hưởng wifi tốc độ cao miễn phí</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-item d-flex align-items-center mb-4">
+                                <div class="icon mr-3">
+                                    <i class="fa fa-check-circle text-primary"></i>
+                                </div>
+                                <div class="content">
+                                    <h5>Không gian rộng rãi</h5>
+                                    <p>Phòng Deluxe có diện tích rộng, phù hợp cho cặp đôi hoặc gia đình nhỏ.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-item d-flex align-items-center mb-4">
+                                <div class="icon mr-3">
+                                    <i class="fa fa-check-circle text-primary"></i>
+                                </div>
+                                <div class="content">
+                                    <h5>Tầm nhìn tuyệt đẹp</h5>
+                                    <p>Ngắm nhìn khung cảnh thành phố tuyệt đẹp từ cửa sổ phòng Deluxe.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="feature-item d-flex align-items-center mb-4">
+                                <div class="icon mr-3">
+                                    <i class="fa fa-check-circle text-primary"></i>
+                                </div>
+                                <div class="content">
+                                    <h5>Ưu đãi hấp dẫn</h5>
+                                    <p>Nhận các ưu đãi đặc biệt khi đặt phòng Deluxe sớm.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Why Choose Room Section End -->
+
     <!-- Testimonials Section Begin -->
     <section class="testimonials-section">
         <div class="container">
-            <h3>Những đánh giá của khách hàng</h3>
+            <h3>Đánh giá từ khách hàng</h3>
             <div class="row">
                 <div class="col-md-4">
                     <div class="testimonial-item">
-                        <img src="https://th.bing.com/th/id/OIP.QYtSweb1rEbaxZAoqn0VZgHaEK?rs=1&pid=ImgDetMain" alt="Guest 1">
-                        <p>"Phòng tuyệt vời! Cảnh quan tuyệt vời, và dịch vụ vượt quá mong đợi."</p>
+                        <img src="https://th.bing.com/th/id/OIP.QYtSweb1rEbaxZAoqn0VZgHaEK?rs=1&pid=ImgDetMain" alt="Customer 1">
+                        <p>"Phòng Deluxe thật tuyệt vời! Tầm nhìn đẹp, dịch vụ xuất sắc."</p>
                         <h5>Cristiano Ronaldo</h5>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="testimonial-item">
-                        <img src="https://th.bing.com/th/id/OIP.Xv9hlp_x_nfXwflUH2ZlrAHaF7?rs=1&pid=ImgDetMain" alt="Guest 2">
-                        <p>"Một trải nghiệm tuyệt vời! Rất khuyến khích cho một chuyến đi cuối tuần thư giãn."</p>
+                        <img src="https://th.bing.com/th/id/OIP.Xv9hlp_x_nfXwflUH2ZlrAHaF7?rs=1&pid=ImgDetMain" alt="Customer 2">
+                        <p>"Một trải nghiệm tuyệt vời. Rất thích hợp cho kỳ nghỉ cuối tuần thư giãn."</p>
                         <h5>Emma Waston</h5>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="testimonial-item">
-                        <img src="https://th.bing.com/th/id/OIP.9XfOyLPT7-V2m9gvf6nsvgHaHa?rs=1&pid=ImgDetMain" alt="Guest 3">
-                        <p>"Một trải nghiệm tuyệt vời! Rất khuyến khích cho một chuyến đi cuối tuần thư giãn."</p>
+                        <img src="https://th.bing.com/th/id/OIP.9XfOyLPT7-V2m9gvf6nsvgHaHa?rs=1&pid=ImgDetMain" alt="Customer 3">
+                        <p>"Phòng Deluxe sang trọng và tiện nghi. Tôi sẽ quay lại đây lần nữa."</p>
                         <h5>Son Tung MTP</h5>
                     </div>
                 </div>
@@ -291,17 +371,92 @@
     <section class="faq-section">
         <div class="container">
             <h3>Câu hỏi thường gặp</h3>
-            <div class="faq-item">
-                <h5>Bữa sáng có được bao gồm không?</h5>
-                <p>Có, bữa sáng được bao gồm với tất cả các đặt phòng.</p>
-            </div>
-            <div class="faq-item">
-                <h5>Bạn có cung cấp dịch vụ đưa đón sân bay không?</h5>
-                <p>Có, chúng tôi cung cấp dịch vụ đưa đón sân bay với chi phí phụ thêm.</p>
-            </div>
-            <div class="faq-item">
-                <h5>Tôi có thể yêu cầu đến sớm không?</h5>
-                <p>Đến sớm là tùy thuộc vào sự khả dụng. Vui lòng liên hệ chúng tôi để biết thêm chi tiết.</p>
+            <div class="accordion" id="faqAccordion">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Bữa sáng có được bao gồm trong giá phòng không ?
+                            </button>
+                        </h5>
+                    </div>
+
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#faqAccordion">
+                        <div class="card-body">
+                            Có, bữa sáng được bao gồm trong giá phòng Deluxe.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingTwo">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Khách sạn có cung cấp dịch vụ đưa đón sân bay không ?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#faqAccordion">
+                        <div class="card-body">
+                            Có, chúng tôi cung cấp dịch vụ đưa đón sân bay với một khoản phụ phí nhỏ.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingThree">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Tôi có thể yêu cầu nhận phòng sớm hơn không ?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#faqAccordion">
+                        <div class="card-body">
+                            Việc nhận phòng sớm phụ thuộc vào tình trạng phòng trống. Vui lòng liên hệ với chúng tôi để biết thêm chi tiết.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingFour">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                Khách sạn có chính sách hủy phòng linh hoạt không ?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#faqAccordion">
+                        <div class="card-body">
+                            Chúng tôi có chính sách hủy phòng linh hoạt tùy thuộc vào thời gian hủy trước ngày nhận phòng. Vui lòng tham khảo chính sách hủy phòng trên website hoặc liên hệ với chúng tôi để biết thêm chi tiết.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingFive">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                Tôi có thể yêu cầu thêm giường phụ trong phòng Deluxe không ?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#faqAccordion">
+                        <div class="card-body">
+                            Có, chúng tôi có thể cung cấp thêm giường phụ trong phòng Deluxe với một khoản phụ phí nhỏ. Vui lòng thông báo cho chúng tôi trước khi đến để chúng tôi có thể chuẩn bị phòng phù hợp.
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-header" id="headingSix">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                Khách sạn có cung cấp dịch vụ giặt ủi không ?
+                            </button>
+                        </h5>
+                    </div>
+                    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#faqAccordion">
+                        <div class="card-body">
+                            Có, chúng tôi cung cấp dịch vụ giặt ủi với một khoản phí nhỏ. Bạn có thể yêu cầu dịch vụ này tại quầy lễ tân hoặc thông qua dịch vụ phòng.
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -395,8 +550,23 @@
     <script src="js/owl.carousel.min.js"></script>
     <script src="js/main.js"></script>
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Đảm bảo Bootstrap JS được tải sau jQuery -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Magnific Popup JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('.gallery-link').magnificPopup({
+                type: 'image',
+                gallery: {
+                    enabled: true
+                },
+                image: {
+                    titleSrc: 'data-title'
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>

@@ -1,695 +1,365 @@
-const { useState } = React;
+const { useState, useEffect } = React;
 
-// Constants and configurations
-const ROOM_STATUSES = {
-    AVAILABLE: 'Trống',
-    RESERVED: 'Đã đặt',
-    MAINTENANCE: 'Bảo trì'
+// Utility function to generate random data
+const generateMonthlyData = (baseValue, variance) => {
+  return Array.from({ length: 12 }, () => 
+    Math.floor(baseValue + (Math.random() - 0.5) * variance)
+  );
 };
 
-const ROOM_TYPES = {
-    STANDARD: 'Phòng Thường',
-    DELUXE: 'Phòng Cao cấp',
-    SUITE: 'Phòng Suite',
-    FAMILY: 'Phòng Gia đình'
-};
-
-const STATUS_STYLES = {
-    [ROOM_STATUSES.AVAILABLE]: { bg: 'success', text: 'success' },
-    [ROOM_STATUSES.RESERVED]: { bg: 'warning', text: 'warning' },
-    [ROOM_STATUSES.MAINTENANCE]: { bg: 'danger', text: 'danger' }
-};
-
-// Modal Components
-const BookingModal = ({ show, onClose, onSubmit }) => {
-    const [formData, setFormData] = useState({
-        guestName: '',
-        checkIn: '',
-        checkOut: '',
-        roomType: ROOM_TYPES.STANDARD,
-        notes: ''
-    });
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        onSubmit(formData);
-        onClose();
-    };
-
-    if (!show) return null;
-
-    return (
-        <div className="modal d-block" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
-            <div className="modal-dialog">
-                <div className="modal-content">
-                    <div className="modal-header">
-                        <h5 className="modal-title">Đặt Phòng</h5>
-                        <button type="button" className="btn-close" onClick={onClose}></button>
-                    </div>
-                    <form onSubmit={handleSubmit}>
-                        <div className="modal-body">
-                            <div className="mb-3">
-                                <label className="form-label">Tên Khách</label>
-                                <input
-                                    type="text"
-                                    className="form-control"
-                                    value={formData.guestName}
-                                    onChange={e => setFormData({ ...formData, guestName: e.target.value })}
-                                    required
-                                />
-                            </div>
-                            <div className="mb-3">
-                                <label className="form-label">Ngày nhận phòng</label>
-                                <input
-                                    type="date"
-                                    className="form-control"
-                                    value={formData.checkIn}
-                                    onChange={e => setFormData({ ...formData, checkIn: e.target.value })}
-                                    required
-                                />
-                            </div>
-                            <div className="mb-3">
-                                <label className="form-label">Ngày trả phòng</label>
-                                <input
-                                    type="date"
-                                    className="form-control"
-                                    value={formData.checkOut}
-                                    onChange={e => setFormData({ ...formData, checkOut: e.target.value })}
-                                    required
-                                />
-                            </div>
-                            <div className="mb-3">
-                                <label className="form-label">Loại phòng</label>
-                                <select
-                                    className="form-select"
-                                    value={formData.roomType}
-                                    onChange={e => setFormData({ ...formData, roomType: e.target.value })}
-                                >
-                                    {Object.values(ROOM_TYPES).map(type => (
-                                        <option key={type} value={type}>{type}</option>
-                                    ))}
-                                </select>
-                            </div>
-                            <div className="mb-3">
-                                <label className="form-label">Ghi chú</label>
-                                <textarea
-                                    className="form-control"
-                                    value={formData.notes}
-                                    onChange={e => setFormData({ ...formData, notes: e.target.value })}
-                                />
-                            </div>
-                        </div>
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-outline-secondary" onClick={onClose}>Đóng</button>
-                            <button type="submit" className="btn btn-primary">Đặt phòng</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    );
-};
-
-const FilterModal = ({ show, onClose, onApply }) => {
-    const [filters, setFilters] = useState({
-        priceRange: { min: 0, max: 1000 },
-        roomTypes: Object.values(ROOM_TYPES).reduce((acc, type) => ({ ...acc, [type]: false }), {}),
-        dateRange: { start: '', end: '' }
-    });
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        onApply(filters);
-        onClose();
-    };
-
-    if (!show) return null;
-
-    return (
-        <div className="modal d-block" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
-            <div className="modal-dialog">
-                <div className="modal-content">
-                    <div className="modal-header">
-                        <h5 className="modal-title">Lọc Phòng</h5>
-                        <button type="button" className="btn-close" onClick={onClose}></button>
-                    </div>
-                    <form onSubmit={handleSubmit}>
-                        <div className="modal-body">
-                            <div className="mb-3">
-                                <label className="form-label">Khoảng giá</label>
-                                <div className="d-flex gap-2">
-                                    <input
-                                        type="number"
-                                        className="form-control"
-                                        placeholder="Thấp nhất"
-                                        value={filters.priceRange.min}
-                                        onChange={e => setFilters({
-                                            ...filters,
-                                            priceRange: { ...filters.priceRange, min: e.target.value }
-                                        })}
-                                    />
-                                    <input
-                                        type="number"
-                                        className="form-control"
-                                        placeholder="Cao nhất"
-                                        value={filters.priceRange.max}
-                                        onChange={e => setFilters({
-                                            ...filters,
-                                            priceRange: { ...filters.priceRange, max: e.target.value }
-                                        })}
-                                    />
-                                </div>
-                            </div>
-                            <div className="mb-3">
-                                <label className="form-label">Loại phòng</label>
-                                {Object.values(ROOM_TYPES).map(type => (
-                                    <div className="form-check" key={type}>
-                                        <input
-                                            className="form-check-input"
-                                            type="checkbox"
-                                            checked={filters.roomTypes[type]}
-                                            onChange={e => setFilters({
-                                                ...filters,
-                                                roomTypes: {
-                                                    ...filters.roomTypes,
-                                                    [type]: e.target.checked
-                                                }
-                                            })}
-                                        />
-                                        <label className="form-check-label">{type}</label>
-                                    </div>
-                                ))}
-                            </div>
-                            <div className="mb-3">
-                                <label className="form-label">Khoảng thời gian</label>
-                                <div className="d-flex gap-2">
-                                    <input
-                                        type="date"
-                                        className="form-control"
-                                        value={filters.dateRange.start}
-                                        onChange={e => setFilters({
-                                            ...filters,
-                                            dateRange: { ...filters.dateRange, start: e.target.value }
-                                        })}
-                                    />
-                                    <input
-                                        type="date"
-                                        className="form-control"
-                                        value={filters.dateRange.end}
-                                        onChange={e => setFilters({
-                                            ...filters,
-                                            dateRange: { ...filters.dateRange, end: e.target.value }
-                                        })}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="modal-footer">
-                            <button type="button" className="btn btn-secondary" onClick={onClose}>Đóng</button>
-                            <button type="submit" className="btn btn-primary">Áp dụng</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    );
-};
-
-const AddRoomModal = ({ show, onClose, onSubmit }) => {
-    const [formData, setFormData] = useState({
-        roomId: '',
-        type: ROOM_TYPES.STANDARD,
-        price: '',
-        status: ROOM_STATUSES.AVAILABLE,
-        homestay: '',
-        floor: '',
-        facilities: [],
-        description: ''
-    });
-
-    const homestays = [
-        { id: 'all', name: 'Tất cả Homestay' },
-        { id: 'hs1', name: 'Biệt thự Ven biển' },
-        { id: 'hs2', name: 'Nhà nghỉ Núi' },
-        { id: 'hs3', name: 'Căn hộ Thành phố' },
-    ];
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        onSubmit(formData);
-        onClose();
-    };
-
-    if (!show) return null;
-
-    return (
-        <div className="modal d-block" style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}>
-            <div className="modal-dialog modal-dialog-centered modal-lg">
-                <div className="modal-content d-flex flex-column" style={{ height: '90vh' }}>
-                    <div className="modal-header border-0">
-                        <h5 className="modal-title fw-bold">Thêm Phòng Mới</h5>
-                        <button type="button" className="btn-close" onClick={onClose}></button>
-                    </div>
-                    <form onSubmit={handleSubmit}>
-                        <div className="modal-body flex-grow-1 overflow-auto" style={{ maxHeight: '70vh' }}>
-                            <div className="row">
-                                {/* Basic Information Group */}
-                                <div className="col-md-6">
-                                    <div className="card mb-3">
-                                        <div className="card-header">
-                                            <h6 className="card-title mb-0">Thông Tin Cơ Bản</h6>
-                                        </div>
-                                        <div className="card-body">
-                                            <div className="mb-3">
-                                                <label className="form-label">Mã phòng</label>
-                                                <input
-                                                    type="text"
-                                                    className="form-control"
-                                                    value={formData.roomId}
-                                                    onChange={e => setFormData({ ...formData, roomId: e.target.value })}
-                                                    required
-                                                />
-                                            </div>
-
-                                            <div className="mb-3">
-                                                <label className="form-label">Loại phòng</label>
-                                                <select
-                                                    className="form-select"
-                                                    value={formData.type}
-                                                    onChange={e => setFormData({ ...formData, type: e.target.value })}
-                                                    required
-                                                >
-                                                    {Object.values(ROOM_TYPES).map(type => (
-                                                        <option key={type} value={type}>{type}</option>
-                                                    ))}
-                                                </select>
-                                            </div>
-
-                                            <div className="mb-3">
-                                                <label className="form-label">Giá phòng</label>
-                                                <div className="input-group">
-                                                    <span className="input-group-text">₫</span>
-                                                    <input
-                                                        type="number"
-                                                        className="form-control"
-                                                        value={formData.price}
-                                                        onChange={e => setFormData({ ...formData, price: e.target.value })}
-                                                        required
-                                                    />
-                                                    <span className="input-group-text">/đêm</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Location and Status Group */}
-                                <div className="col-md-6">
-                                    <div className="card mb-3">
-                                        <div className="card-header">
-                                            <h6 className="card-title mb-0">Vị Trí & Trạng Thái</h6>
-                                        </div>
-                                        <div className="card-body">
-                                            <div className="mb-3">
-                                                <label className="form-label">Trạng thái</label>
-                                                <select
-                                                    className="form-select"
-                                                    value={formData.status}
-                                                    onChange={e => setFormData({ ...formData, status: e.target.value })}
-                                                    required
-                                                >
-                                                    {Object.values(ROOM_STATUSES).map(status => (
-                                                        <option key={status} value={status}>{status}</option>
-                                                    ))}
-                                                </select>
-                                            </div>
-
-                                            <div className="mb-3">
-                                                <label className="form-label">Homestay</label>
-                                                <select
-                                                    className="form-select"
-                                                    value={formData.homestay}
-                                                    onChange={e => setFormData({ ...formData, homestay: e.target.value })}
-                                                    required
-                                                >
-                                                    <option value="">Chọn Homestay</option>
-                                                    {homestays.filter(h => h.id !== 'all').map(homestay => (
-                                                        <option key={homestay.id} value={homestay.id}>
-                                                            {homestay.name}
-                                                        </option>
-                                                    ))}
-                                                </select>
-                                            </div>
-
-                                            <div className="mb-3">
-                                                <label className="form-label">Tầng</label>
-                                                <input
-                                                    type="number"
-                                                    className="form-control"
-                                                    value={formData.floor}
-                                                    onChange={e => setFormData({ ...formData, floor: e.target.value })}
-                                                    required
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Facilities and Description Group */}
-                            <div className="row">
-                                <div className="col-12">
-                                    <div className="card mb-3">
-                                        <div className="card-header">
-                                            <h6 className="card-title mb-0">Tiện Nghi & Mô Tả</h6>
-                                        </div>
-                                        <div className="card-body">
-                                            <div className="mb-3">
-                                                <label className="form-label">Tiện nghi</label>
-                                                <div className="row g-2">
-                                                    {['TV', 'Tủ lạnh', 'Điều hòa', 'WiFi', 'Máy giặt', 'Bếp'].map(facility => (
-                                                        <div className="col-md-4" key={facility}>
-                                                            <div className="form-check">
-                                                                <input
-                                                                    type="checkbox"
-                                                                    className="form-check-input"
-                                                                    id={`facility-${facility}`}
-                                                                    checked={formData.facilities.includes(facility)}
-                                                                    onChange={(e) => {
-                                                                        if (e.target.checked) {
-                                                                            setFormData({
-                                                                                ...formData,
-                                                                                facilities: [...formData.facilities, facility]
-                                                                            });
-                                                                        } else {
-                                                                            setFormData({
-                                                                                ...formData,
-                                                                                facilities: formData.facilities.filter(f => f !== facility)
-                                                                            });
-                                                                        }
-                                                                    }}
-                                                                />
-                                                                <label
-                                                                    className="form-check-label"
-                                                                    htmlFor={`facility-${facility}`}
-                                                                >
-                                                                    {facility}
-                                                                </label>
-                                                            </div>
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                            </div>
-
-                                            <div className="mb-3">
-                                                <label className="form-label">Mô tả</label>
-                                                <textarea
-                                                    className="form-control"
-                                                    rows="3"
-                                                    value={formData.description}
-                                                    onChange={e => setFormData({ ...formData, description: e.target.value })}
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div className="modal-footer border-0">
-                            <button type="button" className="btn btn-outline-secondary" onClick={onClose}>Đóng</button>
-                            <button type="submit" className="btn btn-primary">Thêm phòng</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    );
-};
-
-// Stats Card Component
-const StatsCard = ({ title, stats, colorClass }) => (
-    <div className="col-md-6 ">
-        <div className={`card h-100 border-0 shadow-sm ${colorClass}`}>
-            <div className="card-body">
-                <h6 className="card-title text-uppercase fw-bold text-muted mb-3">{title}</h6>
-                <div className="d-flex justify-content-between">
-                    {Object.entries(stats).map(([key, value]) => (
-                        <div key={key} className="text-center">
-                            <h3 className="fs-2 fw-bold mb-1">{value}</h3>
-                            <small className="text-muted text-uppercase">{key.toUpperCase()}</small>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </div>
-    </div>
+// Progress Bar Component
+const ProgressBar = ({ value, max }) => (
+  <div className="progress mt-2 mb-3" style={{ height: "10px" }}>
+    <div 
+      className="progress-bar" 
+      role="progressbar" 
+      style={{ width: `${(value/max * 100)}%`, backgroundColor: "#00ACC1" }}
+      aria-valuenow={value} 
+      aria-valuemin="0" 
+      aria-valuemax={max}
+    ></div>
+  </div>
 );
 
-// Main Component
-const RoomManagement = () => {
-    const [selectedHomestay, setSelectedHomestay] = useState('all');
-    const [searchTerm, setSearchTerm] = useState('');
-    const [activeTab, setActiveTab] = useState('ALL');
-    const [showBookingModal, setShowBookingModal] = useState(false);
-    const [showFilterModal, setShowFilterModal] = useState(false);
-    const [showAddRoomModal, setShowAddRoomModal] = useState(false);
-
-    const stats = {
-        homeStays: {
-            total: 500,
-            available: 120,
-            booked: 300,
-            maintenance: 50,
-        },
-        rooms: {
-            total: 1500,
-            available: 400,
-            reserved: 900,
-            maintenance: 100,
-        },
-    };
-
-    const homestays = [
-        { id: 'all', name: 'Tất cả Homestay' },
-        { id: 'hs1', name: 'Biệt thự Ven biển' },
-        { id: 'hs2', name: 'Nhà nghỉ Núi' },
-        { id: 'hs3', name: 'Căn hộ Thành phố' },
-    ];
-
-    const rooms = [
-        {
-            id: 'R001',
-            type: ROOM_TYPES.DELUXE,
-            price: 199.99,
-            status: ROOM_STATUSES.AVAILABLE,
-            bookingDate: '-',
-            checkInDate: '-',
-            homestay: 'hs1'
-        },
-        {
-            id: 'R002',
-            type: ROOM_TYPES.SUITE,
-            price: 299.99,
-            status: ROOM_STATUSES.RESERVED,
-            bookingDate: 'Apr 02, 2024',
-            checkInDate: 'Apr 15, 2024',
-            homestay: 'hs1'
-        },
-        {
-            id: 'R003',
-            type: ROOM_TYPES.STANDARD,
-            price: 149.99,
-            status: ROOM_STATUSES.MAINTENANCE,
-            bookingDate: '-',
-            checkInDate: '-',
-            homestay: 'hs2'
-        },
-    ];
-
-    const handleBookRoom = (bookingData) => {
-        console.log('Booking data:', bookingData);
-        // Implement booking logic
-    };
-
-    const handleApplyFilters = (filters) => {
-        console.log('Applied filters:', filters);
-        // Implement filtering logic
-    };
-
-    const handleAddRoom = (roomData) => {
-        console.log('New room data:', roomData);
-        // Implement adding logic
-    };
-
-    const filteredRooms = rooms.filter(room => {
-        const matchesHomestay = selectedHomestay === 'all' || room.homestay === selectedHomestay;
-        const matchesSearch = room.id.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            room.type.toLowerCase().includes(searchTerm.toLowerCase());
-        const matchesTab = activeTab === 'ALL' || room.status === activeTab;
-        return matchesHomestay && matchesSearch && matchesTab;
-    });
-
-    return (
-        <div className="container-fluid p-4">
-            {/* Stats Cards */}
-            <div className="row mb-4">
-                <StatsCard
-                    title="THỐNG KÊ HOMESTAY"
-                    stats={{
-                        'Tổng số': stats.homeStays.total,
-                        'Còn trống': stats.homeStays.available,
-                        'Đã đặt': stats.homeStays.booked,
-                        'Bảo trì': stats.homeStays.maintenance
-                    }}
-                    colorClass="bg-info-subtle"
-                />
-                <StatsCard
-                    title="THỐNG KÊ PHÒNG"
-                    stats={{
-                        'Tổng số': stats.rooms.total,
-                        'Còn trống': stats.rooms.available,
-                        'Đã đặt': stats.rooms.reserved,
-                        'Bảo trì': stats.rooms.maintenance
-                    }}
-                    colorClass="bg-primary-subtle"
-                />
+// Stats Card Component
+const StatsCard = ({ title, value, icon, trend, link }) => (
+  <div className="col-md-6 col-lg-3 mb-4">
+    <a href={link} className="text-decoration-none">
+      <div className="card border-0 shadow h-100">
+        <div className="card-body">
+          <div className="d-flex justify-content-between align-items-center">
+            <div>
+              <h6 className="text-muted">{title}</h6>
+              <h3 className="text-dark mb-0">{Number(value).toLocaleString()}</h3>
+              {trend && (
+                <small className="text-secondary">
+                  <i className={`fas fa-arrow-${trend > 0 ? 'up text-success' : 'down text-danger'} me-1`}></i>
+                  {Math.abs(trend)}% so với tháng trước
+                </small>
+              )}
             </div>
-
-            {/* Search and Actions */}
-            <div className="d-flex justify-content-between align-items-center mb-4">
-                <div className="d-flex gap-3 align-items-center w-75">
-                    <div className="input-group w-50">
-                        <input
-                            type="text"
-                            className="form-control"
-                            placeholder="Tìm kiếm phòng..."
-                            value={searchTerm}
-                            onChange={(e) => setSearchTerm(e.target.value)}
-                            style={{ minWidth: '150px' }}
-                        />
-                    </div>
-                    <select
-                        className="form-select w-25"
-                        value={selectedHomestay}
-                        onChange={(e) => setSelectedHomestay(e.target.value)}
-                        style={{ minWidth: '150px' }}
-                    >
-                        {homestays.map(homestay => (
-                            <option key={homestay.id} value={homestay.id}>
-                                {homestay.name}
-                            </option>
-                        ))}
-                    </select>
-                </div>
-                <div className="d-flex flex-nowrap gap-2 ">
-                    <button
-                        className="btn btn-outline-secondary text-nowrap"
-                        onClick={() => setShowFilterModal(true)}
-                    >
-                        <i className="bi bi-funnel"></i> Lọc
-                    </button>
-                    <button
-                        className="btn btn-primary text-nowrap"
-                        onClick={() => setShowAddRoomModal(true)}
-                    >
-                        <i className="bi bi-plus-lg"></i> Thêm phòng
-                    </button>
-                    <button
-                        className="btn btn-success text-nowrap"
-                        onClick={() => setShowBookingModal(true)}
-                    >
-                        <i className="bi bi-calendar-check"></i> Đặt phòng
-                    </button>
-                </div>
+            <div className="bg-secondary bg-opacity-10 p-3 rounded d-flex align-items-center justify-content-center" style={{ width: '50px', height: '50px' }}>
+              <i className={`fas fa-${String(icon).replace(/[^a-z-]/g, '')} fa-2x`} style={{ color: "#00ACC1" }} title={title}></i>
             </div>
-
-            {/* Room Tabs */}
-            <div className="mb-4">
-                <ul className="nav nav-tabs">
-                    {['ALL', ...Object.values(ROOM_STATUSES)].map(status => (
-                        <li className="nav-item" key={status}>
-                            <a
-                                className={`nav-link ${activeTab === status ? 'active' : ''}`}
-                                href="#"
-                                onClick={(e) => {
-                                    e.preventDefault();
-                                    setActiveTab(status);
-                                }}
-                            >
-                                {status.toUpperCase()} ({
-                                    status === 'ALL'
-                                        ? rooms.length
-                                        : rooms.filter(room => room.status === status).length
-                                })
-                            </a>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-
-            {/* Rooms Table */}
-            <div className="table-responsive">
-                <table className="table">
-                    <thead className="bg-light">
-                        <tr>
-                            <th className="border-0 text-uppercase text-muted fw-bold">Mã phòng</th>
-                            <th className="border-0 text-uppercase text-muted fw-bold">Loại phòng</th>
-                            <th className="border-0 text-uppercase text-muted fw-bold">Giá</th>
-                            <th className="border-0 text-uppercase text-muted fw-bold">Trạng thái</th>
-                            <th className="border-0 text-uppercase text-muted fw-bold">Ngày đặt</th>
-                            <th className="border-0 text-uppercase text-muted fw-bold">Ngày nhận</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {filteredRooms.map(room => (
-                            <tr key={room.id}>
-                                <td>{room.id}</td>
-                                <td>{room.type}</td>
-                                <td>${room.price}</td>
-                                <td>
-                                    <span className={`badge rounded-pill bg-${STATUS_STYLES[room.status].bg}-subtle text-${STATUS_STYLES[room.status].text}`}>
-                                        {room.status}
-                                    </span>
-                                </td>
-                                <td>{room.bookingDate}</td>
-                                <td>{room.checkInDate}</td>
-                                <td>
-                                    <div className="dropdown">
-                                        <button className="btn btn-link text-muted" data-bs-toggle="dropdown">
-                                            <i className="bi bi-three-dots-vertical"></i>
-                                        </button>
-                                        <ul className="dropdown-menu">
-                                            <li><a className="dropdown-item" href="#">Chỉnh sửa</a></li>
-                                            <li><a className="dropdown-item" href="#">Xóa</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
-
-            {/* Modals */}
-            <BookingModal
-                show={showBookingModal}
-                onClose={() => setShowBookingModal(false)}
-                onSubmit={handleBookRoom}
-            />
-            <FilterModal
-                show={showFilterModal}
-                onClose={() => setShowFilterModal(false)}
-                onApply={handleApplyFilters}
-            />
-            <AddRoomModal
-                show={showAddRoomModal}
-                onClose={() => setShowAddRoomModal(false)}
-                onSubmit={handleAddRoom}
-            />
+          </div>
         </div>
-    );
+      </div>
+    </a>
+  </div>
+);
+
+// Chart Section Component
+const ChartSection = ({ title, data, chartId, type = 'line' }) => {
+  useEffect(() => {
+    const ctx = document.getElementById(chartId);
+    if (ctx) {
+    const chartConfig = {
+      type: type,
+      data: {
+        labels: ['T1', 'T2', 'T3', 'T4', 'T5', 'T6', 'T7', 'T8', 'T9', 'T10', 'T11', 'T12'],
+        datasets: [{
+          label: title,
+          data: data,
+          borderColor: '#00ACC1',
+          backgroundColor: type === 'bar' ? '#00ACC1' : 'transparent',
+          tension: 0.4
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+        legend: {
+          display: false
+        }
+        },
+        scales: {
+        x: {
+          grid: {
+            display: false,
+          }
+        },
+        y: {
+          beginAtZero: true,
+        }
+        }
+      }
+    };
+
+      new Chart(ctx, chartConfig);
+    }
+  }, [data]);
+
+  return (
+    <div className="col-12 col-md-6 mb-4">
+      <div className="card border-0 shadow h-100">
+        <div className="card-body">
+          <h5 className="card-title">{title}</h5>
+          <div style={{ height: '300px', width: '100%' }}>
+            <canvas id={chartId} style={{ width: '100%', height: '100%' }}></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 };
 
+//Status Component
+const Status = ({ stats }) => {
+  const [activeTab, setActiveTab] = useState('rooms');
+
+  const occupancyRate = Math.round((stats.rooms.booked / stats.rooms.total) * 100);
+  const homestayActiveRate = Math.round((80/stats.homestays) * 100);
+
+  const StatusContent = {
+    rooms: {
+      details: (
+        <div className="mt-4">
+          <div className="d-flex justify-content-between align-items-center mb-2">
+            <span>Phòng trống</span>
+            <span className="badge bg-secondary">{stats.rooms.available}</span>
+          </div>
+          <ProgressBar value={stats.rooms.available} max={stats.rooms.total} />
+
+          <div className="d-flex justify-content-between align-items-center mb-2">
+            <span>Đang đặt</span>
+            <span className="badge bg-secondary">{stats.rooms.booked}</span>
+          </div>
+          <ProgressBar value={stats.rooms.booked} max={stats.rooms.total} />
+
+          <div className="d-flex justify-content-between align-items-center mb-2">
+            <span>Bảo trì</span>
+            <span className="badge bg-secondary">{stats.rooms.maintenance}</span>
+          </div>
+          <ProgressBar value={stats.rooms.maintenance} max={stats.rooms.total} />
+
+          <div className="alert alert-secondary mt-3">
+            <i className="fas fa-info-circle me-2"></i>
+            Tỷ lệ lấp đầy: {occupancyRate}%
+          </div>
+        </div>
+      )
+    },
+    homestays: {
+      details: (
+        <div className="mt-4">
+          <div className="d-flex justify-content-between align-items-center mb-2">
+            <span>Đang hoạt động</span>
+            <span className="badge bg-secondary">80</span>
+          </div>
+          <ProgressBar value={80} max={stats.homestays} />
+
+          <div className="d-flex justify-content-between align-items-center mb-2">
+            <span>Tạm ngưng</span>
+            <span className="badge bg-secondary">30</span>
+          </div>
+          <ProgressBar value={30} max={stats.homestays} />
+
+          <div className="d-flex justify-content-between align-items-center mb-2">
+            <span>Đang xét duyệt</span>
+            <span className="badge bg-secondary">10</span>
+          </div>
+          <ProgressBar value={10} max={stats.homestays} />
+
+          <div className="alert alert-secondary mt-3">
+            <i className="fas fa-info-circle me-2"></i>
+            Tỷ lệ hoạt động: {homestayActiveRate}%
+          </div>
+        </div>
+      )
+    }
+  };
+
+  return (
+    <>
+      <div className="col-12 col-md-6 mb-4">
+        <div className="card border-0 shadow h-100">
+          <div className="card-body">
+            <div className="d-flex justify-content-between align-items-center mb-3">
+              <h5 className="card-title mb-0">Trạng thái chi tiết</h5>
+              <div className="nav nav-pills">
+                <button 
+                  className={`nav-link btn btn-sm me-2 ${activeTab === 'rooms' ? 'active bg-secondary' : 'text-secondary'}`}
+                  onClick={() => setActiveTab('rooms')}
+                >
+                  <i className="fas fa-bed me-1"></i> Phòng
+                </button>
+                <button 
+                  className={`nav-link btn btn-sm ${activeTab === 'homestays' ? 'active bg-secondary' : 'text-secondary'}`}
+                  onClick={() => setActiveTab('homestays')}
+                >
+                  <i className="fas fa-home me-1"></i> Nhà nghỉ
+                </button>
+              </div>
+            </div>
+            {StatusContent[activeTab].details}
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};
+
+// Recent Activity Component
+const RecentActivity = () => {
+  const activities = [
+    { type: 'booking', user: 'Nguyễn Văn A', action: 'đặt phòng', time: '5 phút trước', location: 'Homestay Đà Lạt' },
+    { type: 'comment', user: 'Trần Thị B', action: 'bình luận', time: '10 phút trước', location: 'Villa Hồ Tây' },
+    { type: 'check-in', user: 'Lê Văn C', action: 'check-in', time: '15 phút trước', location: 'Resort Phú Quốc' },
+    { type: 'review', user: 'Mai Thị E', action: 'đánh giá', time: '25 phút trước', location: 'Homestay Sapa' },
+    { type: 'check-out', user: 'Phạm Thị D', action: 'check-out', time: '1 giờ trước', location: 'Villa Vũng Tàu' }
+  ];
+
+  const getActivityIcon = (type) => {
+    switch(type) {
+      case 'booking': return 'calendar-check';
+      case 'check-in': return 'sign-in-alt';
+      case 'check-out': return 'sign-out-alt';
+      case 'review': return 'star';
+      case 'comment': return 'comment';
+      default: return 'circle';
+    }
+  };
+
+  return (
+    <div className="col-12 col-md-6 mb-4">
+      <div className="card border-0 shadow h-100">
+        <div className="card-body">
+          <div className="d-flex justify-content-between align-items-center mb-4">
+            <h5 className="card-title m-0">Hoạt động gần đây</h5>
+            <a href="#" className="text-decoration-none">
+              <small className="text-muted">Xem tất cả <i className="fas fa-chevron-right ms-1"></i></small>
+            </a>
+          </div>
+          <div className="activity-list">
+            {activities.map((activity, index) => (
+              <div key={index} className="d-flex align-items-start mb-3 pb-3" 
+                   style={{ borderBottom: index !== activities.length - 1 ? '1px solid #eee' : 'none' }}>
+                <div className="activity-icon me-3">
+                  <div className="rounded-circle p-2 bg-secondary" 
+                       style={{
+                         width: '40px',
+                         height: '40px',
+                         display: 'flex',
+                         alignItems: 'center',
+                         justifyContent: 'center'
+                       }}>
+                    <i className={`fas fa-${getActivityIcon(activity.type)} text-white`}></i>
+                  </div>
+                </div>
+                <div className="activity-details flex-grow-1">
+                  <div className="d-flex justify-content-between align-items-start">
+                    <div>
+                      <div className="fw-bold">{activity.user}</div>
+                      <div className="text-muted small">
+                        {activity.action} - <span>{activity.location}</span>
+                      </div>
+                    </div>
+                    <small className="text-muted ms-2">{activity.time}</small>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+// Main Dashboard Component
+const Dashboard = () => {
+  const [stats, setStats] = useState({
+    rooms: { total: 150, available: 50, booked: 80, maintenance: 20 },
+    users: { total: 1200, active: 800, new: 50 },
+    posts: { total: 300, published: 250, draft: 50 },
+    bookings: { total: 450, pending: 30, confirmed: 400, completed: 20 },
+    locations: 25,
+    homestays: 120,
+    comments: 450
+  });
+
+  const occupancyRate = Math.round((stats.rooms.booked / stats.rooms.total) * 100);
+
+  return (
+    <div className="container-fluid">
+      <div className="row">
+        <StatsCard
+          title="Bài viết" 
+          value={stats.posts.total}
+          icon="file-alt"
+          trend={-1}
+          link="bai_viet.html"
+        />
+        <StatsCard 
+          title="Địa điểm"
+          value={stats.locations}
+          icon="map-marker-alt"
+          link="dia_diem.html"
+          trend={3}
+        />
+        <StatsCard
+          title="Nhà nghỉ" 
+          value={stats.homestays}
+          icon="hotel"
+          link="homestay.html"
+          trend={5}
+        />
+        <StatsCard 
+          title="Tổng số phòng"
+          value={stats.rooms.total}
+          icon="bed"
+          link="rooms.html"
+          trend={5}
+        />
+        <StatsCard
+          title="Đặt phòng"
+          value={stats.bookings.total}
+          icon="calendar-alt"
+          trend={8}
+          link="danhSachDatPhong.html"
+        />
+        <StatsCard
+          title="Bình luận"
+          value={stats.comments}
+          icon="comments"
+          link="comment.html"
+          trend={2}
+        />
+        <StatsCard 
+          title="Người dùng"
+          value={stats.users.total}
+          icon="users"
+          trend={2}
+          link="nguoiDung.html"
+        />
+      </div>
+
+      {/* Charts */}
+      <div className="row">
+        <ChartSection 
+          title="Thống kê đặt phòng theo tháng"
+          data={generateMonthlyData(100, 50)}
+          chartId="bookingsChart"
+          type="line"
+        />
+        <ChartSection
+          title="Doanh thu theo tháng (Triệu VNĐ)"
+          data={generateMonthlyData(500, 200)}
+          chartId="revenueChart"
+          type="bar"
+        />
+      </div>
+
+      {/* Status and Recent Activity */}
+      <div className="row">
+        <Status stats={stats} />
+        <RecentActivity />
+      </div>
+    </div>
+  );
+};
+
+// Render the dashboard
 const root = ReactDOM.createRoot(document.getElementById('index-root'));
-root.render(<RoomManagement />);
+root.render(<Dashboard />);
