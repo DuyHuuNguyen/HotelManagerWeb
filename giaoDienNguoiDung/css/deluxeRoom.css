@@ -3,7 +3,9 @@
         font-family: 'Cabin', sans-serif;
         background-color: #f9f9f9;
     }
-
+    h1, h2, h3, h4, h5, h6 {
+        font-family: 'Cabin', sans-serif !important ;
+      }
     .breadcrumb-section {
         background-image: url('img/deluxe-room-banner.jpg');
         background-size: cover;
@@ -19,8 +21,31 @@
 
     /* Deluxe Room Section */
     .deluxe-room-details {
-        padding: 60px 0;
-        background-color: #fff;
+        padding: 100px 0;
+        background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+        position: relative;
+        z-index: 1;
+    }
+
+    .deluxe-room-details::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, rgba(248, 249, 250, 0.8), rgba(233, 236, 239, 0.8)), url('https://www.dreaminternationalhotel.com/images/subpackage/0NNhP-sd2.jpg') center center / cover no-repeat;
+        opacity: 1;
+        z-index: -1;
+        filter: brightness(0.85) contrast(1.05);
+        border-radius: 15px;
+        box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.2);
+        transition: transform 0.5s ease, filter 0.5s ease;
+    }
+
+    .deluxe-room-details:hover::before {
+        transform: scale(1.05);
+        filter: brightness(0.9) contrast(1.1);
     }
 
     .deluxe-room-details .row {
@@ -32,6 +57,7 @@
     /* Column 1: Image and Quick Info */
     .room-image img {
         border-radius: 10px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
         transition: transform 0.3s ease;
     }
 
@@ -61,6 +87,14 @@
         padding: 8px 0;
     }
 
+    /* Hiệu ứng hover cho gallery */
+.gallery-item img {
+    transition: transform 0.3s ease;
+  }
+  
+  .gallery-item:hover img {
+    transform: scale(1.05);
+  }
     /* General Styles for Buttons */
 .cta-buttons {
 margin-top: 30px;
@@ -100,12 +134,14 @@ transform: translateY(-2px); /* Hiệu ứng nâng nút lên khi hover */
 .cta-buttons .btn-secondary {
 background-color: #d4af37; /* Màu vàng đồng */
 color: white;
+cursor: pointer;
 border: 2px solid #d4af37;
 }
 
 .cta-buttons .btn-secondary:hover {
 background-color: #b38b2e; /* Màu vàng đậm hơn khi hover */
 border-color: #b38b2e;
+cursor: pointer;
 box-shadow: 0 8px 20px rgba(212, 175, 55, 0.2); /* Hiệu ứng bóng đổ khi hover */
 transform: translateY(-2px);
 }
@@ -157,10 +193,12 @@ padding-top: 15px;
 .modal-footer .btn-secondary {
 background-color: #6c757d;
 color: white;
+cursor: pointer;
 }
 
 .modal-footer .btn-secondary:hover {
 background-color: #495057;
+cursor: pointer;
 }
 
 /* Additional Effects for Buttons */
@@ -175,52 +213,66 @@ box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.3); /* Viền sáng khi nút được c
 
     /* Why Choose This Room */
     .why-choose-room {
+        padding: 80px 0;
         background-color: #fff;
-        padding: 40px 30px;
-        border-radius: 10px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-        margin-top: 60px;
     }
 
     .why-choose-room h3 {
-        font-size: 30px;
-        margin-bottom: 20px;
-        text-align: center;
-    }
-
-    .why-choose-room ul {
-        font-size: 16px;
-        list-style: none;
-        padding: 0;
-    }
-
-    .why-choose-room ul li {
-        padding: 12px 0;
-        display: flex;
-        align-items: center;
-        border-bottom: 1px solid #e1e1e1;
-    }
-
-    .why-choose-room ul li i {
-        font-size: 22px;
-        margin-right: 15px;
-        color: #28a745;
-    }
-
-    .why-choose-room ul li span {
-        font-size: 18px;
+        font-size: 36px;
         font-weight: 600;
     }
+
+    .feature-item .icon i {
+        font-size: 36px;
+    }
+
+    .feature-item .content h5 {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .feature-item .content p {
+        font-size: 16px;
+        color: #666;
+    }
+
     /* Gallery Section */
     .gallery-section {
-        background-color: #f4f4f4;
-        padding: 60px 30px;
+        background: linear-gradient(135deg, #f4f4f4, #e0e0e0);
+        padding: 80px 0;
+        position: relative;
+        z-index: 1;
+    }
+
+    .gallery-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to bottom right, rgba(244, 244, 244, 0.7), rgba(224, 224, 224, 0.7)), url('https://images.pexels.com/photos/6474521/pexels-photo-6474521.jpeg?auto=compress&cs=tinysrgb&w=600') center center / cover no-repeat;
+        opacity: 1;
+        z-index: -1;
+        filter: blur(2px) brightness(0.95);
+        border-radius: 15px;
+        box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.1);
+        transition: filter 0.5s ease;
+    }
+
+    .gallery-section:hover::before {
+        filter: blur(4px) brightness(1);
     }
 
     .gallery-section h3 {
+        font-size: 36px;
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 50px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
         text-align: center;
-        font-size: 28px;
-        margin-bottom: 40px;
     }
 
     .gallery-section .row {
@@ -234,6 +286,24 @@ box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.3); /* Viền sáng khi nút được c
         position: relative;
     }
 
+    .gallery-section .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+
+    .gallery-section .gallery-item:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    .gallery-section .gallery-link {
+        position: relative;
+        display: block;
+    }
+
     .gallery-section img {
         width: 100%;
         height: auto;
@@ -245,6 +315,29 @@ box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.3); /* Viền sáng khi nút được c
         transform: scale(1.1);
     }
 
+    .gallery-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.3);
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        border-radius: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: 18px;
+    }
+
+    .gallery-item:hover .gallery-overlay {
+        opacity: 1;
+    }
+
     /* Customer Testimonials */
     .testimonials-section {
         background-color: #fff;
@@ -254,7 +347,7 @@ box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.3); /* Viền sáng khi nút được c
 
     .testimonials-section h3 {
         text-align: center;
-        font-size: 28px;
+        font-size: 36px;
         margin-bottom: 40px;
     }
 
@@ -285,30 +378,159 @@ box-shadow: 0 0 0 3px rgba(0, 86, 179, 0.3); /* Viền sáng khi nút được c
 
     /* FAQ Section */
     .faq-section {
-        padding: 60px 30px;
-        background-color: #f4f4f4;
-        margin-top: 60px;
+        padding: 80px 30px;
+        background-color: #ffffff;
+        margin-top: 80px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+        border-radius: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .faq-section:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
     }
 
     .faq-section h3 {
         text-align: center;
-        font-size: 28px;
-        margin-bottom: 40px;
+        font-size: 36px;
+        font-weight: 600;
+        margin-bottom: 50px;
+        color: #333333;
+        position: relative;
     }
 
-    .faq-item {
-        margin-bottom: 20px;
+    .faq-section h3::after {
+        content: "";
+        width: 60px;
+        height: 4px;
+        background-color: #0056b3;
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 2px;
     }
 
-    .faq-item h5 {
+    /* Accordion Cards */
+    .accordion .card {
+        border: none;
+        border-bottom: 1px solid #e0e0e0;
+        border-radius: 0;
+        margin-bottom: 15px;
+        transition: box-shadow 0.3s ease;
+    }
+
+    .accordion .card:hover {
+        box-shadow: 0 4px 20px rgba(0, 86, 179, 0.1);
+        border-radius: 10px;
+        border: 1px solid #e0e0e0;
+    }
+
+    .accordion .card-header {
+        background-color: #f9f9f9;
+        padding: 20px 30px;
+        border-radius: 10px;
+        cursor: pointer;
+        position: relative;
+        transition: background-color 0.3s ease, padding-left 0.3s ease;
+        display: flex;
+        align-items: center;
+    }
+
+    .accordion .card-header:hover {
+        background-color: #e6f0ff;
+        padding-left: 35px;
+    }
+
+    .accordion .card-header h5 {
         font-size: 20px;
         font-weight: 600;
-        color: #333;
+        color: #0056b3;
+        margin: 0;
+        flex: 1;
+        transition: color 0.3s ease;
     }
 
-    .faq-item p {
+    .accordion .card-header h5:hover {
+        color: #003366;
+    }
+
+    .accordion .card-header::after {
+        content: "❔"; /* Font Awesome down arrow */
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        font-size: 18px;
+        color: #0056b3;
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .accordion .collapse.show + .card-header::after {
+        transform: rotate(180deg);
+        color: #003366;
+    }
+
+    .accordion .card-body {
+        padding: 20px 30px;
+        background-color: #ffffff;
+        border-top: none;
+        animation: fadeIn 0.5s ease;
+    }
+
+    .accordion .card-body p {
         font-size: 16px;
-        color: #666;
+        color: #555555;
+        line-height: 1.8;
+    }
+
+    /* Thêm biểu tượng cho các câu hỏi */
+    .accordion .card-header::before {
+        content: "✧"; /* Font Awesome plus icon */
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        margin-right: 10px;
+        font-size: 18px;
+        color: #0056b3;
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .accordion .collapse.show + .card-header::before {
+        content: "\f056"; /* Font Awesome minus icon */
+        color: #003366;
+    }
+
+    /* Hiệu ứng mờ dần khi mở */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Thêm hiệu ứng chuyển động mềm mại cho toàn bộ accordion */
+    .accordion .collapse {
+        transition: height 0.3s ease;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+        .faq-section {
+            padding: 60px 15px;
+        }
+
+        .accordion .card-header {
+            padding: 15px 20px;
+        }
+
+        .accordion .card-header h5 {
+            font-size: 18px;
+        }
+
+        .accordion .card-header::after {
+            font-size: 16px;
+        }
+
+        .accordion .card-body {
+            padding: 15px 20px;
+        }
     }
 
     /* Video Section */
@@ -320,8 +542,8 @@ margin-bottom: 300px;
 
 .video-section h3 {
 text-align: center;
-font-size: 32px;
-font-weight: 700;
+font-size: 36px;
+font-weight: 600;
 margin-bottom: 30px;
 color: #333;
 }
@@ -351,4 +573,148 @@ height: 100%;
 .video-section h3 {
     font-size: 28px; /* Giảm kích thước font tiêu đề trên màn hình nhỏ */
 }
+}
+
+.room-description h3 {
+    font-size: 36px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.room-description p {
+    font-size: 20px;
+    line-height: 1.8;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+.room-quick-info h4 {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.room-quick-info ul li {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.room-quick-info ul li i {
+    color: #28a745;
+    font-size: 20px;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-10px);
+}
+
+.gallery-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 1;
+}
+
+.gallery-item:hover::before {
+    opacity: 1;
+}
+
+.gallery-item .view-more {
+    position: absolute;
+    top: 50%; 
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 2;
+}
+
+.gallery-item:hover .view-more {
+    opacity: 1;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .gallery-section h3 {
+        font-size: 28px;
+    }
+    .gallery-overlay {
+        font-size: 16px;
+    }
+}
+
+/* Tùy chỉnh giao diện Magnific Popup */
+.mfp-bg {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.mfp-title {
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/* Gallery Description Styles */
+.gallery-description {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    padding: 10px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    text-align: center;
+    font-size: 16px;
+}
+
+.gallery-item:hover .gallery-description {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-10px);
+}
+
+/* Điều chỉnh overlay để không che phủ mô tả */
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 18px;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
 }

@@ -1,0 +1,175 @@
+.container-homestay {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.content-homestay {
+    flex: 2;
+    margin-top: 30px;
+}
+
+.carousel {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto; /* Để căn giữa */
+    overflow: hidden; /* Ẩn các phần hình ảnh tràn */
+    border-radius: 10px;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    transform: translateX(0); /* Vị trí bắt đầu */
+    will-change: transform; /* Tăng hiệu suất */
+}
+
+.carousel img {
+    width: 100%;
+    flex: 0 0 100%; /* Mỗi ảnh chiếm 100% bề rộng carousel */
+    border-radius: 10px;
+}
+
+.carousel-thumbs {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.carousel-thumbs img {
+    width: 50px;
+    height: 50px;
+    margin: 0 5px;
+    cursor: pointer;
+    opacity: 0.5;
+    transition: opacity 0.3s ease, outline 0.3s ease-in-out;
+}
+
+.carousel-thumbs img:hover {
+    opacity: 0.7;
+    transform: scale(1.1);
+}
+
+.carousel-thumbs img.active-thumb {
+    opacity: 1;
+    outline: 2px solid #dfa974; /* Màu outline cho ảnh được chọn */
+    outline-offset: 3px; /* Khoảng cách giữa outline và ảnh */
+}
+
+.sidebar {
+    flex: 1;
+    margin-top: 30px;
+    border-left: 2px solid #ddd;
+    padding-left: 20px;
+}
+
+.services {
+    margin-bottom: 30px;
+}
+
+.services ul {
+    list-style: none;
+    padding: 0;
+}
+
+.services li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.services img {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+}
+
+.services h2 {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+}
+
+.services ul li i {
+    margin-right: 10px;
+}
+
+iframe {
+    width: 100%;
+    height: 250px;
+    border: 0;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.extra-content {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: #555;
+}
+
+.extra-content h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: #2c3e50;
+}
+
+.extra-content p {
+    margin-bottom: 15px;
+}
+
+.contact-info {
+    margin-top: 30px;
+    font-size: 1.2rem;
+    color: #2c3e50;
+}
+
+.contact-info p {
+    margin-bottom: 10px;
+}
+
+.cta-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px;
+    background: transparent;
+    outline: 2px solid #ddd;
+    color: #19191a;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.cta-section p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+    margin-right: 50px;
+}
+
+.btn-view-rooms {
+    display: inline-block;
+    text-decoration: none;
+    color: #dfa974;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    border: 2px solid #dfa974;
+    border-radius: 5px;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-view-rooms:hover {
+    background: #dfa974;
+    color: white;
+}
+
+.map-homestay h2 {
+    font-size: 1.5rem;
+}

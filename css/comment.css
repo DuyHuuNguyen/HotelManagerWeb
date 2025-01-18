@@ -39,6 +39,7 @@
     margin: 0;
     font-weight: bold;
     color: #333;
+    font-size: 20px;
 }
 
 .toggle-icon-cell {
@@ -83,7 +84,8 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box; 
+    box-sizing: border-box;
+    font-size: 15px;
 }
 
 button {
@@ -96,6 +98,7 @@ button {
     white-space: nowrap;
     padding: 10px 20px;
     flex-shrink: 0;
+    font-size: 15px;
 }
 
 button i {
