@@ -27,11 +27,11 @@ const StatsCard = ({ title, value, icon, trend, link }) => (
     <a href={link} className="text-decoration-none">
       <div className="card border-0 shadow h-100">
         <div className="card-body">
-          <div className="d-flex justify-content-between align-items-center">
+          <div className="d-flex justify-content-between align-items-center h-100">
             <div>
               <h6 className="text-muted">{title}</h6>
-              <h3 className="text-dark mb-0">{Number(value).toLocaleString()}</h3>
-              {trend && (
+              {value !== undefined && <h3 className="text-dark mb-0">{Number(value).toLocaleString()}</h3>}
+              {trend !== undefined && (
                 <small className="text-secondary">
                   <i className={`fas fa-arrow-${trend > 0 ? 'up text-success' : 'down text-danger'} me-1`}></i>
                   {Math.abs(trend)}% so với tháng trước
@@ -284,6 +284,11 @@ const Dashboard = () => {
   return (
     <div className="container-fluid">
       <div className="row">
+        <StatsCard 
+          title="Danh mục"
+          icon="list"
+          link="danhmuc.html"
+        />
         <StatsCard
           title="Bài viết" 
           value={stats.posts.total}
@@ -325,6 +330,11 @@ const Dashboard = () => {
           icon="comments"
           link="comment.html"
           trend={2}
+        />
+        <StatsCard 
+          title="Vai trò"
+          icon="user-cog"
+          link="role.html"
         />
         <StatsCard 
           title="Người dùng"
