@@ -287,34 +287,34 @@ const Dashboard = () => {
         <StatsCard 
           title="Danh mục"
           icon="list"
-          link="danhmuc.html"
+          link="23130028_LeNgocChau_danhmuc.html"
         />
         <StatsCard
           title="Bài viết" 
           value={stats.posts.total}
           icon="file-alt"
           trend={-1}
-          link="bai_viet.html"
+          link="23130039_NguyenXuanDai_bai_viet.html"
         />
         <StatsCard 
           title="Địa điểm"
           value={stats.locations}
           icon="map-marker-alt"
-          link="dia_diem.html"
+          link="23130039_NguyenXuanDai_dia_diem.html"
           trend={3}
         />
         <StatsCard
           title="Nhà nghỉ" 
           value={stats.homestays}
           icon="hotel"
-          link="homestay.html"
+          link="23130075_NguyenHuuDuy_homestay.html"
           trend={5}
         />
         <StatsCard 
           title="Tổng số phòng"
           value={stats.rooms.total}
           icon="bed"
-          link="rooms.html"
+          link="23130370_NguyenVoQuocTuan_rooms.html"
           trend={5}
         />
         <StatsCard
@@ -322,26 +322,26 @@ const Dashboard = () => {
           value={stats.bookings.total}
           icon="calendar-alt"
           trend={8}
-          link="danhSachDatPhong.html"
+          link="23130107_NguyenDinhHieu_danhSachDatPhong.html"
         />
         <StatsCard
           title="Bình luận"
           value={stats.comments}
           icon="comments"
-          link="comment.html"
+          link="23130028_LeNgocChau_comment.html"
           trend={2}
         />
         <StatsCard 
           title="Vai trò"
           icon="user-cog"
-          link="role.html"
+          link="23130075_NguyenHuuDuy_role.html"
         />
         <StatsCard 
           title="Người dùng"
           value={stats.users.total}
           icon="users"
           trend={2}
-          link="nguoiDung.html"
+          link="23130107_NguyenDinhHieu_nguoiDung.html"
         />
       </div>
 
