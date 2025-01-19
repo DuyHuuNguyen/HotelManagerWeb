@@ -2,15 +2,15 @@
   <library name="Source">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/giaoDienNguoiDung/Source/font-awesome-4.7.0.zip!/" />
-      <root url="jar://$PROJECT_DIR$/giaoDienNguoiDung/Source/sass.zip!/" />
-      <root url="jar://$PROJECT_DIR$/giaoDienNguoiDung/Source/jquery-nice-select-1.1.0.zip!/" />
-      <root url="jar://$PROJECT_DIR$/giaoDienNguoiDung/Source/Flaticon.zip!/" />
-      <root url="jar://$PROJECT_DIR$/giaoDienNguoiDung/Source/SlickNav-master.zip!/" />
-      <root url="jar://$PROJECT_DIR$/giaoDienNguoiDung/Source/OwlCarousel2-2.3.4.zip!/" />
-      <root url="jar://$PROJECT_DIR$/giaoDienNguoiDung/Source/jquery-ui-1.12.1.zip!/" />
-      <root url="jar://$PROJECT_DIR$/giaoDienNguoiDung/Source/Magnific-Popup-master.zip!/" />
       <root url="jar://$PROJECT_DIR$/giaoDienNguoiDung/Source/bootstrap-4.4.1-dist.zip!/" />
+      <root url="jar://$PROJECT_DIR$/giaoDienNguoiDung/Source/sass.zip!/" />
       <root url="jar://$PROJECT_DIR$/giaoDienNguoiDung/Source/elegant_font.zip!/" />
+      <root url="jar://$PROJECT_DIR$/giaoDienNguoiDung/Source/OwlCarousel2-2.3.4.zip!/" />
+      <root url="jar://$PROJECT_DIR$/giaoDienNguoiDung/Source/jquery-nice-select-1.1.0.zip!/" />
+      <root url="jar://$PROJECT_DIR$/giaoDienNguoiDung/Source/Magnific-Popup-master.zip!/" />
+      <root url="jar://$PROJECT_DIR$/giaoDienNguoiDung/Source/jquery-ui-1.12.1.zip!/" />
+      <root url="jar://$PROJECT_DIR$/giaoDienNguoiDung/Source/SlickNav-master.zip!/" />
+      <root url="jar://$PROJECT_DIR$/giaoDienNguoiDung/Source/Flaticon.zip!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
