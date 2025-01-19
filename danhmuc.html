@@ -73,9 +73,7 @@
                             <td>Home stay</td>
                             <td>Hiển thị</td>
                             <td style="text-align: center;">
-                                <!-- <button class="btn edit"><i class="fas fa-edit"></i></button> -->
                                  <button class="btn edit" onclick="openModal(true, 0)"><i class="fas fa-edit"></i></button>
-
                                 <button class="btn delete" onclick="deleteRow(this)"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
@@ -84,9 +82,7 @@
                             <td>Tin tức</td>
                             <td>Hiển thị</td>
                             <td style="text-align: center;">
-                                <!-- <button class="btn edit"><i class="fas fa-edit"></i></button> -->
-                                <button class="btn edit" onclick="openModal(true, 0)"><i class="fas fa-edit"></i></button>
-
+                                <button class="btn edit" onclick="openModal(true, 1)"><i class="fas fa-edit"></i></button>
                                 <button class="btn delete" onclick="deleteRow(this)"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
@@ -137,7 +133,7 @@
                 row.cells[0].textContent = index + 1;
             });
         }
-        let editRowIndex = null;
+        let editRowIndex = null; // To track which row is being edited
 
         function openModal(isEdit = false, rowIndex = null) {
             const modal = document.getElementById("categoryModal");
@@ -149,12 +145,12 @@
                 // Edit mode
                 title.textContent = "Chỉnh sửa danh mục";
                 const row = document.querySelectorAll("#category-table tr")[rowIndex];
-                categoryName.value = row.cells[1].textContent;
-                categoryStatus.value = row.cells[2].textContent;
+                categoryName.value = row.cells[1].textContent.trim();
+                categoryStatus.value = row.cells[2].textContent.trim();
                 editRowIndex = rowIndex;
             } else {
                 // Add mode
-                title.textContent = "Tạo danh mục";
+                title.textContent = "Tạo danh mục mới";
                 categoryName.value = "";
                 categoryStatus.value = "Hiển thị";
                 editRowIndex = null;
@@ -168,7 +164,7 @@
         }
 
         function saveCategory() {
-            const categoryName = document.getElementById("categoryName").value;
+            const categoryName = document.getElementById("categoryName").value.trim();
             const categoryStatus = document.getElementById("categoryStatus").value;
 
             if (!categoryName) {
@@ -198,6 +194,19 @@
             }
 
             closeModal();
+        }
+
+        function deleteRow(button) {
+            const row = button.closest("tr");
+            row.remove();
+            updateSTT();
+        }
+
+        function updateSTT() {
+            const rows = document.querySelectorAll("#category-table tr");
+            rows.forEach((row, index) => {
+                row.cells[0].textContent = index + 1;
+            });
         }
 
     </script>
