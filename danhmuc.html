@@ -55,7 +55,9 @@
             </div>
             <h1 style="font-weight: bold; text-align: center;">DANH MỤC</h1>
             <div class="table-container">
-                <button class="btn new"><i class="fas fa-solid fa-plus"></i> Tạo mới</button>
+                <!-- <button class="btn new"><i class="fas fa-solid fa-plus"></i> Tạo mới</button> -->
+                <button class="btn new" onclick="openModal(false)"><i class="fas fa-solid fa-plus"></i> Tạo mới</button>
+
                 <table>
                     <thead>
                         <tr>
@@ -71,7 +73,7 @@
                             <td>Home stay</td>
                             <td>Hiển thị</td>
                             <td style="text-align: center;">
-                                <button class="btn edit"><i class="fas fa-edit"></i></button>
+                                 <button class="btn edit" onclick="openModal(true, 0)"><i class="fas fa-edit"></i></button>
                                 <button class="btn delete" onclick="deleteRow(this)"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
@@ -80,7 +82,7 @@
                             <td>Tin tức</td>
                             <td>Hiển thị</td>
                             <td style="text-align: center;">
-                                <button class="btn edit"><i class="fas fa-edit"></i></button>
+                                <button class="btn edit" onclick="openModal(true, 1)"><i class="fas fa-edit"></i></button>
                                 <button class="btn delete" onclick="deleteRow(this)"><i class="fas fa-trash"></i></button>
                             </td>
                         </tr>
@@ -89,6 +91,28 @@
             </div>
         </div>
     </main>
+    <!-- Modal for Adding/Editing Category -->
+<div id="categoryModal" class="modal-danhmuc">
+    <div class="modal-content" style="width: 50%;">
+        <span class="close-btn" onclick="closeModal()">&times;</span>
+        <h2 id="modalTitle">Tạo danh mục</h2>
+        <form id="categoryForm">
+            <div>
+                <label for="categoryName">Tên danh mục:</label>
+                <input type="text" id="categoryName" name="categoryName" required>
+            </div>
+            <div>
+                <label for="categoryStatus">Trạng thái:</label>
+                <select id="categoryStatus" name="categoryStatus">
+                    <option value="Hiển thị">Hiển thị</option>
+                    <option value="Ẩn">Ẩn</option>
+                </select>
+            </div>
+            <button type="button" class="btn btn-success" onclick="saveCategory()">Lưu</button>
+        </form>
+    </div>
+</div>
+
 
     <script>
         // Function to delete a row and update STT
@@ -109,6 +133,82 @@
                 row.cells[0].textContent = index + 1;
             });
         }
+        let editRowIndex = null; // To track which row is being edited
+
+        function openModal(isEdit = false, rowIndex = null) {
+            const modal = document.getElementById("categoryModal");
+            const title = document.getElementById("modalTitle");
+            const categoryName = document.getElementById("categoryName");
+            const categoryStatus = document.getElementById("categoryStatus");
+
+            if (isEdit && rowIndex !== null) {
+                // Edit mode
+                title.textContent = "Chỉnh sửa danh mục";
+                const row = document.querySelectorAll("#category-table tr")[rowIndex];
+                categoryName.value = row.cells[1].textContent.trim();
+                categoryStatus.value = row.cells[2].textContent.trim();
+                editRowIndex = rowIndex;
+            } else {
+                // Add mode
+                title.textContent = "Tạo danh mục mới";
+                categoryName.value = "";
+                categoryStatus.value = "Hiển thị";
+                editRowIndex = null;
+            }
+
+            modal.style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("categoryModal").style.display = "none";
+        }
+
+        function saveCategory() {
+            const categoryName = document.getElementById("categoryName").value.trim();
+            const categoryStatus = document.getElementById("categoryStatus").value;
+
+            if (!categoryName) {
+                alert("Tên danh mục không được để trống!");
+                return;
+            }
+
+            if (editRowIndex !== null) {
+                // Update existing row
+                const row = document.querySelectorAll("#category-table tr")[editRowIndex];
+                row.cells[1].textContent = categoryName;
+                row.cells[2].textContent = categoryStatus;
+            } else {
+                // Add new row
+                const table = document.getElementById("category-table");
+                const newRow = table.insertRow();
+                newRow.innerHTML = `
+                    <td></td>
+                    <td>${categoryName}</td>
+                    <td>${categoryStatus}</td>
+                    <td style="text-align: center;">
+                        <button class="btn edit" onclick="openModal(true, ${table.rows.length - 1})"><i class="fas fa-edit"></i></button>
+                        <button class="btn delete" onclick="deleteRow(this)"><i class="fas fa-trash"></i></button>
+                    </td>
+                `;
+                updateSTT();
+            }
+
+            closeModal();
+        }
+
+        function deleteRow(button) {
+            const row = button.closest("tr");
+            row.remove();
+            updateSTT();
+        }
+
+        function updateSTT() {
+            const rows = document.querySelectorAll("#category-table tr");
+            rows.forEach((row, index) => {
+                row.cells[0].textContent = index + 1;
+            });
+        }
+
     </script>
 </body>
 </html>
