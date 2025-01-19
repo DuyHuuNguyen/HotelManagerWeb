@@ -428,14 +428,14 @@
             const name = document.getElementById('searchInput').value.toLowerCase();
 
 
-            const filteredBookings = userList.filter(user => {
+            const filteredBookings = users.filter(user => {
                 return (
                     // booking.roomName.toLowerCase().includes(roomName) &&
                     // booking.customerInfo.name.toLowerCase().includes(customerName) &&
                     // booking.customerInfo.email.toLowerCase().includes(email) &&
                     // booking.customerInfo.phone.includes(phone)
-                    user.id.name.toLowerCase().includes(name) ||
-                    user.id.name.toLocaleLowerCase() === name
+                    user.name.toLowerCase().includes(name) ||
+                    user.name.toLocaleLowerCase() === name
                 );
             });
 
