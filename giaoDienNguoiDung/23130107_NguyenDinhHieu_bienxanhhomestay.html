@@ -10,7 +10,7 @@
         <title>Nhóm 10</title>
 
 
-    <!-- Google Font -->
+        <!-- Google Font -->
         <link rel="website icon" href="img/homst.png">
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
         <link
@@ -25,10 +25,168 @@
             href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
             integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N"
             crossorigin="anonymous">
+        <link rel="stylesheet" href="css/elegant-icons.css" type="text/css">
         <link rel="stylesheet" href="css/style.css" type="text/css">
-        <link rel="stylesheet" href="css/style-thien-nhien-homstay.css" type="text/css">
+        <style>
+            .tab-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                padding: 20px;
+            }
         
+            .tab-navigation {
+                display: flex;
+                border-bottom: 1px solid #e5e5e5;
+                margin-bottom: 20px;
+            }
+        
+            .tab-button {
+                padding: 10px 20px;
+                border: none;
+                background: none;
+                cursor: pointer;
+                font-size: 16px;
+                color: #666;
+            }
+        
+            .tab-button.active {
+                color: #008489;
+                border-bottom: 2px solid #008489;
+            }
+        
+            .tab-content {
+                display: none;
+            }
+        
+            .tab-content.active {
+                display: block;
+            }
+        
+            .content-grid {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                gap: 30px;
+            }
+        
+            .section-title {
+                font-size: 24px;
+                font-weight: bold;
+                margin-bottom: 20px;
+            }
+        
+            .sub-title {
+                font-size: 18px;
+                font-weight: bold;
+                margin: 20px 0 10px;
+            }
+        
+            .description {
+                line-height: 1.6;
+                color: #333;
+                margin-bottom: 15px;
+            }
+        
+            .location-card, .distance-card {
+                background: #fff;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+                margin-bottom: 20px;
+            }
+        
+            .card-title {
+                font-size: 18px;
+                font-weight: bold;
+                margin-bottom: 15px;
+            }
+        
+            .map-link {
+                color: #008489;
+                text-decoration: none;
+                display: inline-block;
+                margin-top: 10px;
+            }
+        
+            .distance-item {
+                display: flex;
+                margin-bottom: 15px;
+            }
+        
+            .distance-details {
+                margin-left: 10px;
+            }
+        
+            .distance {
+                color: #666;
+                font-size: 14px;
+            }
+        
+            @media (max-width: 768px) {
+                .content-grid {
+                    grid-template-columns: 1fr;
+                }
+                
+                .tab-navigation {
+                    overflow-x: auto;
+                    white-space: nowrap;
+                }
+            }
+        </style>
+    </head>
+    <style>
+      
+        .infor {
+            position: absolute;
+            width: 250px;
+            
+            bottom: 20px;
+            left: 300px;
+        }
+        .descriptionA {
+            position: absolute;
+            /* width: 250px; */
+            margin-right: 200px;
+            bottom: 20px;
+            left: 40px;
+            text-wrap: balance;
+        }
+        .head {
+            position: absolute;
+            top: 30px;
+            /* color: white; */
+        }
+        .co {
+            position: absolute;
+            top: -50px;
+        }
+        @media (max-width: 576px) {
+            .infor {
+                position: relative;
+                left: 37px;
+                top : 80px
+            }
+            .head {
+                /* position: relative; */
+                left: 37px;
+            }
+            .descriptionA {
+                position: relative;
+                margin-right: 50px;
+                text-overflow: ellipsis;
+                top: 50px;
+            }
+            .body-section {
+                display: block;
+            }
+            .co {
+               position: absolute;
+               top: -100px;
+            }
+        }
+    </style>
     <body>
+
+        <!-- Offcanvas Menu Section Begin -->
         <div class="offcanvas-menu-overlay"></div>
         <div class="canvas-open">
             <i class="icon_menu"></i>
@@ -40,12 +198,21 @@
 
             <div class="header-configure-area">
 
-                <a href="../index.html" class="bk-btn">Quản lý</a>
+                <a href="../23130370_NguyenVoQuocTuan_index.html" class="bk-btn">Quản lý</a>
             </div>
             <nav class="mainmenu mobile-menu">
                 <ul>
                     <li class="active"><a href="./index.html">Trang Chủ</a></li>
-                    <li><a href="./homeStay.html">HomeStay</a></li>
+                    <li><a href="23130107_NguyenDinhHieu_homeStay.html">HomeStay</a></li>
+                    <!-- <li><a href="./about-us.html">About Us</a></li> -->
+                    <!-- <li><a href="./pages.html"></a>
+                     <ul class="dropdown">
+                         <li><a href="./room-details.html">Room Details</a></li>
+                         <li><a href="#">Deluxe Room</a></li>
+                         <li><a href="#">Family Room</a></li>
+                         <li><a href="#">Premium Room</a></li>
+                     </ul>
+                 </li> -->
                     <li><a href="./blog.html">Tin Tức</a></li>
                     <li><a href="./contact.html">Liên hệ</a></li>
                 </ul>
@@ -89,7 +256,7 @@
                                     <a href="#"><i
                                             class="fa fa-instagram"></i></a>
                                 </div>
-                                <a href="../index.html" class="bk-btn">Quản
+                                <a href="../23130370_NguyenVoQuocTuan_index.html" class="bk-btn">Quản
                                     lý</a>
 
                             </div>
@@ -114,7 +281,7 @@
                                         <li><a href="./index.html">Trang
                                                 Chủ</a></li>
                                         <li><a
-                                                href="./homeStay.html">HomeStay</a></li>
+                                                href="23130107_NguyenDinhHieu_homeStay.html">HomeStay</a></li>
                                         <!-- <li><a href="./about-us.html">About Us</a></li> -->
                                         <!-- <li><a href="./pages.html">Pages</a>
                                          <ul class="dropdown">
@@ -142,20 +309,37 @@
 
         <!-- Body begin -->
         <section class="blog-details-hero set-bg body-section"
-            data-setbg="https://trucanvillage.com/wp-content/uploads/2023/05/truc-an-vien-village-ho-dai-lai-18.jpg"
+            data-setbg="img/beach.png"
             style="position: relative; opacity: 90%; ">
            
             <div class="descriptionA">
                 <div class="co"
                     style="width: 100%; display: flex; justify-content: start;">
-                    <h2 class="head" style="color: white;">Thiên Nhiên Homestay </h2>
+                    <h2 class="head" style="color: white;">Biển Xanh Homestay </h2>
                 </div>
                 <br>
-                <p style="color: white;  ">Giới Thiệu Homestay Thiên Nhiên 🌿🏡
-                    Bạn đang tìm kiếm một nơi nghỉ ngơi yên bình, hòa mình với thiên nhiên, tránh xa khói bụi thành phố? Homestay Thiên Nhiên chính là sự lựa chọn hoàn hảo để bạn thư giãn và tái tạo năng lượng.
+                <p style="color: white;  ">Căn hộ gồm 2 phòng
+                    ngủ, 2 giường đôi, 2 wc sạch sẽ, ban công đón bình minh và
+                    gió biển.
+
+                    Blue Sea House hỗ trợ bạn hết mình với khu vực bếp đầy đủ
+                    mọi đồ dùng thiết yếu để bạn trổ tài nấu ăn ngon như ở nhà.
+
+                    Tuy không gần trung tâm nhưng bù lại bạn có khoảng không
+                    gian yên tĩnh dành riêng cho mình và gia đình.
+
+                    Biển sát sạt bên cạnh, chỉ cách vài bước chân. Hồ bơi sạch
+                    sẽ, được sục rửa mỗi ngày luôn sẵn sàng chào đón bạn.
+
                     </p>
             </div>
-    
+            <!-- <div class="infor" >
+                <p style="color: white;">Địa điểm: gần rạp chiếu phim CGV 
+                Địa chỉ: gần rạp chiếu phim CGV
+                Điện thoại 
+                Điện thoại: 0824745666 
+                 Giá từ: 1,500,000 vnd</p>
+            </div> -->
             <div class="link"
                 style="position: absolute; bottom: 30px; right: 50px;">
                 <a class="primary-btn" href="rooms.html">View rooms</a>
@@ -166,7 +350,11 @@
             <div class="tab-container">
                 <div class="tab-navigation">
                     <button class="tab-button active" onclick="openTab(event, 'overview')">Tổng quát</button>
-        
+                    <!-- <button class="tab-button" onclick="openTab(event, 'pricing')">Lịch giá</button>
+                    <button class="tab-button" onclick="openTab(event, 'rooms')">Phòng</button>
+                    <button class="tab-button" onclick="openTab(event, 'facilities')">Cơ sở vật chất</button>
+                    <button class="tab-button" onclick="openTab(event, 'location')">Vị trí</button>
+                    <button class="tab-button" onclick="openTab(event, 'reviews')">Các đánh giá</button> -->
                 </div>
             
                 <div id="overview" class="tab-content active">
@@ -174,32 +362,25 @@
                         <div class="main-content">
                             <h2 class="section-title">TỔNG QUÁT</h2>
                             <p class="description">
-                                Điểm Đặc Biệt Của Homestay Thiên Nhiên
-                                Không gian xanh mát:
-                                Bao quanh homestay là những cánh rừng xanh ngát, khu vườn đầy hoa lá và tiếng suối róc rách. Một nơi lý tưởng để tận hưởng không khí trong lành và cảm nhận vẻ đẹp thuần khiết của thiên nhiên.           
-      
+                                Santoni Homestay Vũng Tàu cách Bến tàu cánh ngầm 0.9 km cung cấp 10 phòng máy lạnh.
                             </p>
             
                             <h3 class="sub-title">Vị trí</h3>
                             <p class="description">
-                                Kiến trúc mộc mạc:
-                                Các căn phòng được thiết kế theo phong cách nhà gỗ, mái tranh hoặc vật liệu tự nhiên, mang lại cảm giác ấm cúng và gần gũi với môi trường.
+                                Khách sạn cách trung tâm thành phố Vũng Tàu 1 km và cách sân bay Vung Tau 5 km. Đồi con Heo cách chỗ nghỉ này 2.5 km. Santoni Homestay cách Miếu Hòn Bà một vài bước chân.
                             </p>
             
                             <h3 class="sub-title">Phòng</h3>
                             <p class="description">
-                                Đạp xe trên những con đường làng quê.
-                                Tham gia hái rau, chăm sóc vườn cây hoặc câu cá bên suối.
-                                Đốt lửa trại, nướng BBQ, và hát ca bên ánh lửa bập bùng.
+                                Điều hòa nhiệt độ, WiFi và ban công có sẵn trong mỗi phòng. Đa số phòng có phòng tắm riêng.
                             </p>
             
                             <h3 class="sub-title">Ăn uống</h3>
                             <p class="description">
-                                Ẩm thực địa phương:
-                                Thưởng thức những món ăn dân dã từ nguồn nguyên liệu tươi ngon, được chế biến với tình yêu và sự chăm chút từ chính người dân địa phương.
+                                New Century Fish and Chips và Belly's Watering Hole cách khách sạn 150 mét và phục vụ nhiều món ăn khác nhau.
                             </p>
             
-                            <h2 class="section-title">Hình ảnh chi tiết</h2>
+                            <h2 class="section-title">NHỮNG ĐIỀU CẦN PHẢI BIẾT</h2>
                         </div>
             
                         <div class="side-content">
@@ -215,56 +396,27 @@
                                     <i class="location-icon"></i>
                                     <div class="distance-details">
                                         <span>Trung tâm Thành phố</span>
-                                        <span>SaPa</span>
-                                        <span class="distance">Đường Violet, thị trấn Sapa, Lào Cai</span>
+                                        <span>Vũng Tàu</span>
+                                        <span class="distance">1.0 km</span>
                                     </div>
                                 </div>
                                 <div class="distance-item">
                                     <i class="plane-icon"></i>
-                                    <div class="distance-details">                            
-                                        <span class="distance">Cách nhà thờ đá chỉ 200m</span>
-                                        <div> View núi Fansipan trực diện, thiết kế hiện đại và sang trọng, phù hợp với các nhóm bạn hoặc gia đình​</div>                               
+                                    <div class="distance-details">
+                                        <div>Sân bay</div>
+                                        <div>Vung Tau Airport (VTG)</div>
+                                        <span class="distance">4.2 km</span>
+                                        <div>Thanh pho Ho Chi Minh San bay (SGN)</div>
+                                        <span class="distance">71.1 km</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Content for Lịch giá tab -->
-                     <div class="content-cart">
-                        <div class="card">
-                            <img src="https://media.vneconomy.vn/w800/images/upload/2021/04/21/camp-site2-1532664736398916857677.jpg" alt="Image 1">
-                            <div class="text-overlay">Beautiful View</div>
-                        </div>
-                        <div class="card">
-                            <img src="https://media.vneconomy.vn/w900/images/upload/2021/04/21/camp-site1-1532664736396520249146.jpg" alt="Image 2">
-                            <div class="text-overlay">Nature's Beauty</div>
-                        </div>
-                        <div class="card">
-                            <img src="https://media.vneconomy.vn/w900/images/upload/2021/04/21/camp-site5-1532664736407241158520.jpg" alt="Image 3">
-                            <div class="text-overlay">Relax & Enjoy</div>
-                        </div>
-                        <div class="card">
-                            <img src="https://media.vneconomy.vn/w800/images/upload/2021/04/21/camp-site2-1532664736398916857677.jpg" alt="Image 1">
-                            <div class="text-overlay">Beautiful View</div>
-                        </div>
-                        <div class="card">
-                            <img src="https://media.vneconomy.vn/w900/images/upload/2021/04/21/camp-site1-1532664736396520249146.jpg" alt="Image 2">
-                            <div class="text-overlay">Nature's Beauty</div>
-                        </div>
-                        <div class="card">
-                            <img src="https://media.vneconomy.vn/w900/images/upload/2021/04/21/camp-site5-1532664736407241158520.jpg" alt="Image 3">
-                            <div class="text-overlay">Relax & Enjoy</div>
-                        </div>
-    
-                     </div>
-                   
-
-
                 </div>
             
                 <div id="pricing" class="tab-content">
-                    
+                    <!-- Content for Lịch giá tab -->
                 </div>
                 <!-- Other tab contents... -->
             </div>
@@ -298,7 +450,7 @@
                     </div>
                     <div class="col-lg-3 offset-lg-1">
                         <div class="ft-contact">
-                            <h6>Contact Us</h6>
+                            <h6>Liên hệ</h6>
                             <ul>
                                 <li>(84) 345 67890</li>
                                 <li>group10hci@gmail.com</li>
@@ -308,8 +460,6 @@
                     </div>
                     <div class="col-lg-3 offset-lg-1">
                         <div class="ft-newslatter">
-                            <h6>New latest</h6>
-                            <p>Get the latest updates and offers.</p>
                             <form action="#" class="fn-form">
                                 <input type="text" placeholder="Email">
                                 <button type="submit"><i class="fa fa-send"></i></button>
@@ -325,7 +475,7 @@
                     <div class="col-lg-7">
                         <ul>
                             <li><a href="index.html">Trang Chủ</a></li>
-                            <li><a href="homeStay.html">Nhà Nghỉ</a></li>
+                            <li><a href="23130107_NguyenDinhHieu_homeStay.html">Nhà Nghỉ</a></li>
                             <li><a href="./rooms.html">Danh Sách Phòng</a></li>
                             <li><a href="blog.html">Bài Viết</a></li>
                             <li><a href="contact.html">Liên Hệ</a></li>
@@ -379,7 +529,7 @@
         <script
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
         
-         <script src="js/main.js"></script>
+        <script src="js/main.js"></script>
     </body>
 
 </html>
