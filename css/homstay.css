@@ -41,6 +41,16 @@
     justify-content: center;
   }
 
+  .breadcrumb a {
+    text-decoration: none;
+    color: #4A5568;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: none;
+    color: #2D3748;
+  }
+
   .home {
     text-decoration: none;
     color: white;
@@ -201,8 +211,6 @@
       overflow-x: auto;
     }
   }
-
-
 
   .modal {
     display: none; 
